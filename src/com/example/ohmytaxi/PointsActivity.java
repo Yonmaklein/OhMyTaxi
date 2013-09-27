@@ -2,8 +2,13 @@ package com.example.ohmytaxi;
 
 
 
+import com.example.location.MyLocationListener;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -39,6 +44,17 @@ public class PointsActivity extends Activity {
 	 	         }
 	 	     }
 	 	 });  
+	 	 /////////////////////////////
+	 	 
+	 	LocationManager milocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+		LocationListener milocListener = new MyLocationListener();
+		//milocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, milocListener);  //Acceso por GPS
+		milocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, milocListener); // Acceso por red
+
+	 	 
+	 	 //////////////////////////////
+	 	 
+	 	 
 	 }
 	 
 	
