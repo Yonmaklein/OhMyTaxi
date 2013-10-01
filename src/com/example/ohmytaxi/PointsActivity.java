@@ -40,16 +40,29 @@ public class PointsActivity extends Activity {
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	 			if (isChecked){
 	 				etPointA.setEnabled(false);
-	 				LocationManager milocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-	 				LocationListener milocListener = new MyLocationListener();
-	 				//milocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, milocListener);  //Acceso por GPS
-	 				milocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, milocListener); // Acceso por red
-
-	 				
-
-	 				
+	 				LocationManager mylocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	 				LocationListener mylocListener = new MyLocationListener();
+	 				if (mylocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+	 					mylocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, mylocListener);  //Acceso por GPS
+	 				//	Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		 			/*	double lati = myPosition.getLatitude();
+		 				double longi = myPosition.getLongitude();
+		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));*/
+	 				}
+	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
+	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+	 		 				double lati = myPosition.getLatitude();
+	 		 				double longi = myPosition.getLongitude();
+	 		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));
+	 					 }
+	 				else{
+	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
+	 				}
 	 			}else{
-	 	        	etPointA.setEnabled(true);
+	 	        	etPointA.setText(null);
+	 				etPointA.setEnabled(true);
+	 	        	
 	 	        }
 	 	    }
 	 	});  
