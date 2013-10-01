@@ -59,7 +59,7 @@ public class MenuActivity extends Activity {
         	}
         });
                          
-        buttonSettings.setOnClickListener(new View.OnClickListener() {		
+        buttonSettings.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View arg0) {
 				showSettingsScreen();				

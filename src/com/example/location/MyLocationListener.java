@@ -10,13 +10,20 @@ import android.util.Log;
 public class MyLocationListener implements LocationListener{
 
 	
-	
+/*	
+	private double lat;
+	private double lon;
+*/	
 	
 	public void onLocationChanged(Location loc){
-		loc.getLatitude();
-		loc.getLongitude();
+		/*loc.getLatitude();
+		loc.getLongitude();*/
+	/*	setLat(loc.getLatitude());
+		setLon(loc.getLongitude());*/
 		String coordenadas = "Mis coordenadas son: Latitud = " + loc.getLatitude() + "Longitud = " + loc.getLongitude();
 		Log.i("GPS", coordenadas);
+	/*	Log.i("LATITUD", String.valueOf(getLat()));
+		Log.i("LONGITUD", String.valueOf(getLon()));*/
 		//Toast.makeText( getApplicationContext(),coordenadas,Toast.LENGTH_LONG).show();
 	}
 
@@ -36,10 +43,27 @@ public class MyLocationListener implements LocationListener{
 		
 		
 	}
+/*
+	public double getLat(){
+		return lat;
+		
+	}
+	
+	
+	public double getLon(){
+		return lon;	
+	}
 
+	
+	public void setLat(double lat){
+		this.lat=lat;
+	}
+	
+	
+	public void setLon(double lon){
+		this.lon=lon;
+	}
 
-
-
-
+*/
 
 }

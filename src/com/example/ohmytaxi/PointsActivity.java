@@ -7,6 +7,7 @@ import com.example.location.MyLocationListener;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -29,33 +30,30 @@ public class PointsActivity extends Activity {
 	
 	
 	
-	 protected void onCreate(Bundle savedInstanceState) {
-	     super.onCreate(savedInstanceState);
-	     setContentView(R.layout.activity_points);
-	 	 etPointA = (EditText) findViewById(R.id.editPointA);
-	 	 checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition);
-	 	 checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-	 		 @Override
-	 	     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-	 			 if (isChecked){
-	 	        	etPointA.setEnabled(false);
-	 	         }else{
-	 	        	etPointA.setEnabled(true);
-	 	         }
-	 	     }
-	 	 });  
-	 	 /////////////////////////////
-	 	 
-	 	LocationManager milocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-		LocationListener milocListener = new MyLocationListener();
-		//milocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, milocListener);  //Acceso por GPS
-		milocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, milocListener); // Acceso por red
+	protected void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_points);
+	 	etPointA = (EditText) findViewById(R.id.editPointA);
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition);
+	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+	 		@Override
+	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+	 			if (isChecked){
+	 				etPointA.setEnabled(false);
+	 				LocationManager milocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	 				LocationListener milocListener = new MyLocationListener();
+	 				//milocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, milocListener);  //Acceso por GPS
+	 				milocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, milocListener); // Acceso por red
 
-	 	 
-	 	 //////////////////////////////
-	 	 
-	 	 
-	 }
+	 				
+
+	 				
+	 			}else{
+	 	        	etPointA.setEnabled(true);
+	 	        }
+	 	    }
+	 	});  
+	}
 	 
 	
 	public void onBackPressed(){
