@@ -6,6 +6,7 @@
     <string name="hello_world">HOLA MUNDO !!!</string>
     
     <string name="calculate">Calcular ruta</string>
+    <string name="routes">Mis rutas</string>
     <string name="help">Ayuda</string>
     <string name="settings">Opciones</string>
     <string name="exit">Salir</string>
@@ -16,5 +17,6 @@
     <string name="source">Origen</string>
     <string name="destination">Destino</string>
     <string name="myposition">Mi ubicación</string>
+    <string name="lista_vacia">No hay elementos en la lista</string>
    
 </resources>
