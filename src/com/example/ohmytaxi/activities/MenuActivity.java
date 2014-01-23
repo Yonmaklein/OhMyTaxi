@@ -137,7 +137,6 @@ public class MenuActivity extends Activity {
 		finish();
 	}
 	
-	
 	public void showHelpScreen() {
 		/*Intent intent = new Intent(getBaseContext().getApplicationContext(), HelpActivity.class);  
 		startActivity(intent);
