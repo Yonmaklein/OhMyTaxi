@@ -28,19 +28,14 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
-
-
-
-
 public class MenuActivity extends Activity {
-
-	
 	
 	private Button buttonCalculate;
+	private Button buttonMyRoutes;
+	private Button buttonMyStops;
 	private Button buttonExit;
 	private Button buttonHelp;
 	private Button buttonSettings;
-	private Button buttonMyRoutes;
 	
 	// lalalala
 	
@@ -52,19 +47,30 @@ public class MenuActivity extends Activity {
         setContentView(R.layout.activity_menu);
 
         buttonCalculate  = (Button) findViewById(R.id.buttonCalculate);
+        buttonMyRoutes  = (Button) findViewById(R.id.buttonMyRoutes);
+        buttonMyStops  = (Button) findViewById(R.id.buttonMyStops);
         buttonSettings   = (Button) findViewById(R.id.buttonSettings);
         buttonHelp       = (Button) findViewById(R.id.buttonHelp);
         buttonExit		 = (Button) findViewById(R.id.buttonExit);
-        buttonMyRoutes  = (Button) findViewById(R.id.buttonMyRoutes);
-
-        
+               
         
         buttonCalculate.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
         		showCalculateScreen();
         	}
         });
-                         
+        
+        buttonMyRoutes.setOnClickListener(new OnClickListener() {
+        	public void onClick(View view){
+        		showMyRoutesScreen();
+        	}
+        });
+        
+        buttonMyStops.setOnClickListener(new OnClickListener() {
+        	public void onClick(View view){
+        		showMyStopsScreen();
+        	}
+        });                         
         buttonSettings.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View arg0) {
@@ -82,13 +88,7 @@ public class MenuActivity extends Activity {
         	public void onClick(View view){
         		exitApp();
         	}
-        });
-        buttonMyRoutes.setOnClickListener(new OnClickListener() {
-        	public void onClick(View view){
-        		showMyRoutesScreen();
-        	}
-        });
-            
+        });            
         
     }
 
@@ -120,7 +120,16 @@ public class MenuActivity extends Activity {
 		startActivity(i);
 		finish();		
 	}
-	
+    public void showMyRoutesScreen(){
+		Intent i = new Intent(this, MyRoutesActivity.class);  
+		startActivity(i);
+		finish();
+	}
+    public void showMyStopsScreen(){
+		Intent i = new Intent(this, MyStopsActivity.class);  
+		startActivity(i);
+		finish();
+	}
 
 	public void showSettingsScreen(){
 		Intent i = new Intent(this, SettingsActivity.class);  
@@ -135,18 +144,11 @@ public class MenuActivity extends Activity {
 		finish();*/
 	}
 		
-		
-
     protected void exitApp() {
 		// TODO Auto-generated method stub
     	android.os.Process.killProcess(android.os.Process.myPid());
 		
 	}
-    public void showMyRoutesScreen(){
-		Intent i = new Intent(this, MyRoutesActivity.class);  
-		startActivity(i);
-		finish();
-	}
-	
+
     
 }

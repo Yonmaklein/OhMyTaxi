@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-	public class CheckIn extends ListActivity{
+	public class MyStopsActivity extends ListActivity{
 
 		private ListView stops;
 
