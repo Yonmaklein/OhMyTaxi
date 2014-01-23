@@ -1,5 +1,7 @@
 package com.example.ohmytaxi.activities;
 
+import android.os.Bundle;
+
 import com.example.ohmytaxi.R;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -8,12 +10,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 
-
-import android.os.Bundle;
-
 	public class MapActivity extends android.support.v4.app.FragmentActivity {
 
-		
+		//
 		private GoogleMap map = null;
 		private int vista = 0;
 		
