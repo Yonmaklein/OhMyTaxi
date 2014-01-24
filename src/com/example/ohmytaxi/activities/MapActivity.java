@@ -9,6 +9,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 	public class MapActivity extends android.support.v4.app.FragmentActivity {
 
@@ -31,14 +32,19 @@ import com.google.android.gms.maps.model.LatLng;
 	    	        .zoom(16)         //Establecemos el zoom en 16
 	    	        .bearing(0)      //Establecemos la orientación con el norte arriba
 	    	        .tilt(20)         //Bajamos el punto de vista de la cámara 20 grados
-	    	        .build();
-	    	 
-	    	CameraUpdate camUpd3 =
-	    	    CameraUpdateFactory.newCameraPosition(camPos);
-	    	 
+	    	        .build();	    	 
+	    	CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);	    	 
 	    	map.animateCamera(camUpd3);
 	    	
 	    }
 	 
+	    
+	    private void mostrarMarcador(double lat, double lng){
+	        map.addMarker(new MarkerOptions()
+	            .position(new LatLng(lat, lng))
+	            .title("Mi ubicación"));
+	    }
+	    
+	    
 
 	}
