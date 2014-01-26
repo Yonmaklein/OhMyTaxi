@@ -16,7 +16,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,8 +32,6 @@ public class PointsActivity extends Activity {
 	
 	private EditText etPointA;
 	private EditText etPointB;
-	private TextView tvPointA;
-	private TextView tvPointB;
 	private CheckBox checkMyPosition;
 	private Button   btSearch;
 	private double latitude;
@@ -47,6 +44,7 @@ public class PointsActivity extends Activity {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_points);
 	 	etPointA = (EditText) findViewById(R.id.editPointA);
+	 	etPointB = (EditText) findViewById (R.id.editPointB);
 	 	btSearch = (Button) findViewById(R.id.buttonSearch);
 	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition);
 	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -71,7 +69,7 @@ public class PointsActivity extends Activity {
 	 		 				etPointA.setText(String.valueOf(latitude) + "  " + String.valueOf(longitude));
 	 					 }
 	 				else{
-	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuraci√≥n de localizaci√≥n");				
+	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuraciÛn de localizaci√≥n");				
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);
@@ -104,6 +102,8 @@ public class PointsActivity extends Activity {
 
 	 	}
 	 	/////////////////////////////////////////////////
+
+
 	 	
 	 	btSearch.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
@@ -122,7 +122,6 @@ public class PointsActivity extends Activity {
 		startActivity(intent);
 		finish();
 		super.onBackPressed();
-		//
 	}
 	
 
@@ -130,12 +129,10 @@ public class PointsActivity extends Activity {
 	 public void showMapScreen() {    // mÈtodo que llama a la activity que muestra el mapa con nuestra ruta deseada
 		 Intent i = new Intent(this, MapActivity.class);  
 		 Bundle b = new Bundle ();
-		 b.putFloat("lat", (float) latitude);
-		 b.putFloat("lon", (float) longitude);
-		 b.putString("ubi", etPointA.getText()+"");
+		 b.putFloat("origin lat", (float) latitude);
+		 b.putFloat("origin lon", (float) longitude); 
+		 b.putString("destination", etPointB.getText().toString());
 		 i.putExtras(b);
-		 
-
 		 startActivity(i);
 		 finish();	
 		 }

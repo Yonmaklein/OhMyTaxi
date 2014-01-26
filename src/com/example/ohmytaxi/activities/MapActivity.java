@@ -1,6 +1,13 @@
 package com.example.ohmytaxi.activities;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -20,6 +27,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 		private int vista = 0;
 		private float originLat;
 		private float originLon;
+		private float destinationLat;
+		private float destinationLon;
 		
 		
 		
@@ -29,12 +38,18 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    	setContentView(R.layout.activity_map);
 	      	    	
 	    	Bundle bundle = getIntent().getExtras();
-	    	originLat = bundle.getFloat("lat");
-	    	originLon = bundle.getFloat("lon");
+	    	originLat = bundle.getFloat("origin lat");
+	    	originLon = bundle.getFloat("origin lon");
+	    	String destinationAddress = bundle.getString("destination");
+	    	//Log.i("leido de etB", destinationAddress);
+	    	
 	    	  
 	    	map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 	    	map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 	    
+	    	
+	    	getLocationFromAddress(destinationAddress);
+	    	
 	    	showMarker(originLat, originLon);
 	    	
 	    	LatLng madrid = new LatLng(originLat,originLon);
@@ -57,7 +72,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 			startActivity(intent);
 			finish();
 			super.onBackPressed();
-			//
 		}
 	    
 	    
@@ -66,11 +80,36 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	        map.addMarker(new MarkerOptions()
 	            .position(new LatLng(lat, lng))
 	            .title("Origen"));
-	      /*  Log.i("Latitud", String.valueOf(lat));
-	        Log.i("Longitud", String.valueOf(lng));*/
-	        
 	    }
 	    
 	    
+	    
+	    private void getLocationFromAddress (String strAddress){
+	 
+	    	Geocoder coder = new Geocoder(this);
+	    	List<Address> address;
 
+	    	try {
+	    	    address = coder.getFromLocationName(strAddress,5);
+	    	    if (address == null) {
+	    	       // return null;
+	    	    }
+	    	    Address location = address.get(0);
+	    	    showMarker(location.getLatitude(),location.getLongitude());
+	    	    Log.i("latitud destino", String.valueOf(location.getLatitude()));
+	    	    Log.i("Longitud destino", String.valueOf(location.getLongitude()));
+	    	    
+	    	} catch (IOException e) {
+	    		
+	    		
+	        }
+	    
+	    	
+
+	    }
+
+	
 	}
+	    
+
+	
