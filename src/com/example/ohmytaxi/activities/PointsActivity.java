@@ -129,9 +129,15 @@ public class PointsActivity extends Activity {
 	 public void showMapScreen() {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
 		 Intent i = new Intent(this, MapActivity.class);  
 		 Bundle b = new Bundle ();
-		 b.putFloat("origin lat", (float) latitude);
-		 b.putFloat("origin lon", (float) longitude); 
-		 b.putString("destination", etPointB.getText().toString());
+		 if (checkMyPosition.isChecked()){
+			 b.putBoolean("checked", true);
+			 b.putFloat("origin lat", (float) latitude);
+			 b.putFloat("origin lon", (float) longitude); 
+		 }else{
+			 b.putBoolean("checked", false);
+			 b.putString("source address", etPointA.getText().toString());
+		 }
+		 b.putString("destination address", etPointB.getText().toString());
 		 i.putExtras(b);
 		 startActivity(i);
 		 finish();	
