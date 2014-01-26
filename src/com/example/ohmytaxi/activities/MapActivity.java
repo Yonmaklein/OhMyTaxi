@@ -1,6 +1,8 @@
 package com.example.ohmytaxi.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.ohmytaxi.R;
 import com.google.android.gms.maps.CameraUpdate;
@@ -16,6 +18,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 		//
 		private GoogleMap map = null;
 		private int vista = 0;
+		private float originLat;
+		private float originLon;
 		
 		
 		
@@ -23,10 +27,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    protected void onCreate(Bundle savedInstanceState) {
 	    	super.onCreate(savedInstanceState);
 	    	setContentView(R.layout.activity_map);
+	      	    	
+	    	Bundle bundle = getIntent().getExtras();
+	    	originLat = bundle.getFloat("lat");
+	    	originLon = bundle.getFloat("lon");
+	    	  
 	    	map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 	    	map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 	    
-	    	LatLng madrid = new LatLng(40.417164,-3.703542);
+	    	showMarker(originLat, originLon);
+	    	
+	    	LatLng madrid = new LatLng(originLat,originLon);
 	    	CameraPosition camPos = new CameraPosition.Builder()
 	    	        .target(madrid)   //Centramos el mapa en Madrid
 	    	        .zoom(16)         //Establecemos el zoom en 16
@@ -36,13 +47,28 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    	CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);	    	 
 	    	map.animateCamera(camUpd3);
 	    	
+	    	
 	    }
 	 
 	    
-	    private void mostrarMarcador(double lat, double lng){
+	    
+		public void onBackPressed(){
+			Intent intent = new Intent(getBaseContext().getApplicationContext(), PointsActivity.class);  
+			startActivity(intent);
+			finish();
+			super.onBackPressed();
+			//
+		}
+	    
+	    
+		
+	    private void showMarker(double lat, double lng){
 	        map.addMarker(new MarkerOptions()
 	            .position(new LatLng(lat, lng))
-	            .title("Mi ubicación"));
+	            .title("Origen"));
+	      /*  Log.i("Latitud", String.valueOf(lat));
+	        Log.i("Longitud", String.valueOf(lng));*/
+	        
 	    }
 	    
 	    

@@ -16,6 +16,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -36,6 +37,8 @@ public class PointsActivity extends Activity {
 	private TextView tvPointB;
 	private CheckBox checkMyPosition;
 	private Button   btSearch;
+	private double latitude;
+	private double longitude;
 	
 	
 	
@@ -63,9 +66,9 @@ public class PointsActivity extends Activity {
 	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	 		 				double lati = myPosition.getLatitude();
-	 		 				double longi = myPosition.getLongitude();
-	 		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));
+	 		 				latitude = myPosition.getLatitude();
+	 		 				longitude = myPosition.getLongitude();
+	 		 				etPointA.setText(String.valueOf(latitude) + "  " + String.valueOf(longitude));
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
@@ -126,6 +129,13 @@ public class PointsActivity extends Activity {
 	
 	 public void showMapScreen() {    // m�todo que llama a la activity que muestra el mapa con nuestra ruta deseada
 		 Intent i = new Intent(this, MapActivity.class);  
+		 Bundle b = new Bundle ();
+		 b.putFloat("lat", (float) latitude);
+		 b.putFloat("lon", (float) longitude);
+		 b.putString("ubi", etPointA.getText()+"");
+		 i.putExtras(b);
+		 
+
 		 startActivity(i);
 		 finish();	
 		 }
