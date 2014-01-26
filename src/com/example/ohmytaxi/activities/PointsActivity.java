@@ -16,6 +16,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -23,7 +24,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.MyLocationListener;
@@ -33,9 +33,12 @@ public class PointsActivity extends Activity {
 	private EditText etPointA;
 	private EditText etPointB;
 	private CheckBox checkMyPosition;
-	private Button   btSearch;
-	private double latitude;
-	private double longitude;
+	private Button btSearch;
+	private double sourceLatitude;
+	private double sourceLongitude;
+	private double destinationLatitude;
+	private double destinationLongitude;
+	
 	
 	
 	
@@ -64,9 +67,9 @@ public class PointsActivity extends Activity {
 	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	 		 				latitude = myPosition.getLatitude();
-	 		 				longitude = myPosition.getLongitude();
-	 		 				etPointA.setText(String.valueOf(latitude) + "  " + String.valueOf(longitude));
+	 		 				sourceLatitude = myPosition.getLatitude();
+	 		 				sourceLongitude = myPosition.getLongitude();
+	 		 				etPointA.setText(String.valueOf(sourceLatitude) + "  " + String.valueOf(sourceLongitude));
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localizaciÃ³n");				
@@ -123,26 +126,58 @@ public class PointsActivity extends Activity {
 		finish();
 		super.onBackPressed();
 	}
-	
 
 	
-	 public void showMapScreen() {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
+	
+	
+	
+	private void getLocationFromAddress (String strAddress, boolean origin){
+	   	 
+    	Geocoder coder = new Geocoder(this);
+    	List<Address> address;
+
+    	try {
+    	    address = coder.getFromLocationName(strAddress,5);
+    	    if (address == null) {
+    	    }
+    	    Address location = address.get(0);
+    	    if (origin){
+    	    	sourceLatitude = (float) location.getLatitude();
+    	        sourceLongitude = (float) location.getLongitude();
+    	    }else{
+    	    	destinationLatitude = (float) location.getLatitude();
+    	    	destinationLongitude = (float) location.getLongitude();    	    	
+    	    }
+    	} catch (IOException e) {
+    			
+    	}
+    }
+
+	
+	
+	
+	
+	public void showMapScreen() {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
 		 Intent i = new Intent(this, MapActivity.class);  
 		 Bundle b = new Bundle ();
-		 if (checkMyPosition.isChecked()){
-			 b.putBoolean("checked", true);
-			 b.putFloat("origin lat", (float) latitude);
-			 b.putFloat("origin lon", (float) longitude); 
-		 }else{
-			 b.putBoolean("checked", false);
-			 b.putString("source address", etPointA.getText().toString());
+		 if (!checkMyPosition.isChecked()){
+			 getLocationFromAddress(etPointA.getText()+"",true);
 		 }
-		 b.putString("destination address", etPointB.getText().toString());
+		 getLocationFromAddress(etPointB.getText()+"",false);
+		 b.putFloat("source lat", (float) sourceLatitude);
+		 b.putFloat("source lon", (float) sourceLongitude); 
+		 b.putFloat("destination lat", (float) destinationLatitude);
+		 b.putFloat("destination lon", (float) destinationLongitude); 
+		 Log.i("desti! LAT", String.valueOf(destinationLatitude));
+		 Log.i("desti! LON", String.valueOf(destinationLongitude));
 		 i.putExtras(b);
 		 startActivity(i);
 		 finish();	
-		 }
+	}
 	
+	 
+	 
+	 	
 	
 
 

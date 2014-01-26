@@ -1,9 +1,7 @@
 package com.example.ohmytaxi.activities;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import android.content.Intent;
 import android.location.Address;
@@ -45,21 +43,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    	
 	    	Bundle bundle = getIntent().getExtras();
 	    	
-	    	boolean checked = bundle.getBoolean("checked");
-	    	if (checked){
-	    		sourceLat = bundle.getFloat("origin lat");
-		    	sourceLon = bundle.getFloat("origin lon");
-		    	Log.i("checkeado", "TRUE");
-	    	}
-	    	else{
-	    		Log.i("checkeado", "FALSE");
-	    		sourceAddress = bundle.getString("source address");
-	    		Log.i("source", sourceAddress);
-	    		getLocationFromAddress(sourceAddress, true);
-	    	}
-	    	String destinationAddress = bundle.getString("destination address");
-	    	getLocationFromAddress(destinationAddress, false);
-	    	
+	    	sourceLat = bundle.getFloat("source lat");
+		    sourceLon = bundle.getFloat("source lon");
+		    destinationLat = bundle.getFloat("destination lat");
+		    destinationLon = bundle.getFloat("destination lon");
+		    
+		    Log.i("desti mapact! LAT", String.valueOf(destinationLat));
+			Log.i("destino mapact! LON", String.valueOf(destinationLon));
+		    
+		    
 	    	showMarker(sourceLat, sourceLon, true);
 	    	showMarker(destinationLat, destinationLon, false);
 
@@ -101,38 +93,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    
 	    
 	    
-	    private void getLocationFromAddress (String strAddress, boolean origin){
-	 
-	    	Geocoder coder = new Geocoder(this);
-	    	List<Address> address;
-
-	    	try {
-	    	    address = coder.getFromLocationName(strAddress,5);
-	    	    if (address == null) {
-	    	       // return null;
-	    	    }
-	    	    Address location = address.get(0);
-	    	    if (origin){
-	    	    	sourceLat = (float) location.getLatitude();
-	    	        sourceLon = (float) location.getLongitude();
-	    	    	Log.i("source", "source");
-	    	    }else{
-	    	    	destinationLat = (float) location.getLatitude();
-	    	    	destinationLon = (float) location.getLongitude();
-	    	    	Log.i("destination","destination");
-	    	    }
-	    	    Log.i("Latitud destino", String.valueOf(location.getLatitude()));
-	    	    Log.i("Longitud destino", String.valueOf(location.getLongitude()));
-	    	    
-	    	} catch (IOException e) {
-	    		
-	    		
-	    }
 	    
-	    	
-
-	    }
-
+	    
+	    
+	   
 	
 	}
 	    
