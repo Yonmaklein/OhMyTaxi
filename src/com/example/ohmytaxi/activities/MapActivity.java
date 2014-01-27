@@ -27,7 +27,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 		private float sourceLon;
 		private float destinationLat;
 		private float destinationLon;
-		private String sourceAddress;
 		
 		
 		

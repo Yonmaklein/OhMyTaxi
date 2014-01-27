@@ -246,6 +246,7 @@ containing a value of this type.
         public static final int activity_myroutes=0x7f030003;
         public static final int activity_mystops=0x7f030004;
         public static final int activity_points=0x7f030005;
+        public static final int activity_route=0x7f030006;
     }
     public static final class menu {
         public static final int menu=0x7f0c0000;
@@ -355,6 +356,7 @@ containing a value of this type.
         public static final int language=0x7f070023;
         public static final int language_text=0x7f070024;
         public static final int lista_vacia=0x7f070029;
+        public static final int loading_route=0x7f07002a;
         public static final int myposition=0x7f070027;
         public static final int mystops=0x7f070028;
         public static final int routes=0x7f07001e;

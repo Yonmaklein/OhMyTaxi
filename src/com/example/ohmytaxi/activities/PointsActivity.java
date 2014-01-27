@@ -158,7 +158,7 @@ public class PointsActivity extends Activity {
 	
 	
 	public void showMapScreen() {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
-		 Intent i = new Intent(this, MapActivity.class);  
+		 Intent i = new Intent(this, RouteActivity.class);  
 		 Bundle b = new Bundle ();
 		 if (!checkMyPosition.isChecked()){
 			 getLocationFromAddress(etPointA.getText()+"",true);
