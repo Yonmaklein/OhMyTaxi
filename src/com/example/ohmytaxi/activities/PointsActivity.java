@@ -24,6 +24,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.MyLocationListener;
@@ -69,7 +70,8 @@ public class PointsActivity extends Activity {
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 	 		 				sourceLatitude = myPosition.getLatitude();
 	 		 				sourceLongitude = myPosition.getLongitude();
-	 		 				etPointA.setText(String.valueOf(sourceLatitude) + "  " + String.valueOf(sourceLongitude));
+	 		 				//etPointA.setText(String.valueOf(sourceLatitude) + "  " + String.valueOf(sourceLongitude));
+	 		 				etPointA.setText(getAddressFromLocation(sourceLatitude,sourceLongitude));
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localizaciÃ³n");				
@@ -110,7 +112,21 @@ public class PointsActivity extends Activity {
 	 	
 	 	btSearch.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
-        		showMapScreen();
+        		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
+        			Toast warningMessage = Toast.makeText(getApplicationContext(),
+		                    "Introduce una dirección de origen", Toast.LENGTH_SHORT);
+        			warningMessage.show();
+        		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
+        			Toast warningMessage = Toast.makeText(getApplicationContext(),
+		                    "Introduce una dirección de destino", Toast.LENGTH_SHORT);
+        			warningMessage.show();  			        
+        		}else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
+        			Toast warningMessage = Toast.makeText(getApplicationContext(),
+		                    "Introduce el origen y el destino", Toast.LENGTH_SHORT);
+        			warningMessage.show();  			        
+        		}else{
+        			showMapScreen();
+        		}
         	}
         });
 	 	
@@ -153,6 +169,26 @@ public class PointsActivity extends Activity {
     	}
     }
 
+	
+	
+	public String getAddressFromLocation(double sourceLatitude2, double sourceLongitude2){
+		Geocoder geocoder;
+		List<Address> addresses = null;
+		geocoder = new Geocoder(this, Locale.getDefault());
+		try {
+			addresses = geocoder.getFromLocation(sourceLatitude2, sourceLongitude2, 1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		String address = addresses.get(0).getAddressLine(0);
+		String city = addresses.get(0).getAddressLine(1);
+		//String country = addresses.get(0).getAddressLine(2);
+
+		return address + " " + city;
+		
+	}
 	
 	
 	
