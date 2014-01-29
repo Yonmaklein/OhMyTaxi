@@ -88,7 +88,7 @@ int id none 0x7f060000
 int id normal 0x7f060001
 int id satellite 0x7f060002
 int id terrain 0x7f060003
-int id textView1 0x7f060005
+int id tvHelp 0x7f060005
 int id tvPointA 0x7f06000d
 int id tvPointB 0x7f060011
 int integer google_play_services_version 0x7f080000
@@ -134,10 +134,11 @@ int string destination 0x7f070026
 int string exit 0x7f070022
 int string hello_world 0x7f07001c
 int string help 0x7f070020
+int string help_text 0x7f070029
 int string language 0x7f070023
 int string language_text 0x7f070024
-int string lista_vacia 0x7f070029
-int string loading_route 0x7f07002a
+int string lista_vacia 0x7f07002a
+int string loading_route 0x7f07002b
 int string myposition 0x7f070027
 int string mystops 0x7f070028
 int string routes 0x7f07001e

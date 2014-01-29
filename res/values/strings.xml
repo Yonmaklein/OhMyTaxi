@@ -20,6 +20,11 @@
     <string name="myposition">Mi ubicación</string>
     <string name="mystops">Mis paradas cercanas</string>
     
+    <string name="help_text">Esta es la página de ayuda de OhMyTaxi! 
+   Si ha olvidado algo en el taxi, llame a: <a href="915279590">Teléfono objetos perdidos</a>
+   </string>
+
+    
     <string name="lista_vacia">No hay elementos en la lista</string>
     <string name="loading_route">Cargando ruta...</string>
 </resources>

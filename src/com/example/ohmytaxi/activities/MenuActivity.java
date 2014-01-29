@@ -124,9 +124,9 @@ public class MenuActivity extends Activity {
 	}
 	
 	public void showHelpScreen() {
-		/*Intent intent = new Intent(getBaseContext().getApplicationContext(), HelpActivity.class);  
-		startActivity(intent);
-		finish();*/
+		Intent i = new Intent(this, HelpActivity.class);  
+		startActivity(i);
+		finish();
 	}
 		
     protected void exitApp() {
