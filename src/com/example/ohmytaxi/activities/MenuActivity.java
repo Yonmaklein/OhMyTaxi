@@ -2,56 +2,42 @@ package com.example.ohmytaxi.activities;
 
 
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
-
-
-import java.util.Locale;
+import android.widget.ImageButton;
 
 import com.example.ohmytaxi.R;
 
-
-
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.Button;
-
 public class MenuActivity extends Activity {
 	
-	private Button buttonCalculate;
-	private Button buttonMyRoutes;
-	private Button buttonMyStops;
-	private Button buttonExit;
-	private Button buttonHelp;
-	private Button buttonSettings;
+	private ImageButton buttonCalculate;
+	private ImageButton buttonMyRoutes;
+	private ImageButton buttonMyStops;
+	private ImageButton buttonExit;
+	private ImageButton buttonHelp;
+	private ImageButton buttonSettings;
 	
-	// lalalala
+
 	
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_menugrid);
 
-        buttonCalculate  = (Button) findViewById(R.id.buttonCalculate);
-        buttonMyRoutes  = (Button) findViewById(R.id.buttonMyRoutes);
-        buttonMyStops  = (Button) findViewById(R.id.buttonMyStops);
-        buttonSettings   = (Button) findViewById(R.id.buttonSettings);
-        buttonHelp       = (Button) findViewById(R.id.buttonHelp);
-        buttonExit		 = (Button) findViewById(R.id.buttonExit);
+        buttonCalculate  = (ImageButton) findViewById(R.id.buttonCalculate);
+        buttonMyRoutes 	 = (ImageButton) findViewById(R.id.buttonMyRoutes);
+        buttonMyStops  	 = (ImageButton) findViewById(R.id.buttonMyStops);
+        buttonSettings   = (ImageButton) findViewById(R.id.buttonSettings);
+        buttonHelp       = (ImageButton) findViewById(R.id.buttonHelp);
+        buttonExit		 = (ImageButton) findViewById(R.id.buttonExit);
                
         
         buttonCalculate.setOnClickListener(new OnClickListener() {
@@ -126,7 +112,7 @@ public class MenuActivity extends Activity {
 		finish();
 	}
     public void showMyStopsScreen(){
-		Intent i = new Intent(this, MapActivity.class);  
+		Intent i = new Intent(this, MyStopsActivity.class);  
 		startActivity(i);
 		finish();
 	}

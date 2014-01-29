@@ -54,6 +54,10 @@
             android:label="@string/app_name">
         </activity>   
         <activity
+            android:name="com.example.ohmytaxi.activities.MyStopsActivity"
+            android:label="@string/app_name">
+        </activity> 
+        <activity
             android:name="com.example.ohmytaxi.activities.RouteActivity"
             android:label="@string/app_name">
         </activity>          
