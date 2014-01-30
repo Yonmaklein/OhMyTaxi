@@ -16,6 +16,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -56,25 +57,25 @@ public class PointsActivity extends Activity {
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	 			if (isChecked){
 	 				etPointA.setEnabled(false);
+	 				
 	 				LocationManager mylocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	 				LocationListener mylocListener = new MyLocationListener();
 	 				if (mylocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
 	 					mylocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, mylocListener);  //Acceso por GPS
-	 				//	Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		 			/*	double lati = myPosition.getLatitude();
+	 					Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		 				double lati = myPosition.getLatitude();
 		 				double longi = myPosition.getLongitude();
-		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));*/
+		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));
 	 				}
 	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 	 		 				sourceLatitude = myPosition.getLatitude();
 	 		 				sourceLongitude = myPosition.getLongitude();
-	 		 				//etPointA.setText(String.valueOf(sourceLatitude) + "  " + String.valueOf(sourceLongitude));
 	 		 				etPointA.setText(getAddressFromLocation(sourceLatitude,sourceLongitude));
 	 					 }
 	 				else{
-	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localizaciÃ³n");				
+	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);
@@ -86,7 +87,7 @@ public class PointsActivity extends Activity {
 	 	
 	 	///////////////////////////////////////////
 	 	
-	 	LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	/* 	LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	 	String provider = locationManager.getBestProvider(new Criteria(), true);
 
 	 	Location locations = locationManager.getLastKnownLocation(provider);
@@ -105,7 +106,7 @@ public class PointsActivity extends Activity {
 	 	    e.printStackTrace();
 	 	}
 
-	 	}
+	 	}*/
 	 	/////////////////////////////////////////////////
 
 
@@ -154,8 +155,9 @@ public class PointsActivity extends Activity {
 
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
-    	    if (address == null) {
-    	    }
+    	    if (address.get(0) == null) {
+    	    	Log.i("Vale", "NULL");
+    	    }    	    
     	    Address location = address.get(0);
     	    if (origin){
     	    	sourceLatitude = (float) location.getLatitude();
@@ -181,13 +183,10 @@ public class PointsActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		String address = addresses.get(0).getAddressLine(0);
 		String city = addresses.get(0).getAddressLine(1);
 		//String country = addresses.get(0).getAddressLine(2);
-
-		return address + " " + city;
-		
+		return address + " " + city;		
 	}
 	
 	

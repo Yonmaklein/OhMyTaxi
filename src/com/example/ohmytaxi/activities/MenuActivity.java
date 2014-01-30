@@ -6,11 +6,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
 
@@ -101,17 +104,31 @@ public class MenuActivity extends Activity {
     }
     
 
-	public void showCalculateScreen() {
-		Intent i = new Intent(this, PointsActivity.class);  
-		startActivity(i);
-		finish();		
+	public void showCalculateScreen() {		
+		String provider = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+		 if(!provider.equals("")){
+	        Log.i("GPS activado", provider);
+			Intent i = new Intent(this, PointsActivity.class);  
+			startActivity(i);
+			finish();	
+	     }else{
+	        /*Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
+	           startActivity(intent);*/
+	    	Toast warningMessage = Toast.makeText(getApplicationContext(),
+                  "Activa los servicios de localización en tu dispositivo", Toast.LENGTH_LONG);	    	
+			warningMessage.show();  	
+			 startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
+
+	    }   
 	}
-    public void showMyRoutesScreen(){
+
+	public void showMyRoutesScreen(){
 		Intent i = new Intent(this, MyRoutesActivity.class);  
 		startActivity(i);
 		finish();
 	}
-    public void showMyStopsScreen(){
+
+	public void showMyStopsScreen(){
 		Intent i = new Intent(this, MyStopsActivity.class);  
 		startActivity(i);
 		finish();
