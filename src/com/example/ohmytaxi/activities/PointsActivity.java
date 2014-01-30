@@ -115,15 +115,15 @@ public class PointsActivity extends Activity {
         	public void onClick(View view){
         		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
         			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce una dirección de origen", Toast.LENGTH_SHORT);
+		                    "Introduce una dirección de origen", Toast.LENGTH_LONG);
         			warningMessage.show();
         		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
         			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce una dirección de destino", Toast.LENGTH_SHORT);
+		                    "Introduce una dirección de destino", Toast.LENGTH_LONG);
         			warningMessage.show();  			        
         		}else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
         			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce el origen y el destino", Toast.LENGTH_SHORT);
+		                    "Introduce el origen y el destino", Toast.LENGTH_LONG);
         			warningMessage.show();  			        
         		}else{
         			showMapScreen();
@@ -155,9 +155,14 @@ public class PointsActivity extends Activity {
 
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
-    	    if (address.get(0) == null) {
-    	    	Log.i("Vale", "NULL");
-    	    }    	    
+    	    if (address.size()==0) {
+    	    	Log.i("Vale",  String.valueOf(address.size()));
+    	    }    	
+	    	Log.i("Vale", "mierda");
+	    	
+	    	
+	    
+	    	
     	    Address location = address.get(0);
     	    if (origin){
     	    	sourceLatitude = (float) location.getLatitude();
