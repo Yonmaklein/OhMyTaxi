@@ -42,7 +42,7 @@ public class RouteActivity extends FragmentActivity  {
       private LatLng toPosition;
       private GoogleMap mGoogleMap;
       private MarkerOptions markerOptions;
-      Location location ;
+      Location location;
       
       
       
@@ -57,10 +57,10 @@ public class RouteActivity extends FragmentActivity  {
             
             
 	    	Bundle bundle = getIntent().getExtras();	
-	    	float sourceLat = bundle.getFloat("source lat");
-		    float sourceLon = bundle.getFloat("source lon");
-		    float destinationLat = bundle.getFloat("destination lat");
-		    float destinationLon = bundle.getFloat("destination lon");
+	    	double sourceLat = bundle.getDouble("source lat");
+		    double sourceLon = bundle.getDouble("source lon");
+		    double destinationLat = bundle.getDouble("destination lat");
+		    double destinationLon = bundle.getDouble("destination lon");
             fromPosition = new LatLng(sourceLat,sourceLon);
             toPosition = new LatLng(destinationLat,destinationLon);
             

@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.MyLocationListener;
+import com.google.android.gms.maps.model.LatLng;
 
 public class PointsActivity extends Activity {
 	
@@ -36,10 +37,9 @@ public class PointsActivity extends Activity {
 	private EditText etPointB;
 	private CheckBox checkMyPosition;
 	private Button btSearch;
-	private double sourceLatitude;
-	private double sourceLongitude;
-	private double destinationLatitude;
-	private double destinationLongitude;
+	private LatLng sourceLocation;
+	private LatLng destinationLocation;
+
 	
 	
 	
@@ -51,91 +51,86 @@ public class PointsActivity extends Activity {
 	 	etPointA = (EditText) findViewById(R.id.editPointA);
 	 	etPointB = (EditText) findViewById (R.id.editPointB);
 	 	btSearch = (Button) findViewById(R.id.buttonSearch);
-	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition);
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	
 	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 	 		@Override
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	 			if (isChecked){
-	 				etPointA.setEnabled(false);
-	 				
+	 				etPointA.setEnabled(false);	 				
 	 				LocationManager mylocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	 				LocationListener mylocListener = new MyLocationListener();
 	 				if (mylocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
 	 					mylocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, mylocListener);  //Acceso por GPS
 	 					Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		 				double lati = myPosition.getLatitude();
-		 				double longi = myPosition.getLongitude();
-		 				etPointA.setText(String.valueOf(lati) + "  " + String.valueOf(longi));
+		 				etPointA.setText(String.valueOf(myPosition.getLatitude()) + "  " + String.valueOf(myPosition.getLongitude()));
 	 				}
 	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	 		 				sourceLatitude = myPosition.getLatitude();
-	 		 				sourceLongitude = myPosition.getLongitude();
-	 		 				etPointA.setText(getAddressFromLocation(sourceLatitude,sourceLongitude));
+	 						sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());	 		 		
+	 		 				etPointA.setText(getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude));
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);
-	 				etPointA.setEnabled(true);
-	 	        	
+	 				etPointA.setEnabled(true);	 	        	
 	 	        }
 	 	    }
-	 	});
-	 	
-	 	///////////////////////////////////////////
-	 	
-	/* 	LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-	 	String provider = locationManager.getBestProvider(new Criteria(), true);
-
-	 	Location locations = locationManager.getLastKnownLocation(provider);
-	 	List<String>  providerList = locationManager.getAllProviders();
-	 	if(null!=locations && null!=providerList && providerList.size()>0){                 
-	 	double longitude = locations.getLongitude();
-	 	double latitude = locations.getLatitude();
-	 	Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());                 
-	 	try {
-	 	    List<Address> listAddresses = geocoder.getFromLocation(latitude, longitude, 1);
-	 	    if(null!=listAddresses&&listAddresses.size()>0){
-	 	        String _Location = listAddresses.get(0).getAddressLine(1);
-	 	        etPointA.setText(_Location);
-	 	    }
-	 	} catch (IOException e) {
-	 	    e.printStackTrace();
-	 	}
-
-	 	}*/
-	 	/////////////////////////////////////////////////
-
-
-	 	
+	 	});	 	
 	 	btSearch.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
-        		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
-        			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce una dirección de origen", Toast.LENGTH_LONG);
-        			warningMessage.show();
-        		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
-        			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce una dirección de destino", Toast.LENGTH_LONG);
-        			warningMessage.show();  			        
-        		}else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
-        			Toast warningMessage = Toast.makeText(getApplicationContext(),
-		                    "Introduce el origen y el destino", Toast.LENGTH_LONG);
-        			warningMessage.show();  			        
-        		}else{
-        			showMapScreen();
+        		if (validFields()){
+        			destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()),false);
+        			if (!checkMyPosition.isChecked()){
+        				sourceLocation = getLocationFromAddress(etPointA.getText()+"",true);
+        			}
+        			if (destinationLocation == null){
+        				showToastToUser("La ubicación de destino no existe");
+        			}else if(sourceLocation == null){
+        				      showToastToUser("La ubicación de origen no existe");	
+        				  }else{
+        					  Log.i("sourcelocationLAT", String.valueOf(sourceLocation.latitude));
+        					  Log.i("sourcelocationLONG", String.valueOf(sourceLocation.longitude));
+        					  Log.i("destinationlocationLAT", String.valueOf(destinationLocation.latitude));
+        					  Log.i("destinationlocationLONG", String.valueOf(destinationLocation.longitude));
+        					  showMapScreen(sourceLocation, destinationLocation);
+        				  }
         		}
-        	}
+
+        	}	 		
         });
-	 	
-	 	
-	 	
-	 
+
 	}
 	 
+
+
+
+	public boolean validFields (){		
+		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
+			showToastToUser("Introduce una dirección de origen");
+			return false;
+		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
+			  		showToastToUser("Introduce una dirección de destino");												        
+					return false;
+			  }else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
+				  		showToastToUser("Introduce el origen y el destino");
+						return false;
+			  		}else{
+			  			return true;
+			  		}		
+	}
+
+	
+	
+	
+	public void showToastToUser(String message){
+		Toast warningMessage = Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG);
+		warningMessage.show(); 
+	}
+	
+
 	
 	public void onBackPressed(){
 		Intent intent = new Intent(getBaseContext().getApplicationContext(), MenuActivity.class);  
@@ -148,32 +143,32 @@ public class PointsActivity extends Activity {
 	
 	
 	
-	private void getLocationFromAddress (String strAddress, boolean origin){
-	   	 
+	private LatLng getLocationFromAddress (String strAddress, boolean origin){	   	 
     	Geocoder coder = new Geocoder(this);
     	List<Address> address;
-
+    	LatLng resultLocation = null;
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
     	    if (address.size()==0) {
-    	    	Log.i("Vale",  String.valueOf(address.size()));
-    	    }    	
-	    	Log.i("Vale", "mierda");
-	    	
-	    	
-	    
-	    	
-    	    Address location = address.get(0);
-    	    if (origin){
-    	    	sourceLatitude = (float) location.getLatitude();
-    	        sourceLongitude = (float) location.getLongitude();
-    	    }else{
-    	    	destinationLatitude = (float) location.getLatitude();
-    	    	destinationLongitude = (float) location.getLongitude();    	    	
+    	    	Toast warningMessage = Toast.makeText(getApplicationContext(),
+	                    "La dirección "+strAddress+" no existe", Toast.LENGTH_LONG);
+    			warningMessage.show();  
+    			resultLocation = null;
+    	    }
+    	    else{    	 	    	
+    	    	Address location = address.get(0);
+    	    	if (origin){
+    	    		resultLocation = new LatLng(location.getLatitude(),location.getLongitude());
+    	    		     	    		
+    	    	}else{
+    	    		resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   	    		
+    	    	}
+    	    	
     	    }
     	} catch (IOException e) {
     			
     	}
+		return resultLocation;
     }
 
 	
@@ -197,19 +192,15 @@ public class PointsActivity extends Activity {
 	
 	
 	
-	public void showMapScreen() {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
+	public void showMapScreen(LatLng sourceLocation, LatLng destinationLocation) {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
 		 Intent i = new Intent(this, RouteActivity.class);  
 		 Bundle b = new Bundle ();
-		 if (!checkMyPosition.isChecked()){
-			 getLocationFromAddress(etPointA.getText()+"",true);
-		 }
-		 getLocationFromAddress(etPointB.getText()+"",false);
-		 b.putFloat("source lat", (float) sourceLatitude);
-		 b.putFloat("source lon", (float) sourceLongitude); 
-		 b.putFloat("destination lat", (float) destinationLatitude);
-		 b.putFloat("destination lon", (float) destinationLongitude); 
-		 Log.i("desti! LAT", String.valueOf(destinationLatitude));
-		 Log.i("desti! LON", String.valueOf(destinationLongitude));
+		 b.putDouble("source lat", sourceLocation.latitude);
+		 b.putDouble("source lon", sourceLocation.longitude); 
+		 b.putDouble("destination lat", destinationLocation.latitude);
+		 b.putDouble("destination lon", destinationLocation.longitude); 
+		 Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
+		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));
 		 i.putExtras(b);
 		 startActivity(i);
 		 finish();	
