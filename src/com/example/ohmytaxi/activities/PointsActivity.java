@@ -193,7 +193,7 @@ public class PointsActivity extends Activity {
 	
 	
 	public void showMapScreen(LatLng sourceLocation, LatLng destinationLocation) {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
-		 Intent i = new Intent(this, RouteActivity.class);  
+		 Intent i = new Intent(this, MapActivity.class);  
 		 Bundle b = new Bundle ();
 		 b.putDouble("source lat", sourceLocation.latitude);
 		 b.putDouble("source lon", sourceLocation.longitude); 
