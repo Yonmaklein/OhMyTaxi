@@ -68,7 +68,14 @@ public class PointsActivity extends Activity {
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 	 						sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());	 		 		
-	 		 				etPointA.setText(getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude));
+	 		 				String source = getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude);
+	 		 				if (source == null){
+	 		 					showToastToUser("No es posible acceder a tu ubicación en este momento");
+	 		 					showToastToUser("Introduce tu dirección dorigen manualmente");
+	 		 					checkMyPosition.setEnabled(true);
+	 		 				}else{
+	 		 					etPointA.setText(source);
+	 		 				}
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
@@ -183,17 +190,22 @@ public class PointsActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String address = addresses.get(0).getAddressLine(0);
-		String city = addresses.get(0).getAddressLine(1);
-		//String country = addresses.get(0).getAddressLine(2);
-		return address + " " + city;		
+		if (addresses==null){
+			return null;
+		}else{
+			String address = addresses.get(0).getAddressLine(0);
+			String city = addresses.get(0).getAddressLine(1);
+			//String country = addresses.get(0).getAddressLine(2);
+			return address + " " + city;		
+		}
+	
 	}
 	
 	
 	
 	
 	public void showMapScreen(LatLng sourceLocation, LatLng destinationLocation) {    // método que llama a la activity que muestra el mapa con nuestra ruta deseada
-		 Intent i = new Intent(this, MapActivity.class);  
+		 Intent i = new Intent(this, RouteActivity.class);  
 		 Bundle b = new Bundle ();
 		 b.putDouble("source lat", sourceLocation.latitude);
 		 b.putDouble("source lon", sourceLocation.longitude); 
