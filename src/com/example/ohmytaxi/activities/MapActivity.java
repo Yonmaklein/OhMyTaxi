@@ -19,7 +19,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
-import com.google.android.maps.GeoPoint;
    
 
 	public class MapActivity extends android.support.v4.app.FragmentActivity {
@@ -81,21 +80,21 @@ import com.google.android.maps.GeoPoint;
 	    	
 	    	
 	    	
-	    	 List <LatLng> m30 = new ArrayList <LatLng>();
-	    	 m30.add(new LatLng(40.482993,-3.674848));
-	    	 m30.add(new LatLng(40.481067,-3.685362));
-	    	 m30.add(new LatLng(40.484853,-3.695318));
-	    	 m30.add(new LatLng(40.479141,-3.716053));
-	    	 m30.add(new LatLng(40.472547,-3.727898));
-	    	 m30.add(new LatLng(40.473657,-3.749306));
-	    	 m30.add(new LatLng(40.430452,-3.736302));
-	    	 m30.add(new LatLng(40.420619,-3.721718));
-	    	 m30.add(new LatLng(40.401274,-3.720688));
-	    	 m30.add(new LatLng(40.38892,-3.684811));
-	    	 m30.add(new LatLng(40.395195,-3.673395));
-	    	 m30.add(new LatLng(40.418266,-3.659662));
-	    	 m30.add(new LatLng(40.443485,-3.660864));
-	    	 m30.add(new LatLng(40.482993,-3.674848));
+	    	List <LatLng> m30 = new ArrayList <LatLng>();
+	    	m30.add(new LatLng(40.482993,-3.674848));
+	    	m30.add(new LatLng(40.481067,-3.685362));
+	    	m30.add(new LatLng(40.484853,-3.695318));
+	    	m30.add(new LatLng(40.479141,-3.716053));
+	    	m30.add(new LatLng(40.472547,-3.727898));
+	    	m30.add(new LatLng(40.473657,-3.749306));
+	    	m30.add(new LatLng(40.430452,-3.736302));
+	    	m30.add(new LatLng(40.420619,-3.721718));
+	    	m30.add(new LatLng(40.401274,-3.720688));
+	    	m30.add(new LatLng(40.38892,-3.684811));
+	    	m30.add(new LatLng(40.395195,-3.673395));
+	    	m30.add(new LatLng(40.418266,-3.659662));
+	    	m30.add(new LatLng(40.443485,-3.660864));
+	    	m30.add(new LatLng(40.482993,-3.674848));
 
 	    	 
 	    	 
@@ -105,13 +104,10 @@ import com.google.android.maps.GeoPoint;
 	    		 Log.i("pertenece", "SI");
 	    	 }else{
 	    		 Log.i("pertenece", "NO");
-	    	 }
-	    	
+	    	 }	    	
 	    }
 	 
-	    
-	    
-	    
+	    	    
 	    private static boolean IsPointInPolygon(List<LatLng> poly, LatLng point){
 	        int i, j;
 	        boolean c = false;
@@ -125,14 +121,14 @@ import com.google.android.maps.GeoPoint;
 	        return c;
 	    }
 	    
+	    
 		public void onBackPressed(){
 			Intent intent = new Intent(getBaseContext().getApplicationContext(), PointsActivity.class);  
 			startActivity(intent);
 			finish();
 			super.onBackPressed();
 		}
-	    
-	    
+	    	    
 		
 	    private void showMarker(double lat, double lng, boolean origin){
 	    	if (origin){

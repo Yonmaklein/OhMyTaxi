@@ -4,17 +4,12 @@ package com.example.ohmytaxi.activities;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ohmytaxi.db.BBDDHelper;
+import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.db.MyRoutesAdapter;
 import com.example.ohmytaxi.db.MyRoutesCursorAdapter;
-import com.example.ohmytaxi.R;
 
 public class MyRoutesActivity extends ListActivity{
 	
