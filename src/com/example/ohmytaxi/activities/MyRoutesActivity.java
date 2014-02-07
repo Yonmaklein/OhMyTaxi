@@ -4,6 +4,7 @@ package com.example.ohmytaxi.activities;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -24,6 +25,7 @@ public class MyRoutesActivity extends ListActivity{
       setContentView(R.layout.activity_myroutes);
  
       lista = (ListView) findViewById(android.R.id.list);
+      
  
       dbAdapter = new MyRoutesAdapter(this);
       dbAdapter.abrir();

@@ -2,6 +2,7 @@ package com.example.ohmytaxi.db;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v4.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MyRoutesCursorAdapter extends CursorAdapter{
 	   {
 	      final LayoutInflater inflater = LayoutInflater.from(context);
 	      final View view = inflater.inflate(android.R.layout.simple_dropdown_item_1line, parent, false);
-	 
+	      ((TextView) view).setTextColor(Color.BLACK);
 	      return view;
 	   }
 

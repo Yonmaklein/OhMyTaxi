@@ -122,7 +122,7 @@ public class MenuActivity extends Activity {
 	}
 
 	public void showMyRoutesScreen(){
-		Intent i = new Intent(this, MyRoutesActivity.class);  
+		Intent i = new Intent(this, UsuariosMainActivity.class);  
 		startActivity(i);
 		finish();
 	}

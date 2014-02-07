@@ -31,7 +31,7 @@ public class BBDDHelper extends SQLiteOpenHelper{
 	      Log.i(this.getClass().toString(), "Creando base de datos");
 	    
 	      db.execSQL( "CREATE TABLE MISRUTAS(" +
-	             " _id INTEGER PRIMARY KEY," +
+	             " _id INTEGER PRIMARY KEY AUTOINCREMENT," +
 	             " fecha TEXT NOT NULL, " +
 	             " km TEXT, " +
 	             " precio TEXT," +
@@ -42,17 +42,12 @@ public class BBDDHelper extends SQLiteOpenHelper{
 	    
 	      Log.i(this.getClass().toString(), "Tabla MISRUTAS creada");
 	    
-	      /*
-	       * Insertamos datos iniciales
+	     //Insertamos datos iniciales
 	      
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(1,'Santander')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(2,'BBVA')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(3,'La Caixa')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(4,'Cajamar')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(5,'Bankia')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(6,'Banco Sabadell')");
-	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha) VALUES(7,'Banco Popular')");
-	    */
+	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha, km, precio, origen, destino) VALUES(_id,'12/02/2014', '23,98', '12.09 E', 'Madrid', 'Talavera')");
+	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha, km, precio, origen, destino) VALUES(_id,'13/02/2014', '89.0', '98.3 E', 'Calle Oso', 'Mostoles')");	      
+	      db.execSQL("INSERT INTO MISRUTAS(_id, fecha, km, precio, origen, destino) VALUES(_id,'14/02/2014', '28.5', '61.09 E', 'Atocha', 'Aravaca')");
+	      
 	      Log.i(this.getClass().toString(), "Datos iniciales MIS RUTAS insertados");
 	    
 	      Log.i(this.getClass().toString(), "Base de datos creada");
