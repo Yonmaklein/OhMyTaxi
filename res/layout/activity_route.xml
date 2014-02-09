@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:screenOrientation="portrait"
+    android:orientation="vertical"    
     tools:context=".MainActivity" >
 
     <fragment
@@ -13,4 +12,52 @@
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment" />
 
+    <RelativeLayout
+        android:id="@+id/map_buttons_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
+        <Button
+            android:id="@+id/buttonBack"
+            style="?android:attr/buttonStyleSmall"
+            android:background="#FACC2E"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="17dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/modify" />
+
+        <Button
+            android:id="@+id/buttonSave"
+            style="?android:attr/buttonStyleSmall"
+            android:background="#FACC2E"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonBack"
+            android:layout_alignBottom="@+id/buttonBack"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28dp"
+            android:text="@string/save" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/buttonBack"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/buttonSave"
+            android:layout_centerHorizontal="false"
+            android:layout_marginTop="16dp"
+            android:background="#FACC2E"
+            android:text="Large Text"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </RelativeLayout>
+    
 </RelativeLayout>

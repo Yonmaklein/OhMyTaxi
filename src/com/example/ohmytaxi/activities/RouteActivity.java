@@ -27,6 +27,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
@@ -60,6 +64,8 @@ public class RouteActivity extends FragmentActivity  {
       //private MarkerOptions markerOptions;
       Location location;
       private float distance;
+      private Button buttonBack;
+      private Button buttonSave;
       
       
       
@@ -71,7 +77,21 @@ public class RouteActivity extends FragmentActivity  {
             SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
             .findFragmentById(R.id.map);
             mGoogleMap = supportMapFragment.getMap();
+            buttonSave		 = (Button) findViewById(R.id.buttonSave);
+            buttonBack		 = (Button) findViewById(R.id.buttonBack);
+            buttonBack.setOnClickListener(new OnClickListener() {
+            	public void onClick(View view){
+            		showPointsScreen();
+            	}
+            });
+            buttonSave.setOnClickListener(new OnClickListener() {
+            	public void onClick(View view){
+            		showSaveScreen();
+            	}
+            });
             
+            
+
             
 	    	Bundle bundle = getIntent().getExtras();	
 	    	fromPosition = new LatLng (bundle.getDouble("source lat"), bundle.getDouble("source lon"));
@@ -173,8 +193,17 @@ public class RouteActivity extends FragmentActivity  {
 			super.onBackPressed();
 	  }
       
-                  
       
+		public void showPointsScreen(){
+			Intent intent = new Intent(getBaseContext().getApplicationContext(), PointsActivity.class);  
+			startActivity(intent);
+			finish();
+		}
+	  
+		public void showSaveScreen(){
+	
+		}
+		
       
       private class GetRouteTask extends AsyncTask<String, Void, String> {
            

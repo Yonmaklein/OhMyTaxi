@@ -27,4 +27,7 @@
     
     <string name="lista_vacia">No hay elementos en la lista</string>
     <string name="loading_route">Cargando ruta...</string>
+    
+    <string name="save">Guardar</string>
+    <string name="modify">Modificar</string>
 </resources>
