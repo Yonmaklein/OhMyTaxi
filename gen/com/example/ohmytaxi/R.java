@@ -244,10 +244,10 @@ containing a value of this type.
         public static final int normal=0x7f060001;
         public static final int satellite=0x7f060002;
         public static final int terrain=0x7f060003;
-        public static final int textView1=0x7f060016;
         public static final int tvHelp=0x7f060005;
         public static final int tvPointA=0x7f06000d;
         public static final int tvPointB=0x7f060011;
+        public static final int tvTextData=0x7f060016;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;

@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
@@ -66,6 +67,7 @@ public class RouteActivity extends FragmentActivity  {
       private float distance;
       private Button buttonBack;
       private Button buttonSave;
+      private TextView textData;
       
       
       
@@ -89,7 +91,8 @@ public class RouteActivity extends FragmentActivity  {
             		showSaveScreen();
             	}
             });
-            
+            textData = (TextView) findViewById(R.id.tvTextData);
+
             
 
             
@@ -102,7 +105,7 @@ public class RouteActivity extends FragmentActivity  {
 
             // Enabling MyLocation in Google Map
             mGoogleMap.setMyLocationEnabled(true);
-            mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
+            mGoogleMap.getUiSettings().setZoomControlsEnabled(false);
             mGoogleMap.getUiSettings().setCompassEnabled(true);
             mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
             mGoogleMap.getUiSettings().setAllGesturesEnabled(true);
@@ -138,6 +141,8 @@ public class RouteActivity extends FragmentActivity  {
             
             TaxResults tax = new TaxResults(fromPosition, toPosition, distance);
             Log.i("PRECIO",String.valueOf(tax.getPrice()));
+            textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");
+            
       }
 
       

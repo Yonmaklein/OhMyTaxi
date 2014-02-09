@@ -91,10 +91,10 @@ int id none 0x7f060000
 int id normal 0x7f060001
 int id satellite 0x7f060002
 int id terrain 0x7f060003
-int id textView1 0x7f060016
 int id tvHelp 0x7f060005
 int id tvPointA 0x7f06000d
 int id tvPointB 0x7f060011
+int id tvTextData 0x7f060016
 int integer google_play_services_version 0x7f080000
 int layout activity_help 0x7f030000
 int layout activity_map 0x7f030001
