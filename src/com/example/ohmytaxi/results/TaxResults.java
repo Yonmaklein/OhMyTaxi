@@ -12,6 +12,9 @@ public class TaxResults {
 
 	private LatLng origin;
 	private LatLng destination;
+	private LatLng medPoint2;
+	private LatLng medPoint3;
+	private LatLng medPoint4;
 	private double price;
 	private float distance;
 	private int hour;
@@ -39,6 +42,9 @@ public class TaxResults {
 		this.origin = origin;
 		this.destination = destination;
 	    
+		medPoint3 = new LatLng ((origin.latitude + destination.latitude)/2, (origin.longitude + destination.longitude)/2); 
+		medPoint2 = new LatLng ((origin.latitude + medPoint3.latitude)/2, (origin.longitude + medPoint3.longitude)/2);		
+		medPoint4 = new LatLng ((medPoint3.latitude + destination.latitude)/2, (medPoint3.longitude + destination.longitude)/2);
 	    
 		cal = Calendar.getInstance(); 
 		cal.setFirstDayOfWeek(Calendar.MONDAY);	
@@ -52,65 +58,6 @@ public class TaxResults {
 
 
 	}
-	
-	
-	public double getPrice(){
-		// TARIFA 4
-		if ((((isPointInPolygon(origin,airport)) && (isPointInPolygon(destination,m30))))||
-			((isPointInPolygon(destination,airport)) && (isPointInPolygon(origin,m30)))){
-			price = (float) 30.0;
-		// TARIFA 5	
-		}else{
-			if ((isPointInPolygon(origin,airport))&&(!isPointInPolygon(destination,m30))){
-				if (distance <= 10.0){
-					price = 20.0;
-				}else{
-					price = 20.0 + pricePerKm(destination) * (distance - 10.0);
-				}						
-			}else{
-				if (isDaily()){
-					
-					
-					
-				}else{
-					
-					
-					
-					
-				}
-				
-				
-				
-			}
-			
-			price = price + getSupplements();
-		}
-		return price;
-	}
-	
-	
-	public boolean isDaily(){
-		return ((day != Calendar.SATURDAY) && (day != Calendar.SUNDAY)) &&
-				((hour >= 6) && (hour < 21)); 	
-	}
-	
-
-	public float pricePerKm (LatLng point){
-		if(isDaily()){
-			if(isPointInPolygon(point,aZone)){
-				return (float) 1.05;
-			}else{
-				return (float) 1.20;
-			}
-		}else{
-			if(isPointInPolygon(point,aZone)){
-				return (float) 1.20;
-			}else{
-				return (float) 1.25;
-			}
-		}
-	}
-
 	
 	
 	public void createPolygons(){
@@ -188,34 +135,108 @@ public class TaxResults {
 	    ifema.add(new LatLng(40.471649,-3.613132));	   
 	    
 	    aZone = new ArrayList <LatLng>();
-	    aZone.add(new LatLng(40.2212285,-3.4386199));	
-	    aZone.add(new LatLng(40.2027249,-3.43133794)); 
-	    aZone.add(new LatLng(40.19291736,-3.42287848));
-	    aZone.add(new LatLng(40.19597215,-3.38419536));
-	    aZone.add(new LatLng(40.23355022,-3.32197179));
-	    aZone.add(new LatLng(40.24328089,-3.3116857));
-	    aZone.add(new LatLng(40.24456554,-3.34270968));
-	    aZone.add(new LatLng(40.25286145,-3.34556397));
-	    aZone.add(new LatLng(40.26494702,-3.31530789));
-	    aZone.add(new LatLng(40.29537941,-3.32590212));
-	    aZone.add(new LatLng(40.30440499,-3.39264431));
-	    aZone.add(new LatLng(40.3119292,-3.39509684));
-	    aZone.add(new LatLng(40.3152441,-3.45521907)); 
-	    aZone.add(new LatLng(40.28277377,-3.49515911)); 
-	    aZone.add(new LatLng(40.27469647,-3.4823058)); 
-	    aZone.add(new LatLng(40.26350403,-3.4791145)); 
-	    aZone.add(new LatLng(40.26370375,-3.45586742));
-	    aZone.add(new LatLng(40.25431922,-3.4600576)); 
-	    aZone.add(new LatLng(40.2544757,-3.46378915)); 
-	   	aZone.add(new LatLng(40.2446571,-3.46110295)); 
-	    aZone.add(new LatLng(40.23365972,-3.4750453)); 
-	    aZone.add(new LatLng(40.23416499,-3.49440414));
-	    aZone.add(new LatLng(40.21498895,-3.48262288));
-	    aZone.add(new LatLng(40.2222964,-3.48143352)); 
-	    aZone.add(new LatLng(40.2133515,-3.4756102)); 
-	    aZone.add(new LatLng(40.21281085,-3.45169765)); 
-	    aZone.add(new LatLng(40.2212285,-3.4386199));
+	    aZone.add(new LatLng(40.368103,-3.718328));
+	    aZone.add(new LatLng(40.335358,-3.720688));
+	 	aZone.add(new LatLng(40.323832,-3.708112));
+	    aZone.add(new LatLng(40.332893,-3.647026));
+	    aZone.add(new LatLng(40.408953,-3.51711));
+	    aZone.add(new LatLng(40.41324,-3.574613));
+	    aZone.add(new LatLng(40.427292,-3.582313));
+	    aZone.add(new LatLng(40.438949,-3.571578));
+	    aZone.add(new LatLng(40.448265,-3.529888));
+	    aZone.add(new LatLng(40.500371,-3.55147));
+	    aZone.add(new LatLng(40.511439,-3.654169));
+	    aZone.add(new LatLng(40.525828,-3.672761));
+	    aZone.add(new LatLng(40.528925,-3.773798));
+	    aZone.add(new LatLng(40.475483,-3.832323));
+	    aZone.add(new LatLng(40.46246,-3.798535));
+	    aZone.add(new LatLng(40.444329,-3.78476));
+	    aZone.add(new LatLng(40.44486,-3.767408));
+	    aZone.add(new LatLng(40.42911,-3.767772));
+	    aZone.add(new LatLng(40.416199,-3.777384));
+	    aZone.add(new LatLng(40.402561,-3.771807));
+	    aZone.add(new LatLng(40.391242,-3.792273));
+	    aZone.add(new LatLng(40.395534,-3.830254));
+	    aZone.add(new LatLng(40.365449,-3.806599));
+	    aZone.add(new LatLng(40.360622,-3.785414));
+	    aZone.add(new LatLng(40.357927,-3.754504));
+	    aZone.add(new LatLng(40.368103,-3.718328));	    
 	}
+	
+	
+	
+	
+	
+	public boolean isDaily(){
+		return ((day != Calendar.SATURDAY) && (day != Calendar.SUNDAY)) &&
+				((hour >= 6) && (hour < 21)); 	
+	}
+	
+	
+	public double getPrice(){
+		// TARIFA 4
+		if ((((isPointInPolygon(origin,airport)) && (isPointInPolygon(destination,m30)))) ||
+			((isPointInPolygon(destination,airport)) && (isPointInPolygon(origin,m30)))){
+			price = (float) 30.0;
+		// TARIFA 5	
+		}else{
+			if ((isPointInPolygon(origin,airport))&&(!isPointInPolygon(destination,m30))){
+				if (distance <= 10.0){
+					price = 20.0;
+				}else{
+					price = 20.0 + pricePerKm() * (distance - 10.0);    // atención
+					Log.i("PRECIO POR KM", Float.toString(pricePerKm()));
+				}						
+			}else{					
+				price = distance + pricePerKm();   // atención
+				Log.i("PRECIO POR KM", Float.toString(pricePerKm()));
+			}			
+			price = price + getSupplements();
+		}
+		return price;
+	}
+	
+	
+	public float pricePerKm (){        //    O*------1------2------3------*D
+		int a = 0;
+		int b = 0;
+		if (isPointInPolygon(origin, aZone)){
+			a++;
+		}else{
+			b++;
+		}
+		if (isPointInPolygon(medPoint2, aZone)){
+			a++;
+		}else{
+			b++;
+		}
+		if (isPointInPolygon(medPoint3, aZone)){
+			a++;
+		}else{
+			b++;
+		}
+		if (isPointInPolygon(medPoint4, aZone)){
+			a++;
+		}else{
+			b++;
+		}
+		if (isPointInPolygon(destination, aZone)){
+			Log.i("Destino", "dentro");
+			a++;
+		}else{
+			b++;
+			Log.i("Destino", "fuera");
+		}
+		Log.i("A", Integer.toString(a));
+		Log.i("B", Integer.toString(b));
+		if(isDaily()){				
+			return (float) (a * 1.05 + b * 1.20) / 5;		
+		}else{
+			return (float) (a * 1.20 + b * 1.25) / 5;		
+		}
+	}
+
+	
 	
 	
 
@@ -237,30 +258,43 @@ public class TaxResults {
 	
 
 	public float getSupplements(){
+		if (isDaily()){
+			supplement = (float) 2.40;	
+			Log.i("AÑADIDO", "2.40");
+		}else{
+			supplement = (float) 2.90;
+			Log.i("AÑADIDO", "2.90");
+		}
 		if (isPointInPolygon(destination,airport)){
-			supplement = (float) (supplement + 5.50);			
+			supplement = (float) (supplement + 5.50);		
+			Log.i("AÑADIDO", "5.50");
 		}
 		if ((isPointInPolygon(origin,chamartin)) || (isPointInPolygon(origin,avAmerica)) || 
 			(isPointInPolygon(origin,atocha)) || (isPointInPolygon(origin,mendezAlvaro))){
 			supplement = (float) (supplement + 3.00);
+			Log.i("AÑADIDO", "3.00");
 		}
 		if ((isPointInPolygon(origin,ifema)) || (isPointInPolygon(destination,ifema))){
-			supplement = (float) (supplement + 3.00);			
+			supplement = (float) (supplement + 3.00);
+			Log.i("AÑADIDO", "3.00");
 		}	
 		if(month == 12){
 			if ((dayOfMonth == 24) || (dayOfMonth == 31)){
 				if (((hour == 20) && (minutes > 30)) || ((hour >= 21)))  {
 					supplement = (float) (supplement + 6.70);
+					Log.i("AÑADIDO1", "6.70");
 				}
 			}
 			if (dayOfMonth == 25){
 				if ((hour < 6) || (((hour == 5) && (minutes < 30)))   ){
 					supplement = (float) (supplement + 6.70);
+					Log.i("AÑADIDO2", "6.70");
 				}
 			}
 		}
-		if (((month == 1) && (hour <6)) || ((hour == 5) && (minutes < 30))){
+		if (((month == 1) && (dayOfMonth ==1) && ((hour <6)) || ((hour == 5) && (minutes < 30)))){
 			supplement = (float) (supplement + 6.70);
+			Log.i("AÑADIDO3", "6.70");
 		}
 		return supplement;
 	}
