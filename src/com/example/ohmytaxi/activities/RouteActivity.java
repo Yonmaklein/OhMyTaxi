@@ -30,6 +30,7 @@ import android.util.Log;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
+import com.example.ohmytaxi.results.TaxResults;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -58,6 +59,7 @@ public class RouteActivity extends FragmentActivity  {
       private GoogleMap mGoogleMap;
       //private MarkerOptions markerOptions;
       Location location;
+      private float distance;
       
       
       
@@ -98,15 +100,24 @@ public class RouteActivity extends FragmentActivity  {
             CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);	    	 
             mGoogleMap.animateCamera(camUpd3);
             
-            
-            
+
                    
            // mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
             //markerOptions = new MarkerOptions();
             GetRouteTask getRoute = new GetRouteTask();
             getRoute.execute();
-           
-            Log.i("DISTANCIA",getDistance(fromPosition.latitude,fromPosition.longitude,toPosition.latitude,toPosition.longitude));
+            String dst = getDistance(fromPosition.latitude,fromPosition.longitude,toPosition.latitude,toPosition.longitude);
+         
+            
+            
+            String newdst = new String(dst.replaceAll(" km", "").trim());
+            Log.i("DISTANCIA",newdst);
+            distance = Float.parseFloat(newdst);
+            
+            
+            
+            TaxResults tax = new TaxResults(fromPosition, toPosition, distance);
+            Log.i("PRECIO",String.valueOf(tax.getPrice()));
       }
 
       
@@ -140,6 +151,7 @@ public class RouteActivity extends FragmentActivity  {
     	    } catch (Exception e) {
     	        e.printStackTrace();
     	    }
+    	    Log.i("DISTANCIA", result_in_kms);
     	    return result_in_kms;
     	}
       

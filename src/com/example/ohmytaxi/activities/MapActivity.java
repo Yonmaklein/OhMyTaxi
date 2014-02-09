@@ -68,17 +68,58 @@ import com.google.android.gms.maps.model.PolygonOptions;
 	    	map.animateCamera(camUpd3);
 	    	map.getUiSettings().setZoomControlsEnabled(false);
 	    	
-	    	Polygon polygon = map.addPolygon(new PolygonOptions() 
-	    	   .add(new LatLng(40.482993,-3.674848), new LatLng(40.481067,-3.685362), new LatLng(40.484853,-3.695318), 
+	    Polygon polygon = map.addPolygon(new PolygonOptions().add( 
+	    
+	    
+	    
+	    		
+	    		
+	    		new LatLng(40.368103,-3.718328),
+	    		new LatLng(40.335358,-3.720688),
+	    		new LatLng(40.323832,-3.708112),
+	    		new LatLng(40.332893,-3.647026),
+	    		new LatLng(40.408953,-3.51711),
+	    		new LatLng(40.41324,-3.574613),
+	    		new LatLng(40.427292,-3.582313),
+	    		new LatLng(40.438949,-3.571578),
+	    		new LatLng(40.448265,-3.529888),
+	    		new LatLng(40.500371,-3.55147),
+	    		new LatLng(40.511439,-3.654169),
+	    		new LatLng(40.525828,-3.672761),
+	    		new LatLng(40.528925,-3.773798),
+	    		new LatLng(40.475483,-3.832323),
+	    		new LatLng(40.46246,-3.798535),
+	    		new LatLng(40.444329,-3.78476),
+	    		new LatLng(40.44486,-3.767408),
+	    		new LatLng(40.42911,-3.767772),
+	    		new LatLng(40.416199,-3.777384),
+	    		new LatLng(40.402561,-3.771807),
+	    		new LatLng(40.391242,-3.792273),
+	    		new LatLng(40.395534,-3.830254),
+	    		new LatLng(40.365449,-3.806599),
+	    		new LatLng(40.360622,-3.785414),
+	    		new LatLng(40.357927,-3.754504),
+	    		new LatLng(40.368103,-3.718328))
+	    		
+	    		
+	    		
+	    		
+	 
+	
+ 	   .strokeColor(Color.RED)
+ 	   .fillColor(Color.BLUE));
+ 	RectF bounds;
+ 	
+ }
+
+	    
+	    
+	    
+	    /*	   .add(new LatLng(40.482993,-3.674848), new LatLng(40.481067,-3.685362), new LatLng(40.484853,-3.695318), 
 	    			   new LatLng(40.479141,-3.716053), new LatLng(40.472547,-3.727898), new LatLng(40.473657,-3.749306),
 	    			   new LatLng(40.430452,-3.736302), new LatLng(40.420619,-3.721718), new LatLng(40.401274,-3.720688),
 	    			   new LatLng(40.38892,-3.684811), new LatLng(40.395195,-3.673395), new LatLng(40.418266,-3.659662),
-	    			   new LatLng(40.443485,-3.660864), new LatLng(40.482993,-3.674848))
-	    	   .strokeColor(Color.RED)
-	    	   .fillColor(Color.BLUE));
-	    	RectF bounds;
-	    	
-	    }
+	    			   new LatLng(40.443485,-3.660864), new LatLng(40.482993,-3.674848))*/
 
 	    
 	    

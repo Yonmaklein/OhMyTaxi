@@ -16,8 +16,8 @@ public class MyLocationListener implements LocationListener{
 		loc.getLongitude();*/
 	/*	setLat(loc.getLatitude());
 		setLon(loc.getLongitude());*/
-		String coordenadas = "Mis coordenadas son: Latitud = " + loc.getLatitude() + "Longitud = " + loc.getLongitude();
-		Log.i("GPS", coordenadas);
+		//String coordenadas = "Mis coordenadas son: Latitud = " + loc.getLatitude() + "Longitud = " + loc.getLongitude();
+		//Log.i("GPS", coordenadas);
 	/*	Log.i("LATITUD", String.valueOf(getLat()));
 		Log.i("LONGITUD", String.valueOf(getLon()));*/
 		//Toast.makeText( getApplicationContext(),coordenadas,Toast.LENGTH_LONG).show();

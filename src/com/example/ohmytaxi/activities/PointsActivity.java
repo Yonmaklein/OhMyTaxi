@@ -37,6 +37,8 @@ public class PointsActivity extends Activity {
 	private Button btSearch;
 	private LatLng sourceLocation;
 	private LatLng destinationLocation;
+	private String sourceCommunity;
+	
 
 	
 	
@@ -70,10 +72,16 @@ public class PointsActivity extends Activity {
 	 		 				if (source == null){
 	 		 					showToastToUser("No es posible acceder a tu ubicación en este momento");
 	 		 					showToastToUser("Introduce tu dirección de origen manualmente");
-	 		 					checkMyPosition.setEnabled(true);
-	 		 				}else{
-	 		 					etPointA.setText(source);
-	 		 				}
+	 		 					checkMyPosition.setChecked(false);
+	 		 					etPointA.setEnabled(true);
+	 		 				}else if (!sourceCommunity.contains("Madrid")){
+	 		 					  	  showToastToUser("El origen ha de pertenecer a Madrid");
+	 		 						  etPointA.setText("");
+	 		 						  etPointA.setEnabled(true);
+	 		 						  checkMyPosition.setChecked(false);	 		 						
+	 		 					  }else{
+	 		 						  etPointA.setText(source);
+	 		 					  }	 		 						 		 				
 	 					 }
 	 				else{
 	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
@@ -177,12 +185,12 @@ public class PointsActivity extends Activity {
 
 	
 	
-	public String getAddressFromLocation(double sourceLatitude2, double sourceLongitude2){
+	public String getAddressFromLocation(double sourceLatitude, double sourceLongitude){
 		Geocoder geocoder;
 		List<Address> addresses = null;
 		geocoder = new Geocoder(this, Locale.getDefault());
 		try {
-			addresses = geocoder.getFromLocation(sourceLatitude2, sourceLongitude2, 1);
+			addresses = geocoder.getFromLocation(sourceLatitude, sourceLongitude, 1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -192,10 +200,11 @@ public class PointsActivity extends Activity {
 		}else{
 			String address = addresses.get(0).getAddressLine(0);
 			String city = addresses.get(0).getAddressLine(1);
+			sourceCommunity = addresses.get(0).getAddressLine(2);
+			Log.i("COMUNIDAD", addresses.get(0).getAddressLine(2));
 			//String country = addresses.get(0).getAddressLine(2);
 			return address + " " + city;		
-		}
-	
+		}	
 	}
 	
 	
