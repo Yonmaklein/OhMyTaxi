@@ -66,25 +66,26 @@ public class PointsActivity extends Activity {
 	 				}
 	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
-	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-	 						sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());	 		 		
-	 		 				String source = getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude);
-	 		 				if (source == null){
+	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);	 							 		 		
+	 		 				if (myPosition == null){
 	 		 					showToastToUser("No es posible acceder a tu ubicación en este momento");
 	 		 					showToastToUser("Introduce tu dirección de origen manualmente");
 	 		 					checkMyPosition.setChecked(false);
 	 		 					etPointA.setEnabled(true);
-	 		 				}else if (!sourceCommunity.contains("Madrid")){
+	 		 				}else{ 
+	 		 					sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());
+	 		 					String source = getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude);
+	 		 					if (!sourceCommunity.contains("Madrid")){
 	 		 					  	  showToastToUser("El origen ha de pertenecer a Madrid");
 	 		 						  etPointA.setText("");
 	 		 						  etPointA.setEnabled(true);
 	 		 						  checkMyPosition.setChecked(false);	 		 						
-	 		 					  }else{
+	 		 					}else{
 	 		 						  etPointA.setText(source);
-	 		 					  }	 		 						 		 				
-	 					 }
-	 				else{
-	 					etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
+	 		 					}	 	
+	 		 				}
+	 					 }else{
+	 						 etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);

@@ -16,7 +16,7 @@ public class TaxResults {
 	private LatLng medPoint3;
 	private LatLng medPoint4;
 	private double price;
-	private float distance;
+	private double distance;
 	private int hour;
 	private int minutes;
 	private int day;
@@ -36,7 +36,7 @@ public class TaxResults {
 	
 	
 	
-	public TaxResults (LatLng origin, LatLng destination, float distance){
+	public TaxResults (LatLng origin, LatLng destination, double distance){
 
 		this.distance = distance;
 		this.origin = origin;

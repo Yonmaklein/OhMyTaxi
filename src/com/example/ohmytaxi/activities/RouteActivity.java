@@ -25,12 +25,12 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.ohmytaxi.R;
@@ -64,7 +64,7 @@ public class RouteActivity extends FragmentActivity  {
       private GoogleMap mGoogleMap;
       //private MarkerOptions markerOptions;
       Location location;
-      private float distance;
+      private double distance;
       private Button buttonBack;
       private Button buttonSave;
       private TextView textData;
@@ -73,6 +73,10 @@ public class RouteActivity extends FragmentActivity  {
       
       @Override
       protected void onCreate(Bundle savedInstanceState) {
+    	  
+    	  	StrictMode.ThreadPolicy policy = new StrictMode.
+    	  	ThreadPolicy.Builder().permitAll().build();
+       	    StrictMode.setThreadPolicy(policy);    	  
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_route);
             v2GetRouteDirection = new GMapV2GetRouteDirection();
@@ -130,12 +134,13 @@ public class RouteActivity extends FragmentActivity  {
             GetRouteTask getRoute = new GetRouteTask();
             getRoute.execute();
             String dst = getDistance(fromPosition.latitude,fromPosition.longitude,toPosition.latitude,toPosition.longitude);
-         
+            Log.i("DST", dst);
             
             
             String newdst = new String(dst.replaceAll(" km", "").trim());
             Log.i("DISTANCIA",newdst);
-            distance = Float.parseFloat(newdst);
+            System.out.println(newdst);
+            distance = Double.valueOf(newdst);
             
             
             
