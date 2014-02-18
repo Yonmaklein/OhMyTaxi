@@ -28,20 +28,21 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
 import com.example.ohmytaxi.results.TaxResults;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.maps.GeoPoint;
@@ -62,7 +63,6 @@ public class RouteActivity extends FragmentActivity  {
       private LatLng fromPosition;
       private LatLng toPosition;
       private GoogleMap mGoogleMap;
-      //private MarkerOptions markerOptions;
       Location location;
       private double distance;
       private Button buttonBack;
@@ -116,21 +116,20 @@ public class RouteActivity extends FragmentActivity  {
             mGoogleMap.setTrafficEnabled(true);
             
             
-       
-
-            CameraPosition camPos = new CameraPosition.Builder()
-	        .target(new LatLng((fromPosition.latitude + toPosition.latitude)/2,(fromPosition.longitude + toPosition.longitude)/2  ))   //Centramos el mapa en Madrid
-	        .zoom(14)         //Establecemos el zoom en 14
-	        .bearing(0)      //Establecemos la orientación con el norte arriba
-	        .tilt(20)         //Bajamos el punto de vista de la cámara 20 grados
-	        .build();	    	 
-            CameraUpdate camUpd3 = CameraUpdateFactory.newCameraPosition(camPos);	    	 
-            mGoogleMap.animateCamera(camUpd3);
             
+            Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+            int width = display.getWidth();
+            int height = display.getHeight();
 
-                   
-           // mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(12));
-            //markerOptions = new MarkerOptions();
+            LatLngBounds bounds = new LatLngBounds(            			 
+            			new LatLng(Math.min(fromPosition.latitude, toPosition.latitude),
+            					   Math.min(fromPosition.longitude, toPosition.longitude)),
+            			new LatLng(Math.max(fromPosition.latitude, toPosition.latitude),
+                    			   Math.max(fromPosition.longitude, toPosition.longitude)));
+            mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width - 120, height - 120, 0));
+   
+
+
             GetRouteTask getRoute = new GetRouteTask();
             getRoute.execute();
             String dst = getDistance(fromPosition.latitude,fromPosition.longitude,toPosition.latitude,toPosition.longitude);
@@ -150,6 +149,8 @@ public class RouteActivity extends FragmentActivity  {
             
       }
 
+      
+      
       
       public String getDistance(double lat1, double lon1, double lat2, double lon2) {
     	    String result_in_kms = "";
@@ -240,7 +241,7 @@ public class RouteActivity extends FragmentActivity  {
             	mGoogleMap.clear();
                 if(response.equalsIgnoreCase("Success")){
                 	ArrayList<LatLng> directionPoint = v2GetRouteDirection.getDirection(document);
-                	PolylineOptions rectLine = new PolylineOptions().width(6).color(Color.RED);
+                	PolylineOptions rectLine = new PolylineOptions().width(8).color(Color.RED);
                 	for (int i = 0; i < directionPoint.size(); i++) {
                 		rectLine.add(directionPoint.get(i));
                 	}
