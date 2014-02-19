@@ -265,7 +265,7 @@ public class RouteActivity extends FragmentActivity  {
       	  		}else{
       	  			mGoogleMap.addMarker(new MarkerOptions()
       	  			.position(position)
-      	  			.title("Destino"));
+      	  			.title("Destino")).showInfoWindow();
       	  		}
       	  	}
       }

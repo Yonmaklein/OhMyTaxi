@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+
+android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/back_row_palyquemessage" android:gravity="bottom">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout02"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rl01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/three"
+                        android:gravity="top|center"
+                        android:paddingBottom="@dimen/three"
+                        android:paddingLeft="@dimen/three"
+                        android:paddingRight="@dimen/three"
+                        android:paddingTop="@dimen/three"
+                        android:text="@string/stops"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/black"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_vertical|fill_horizontal"
+                        android:layout_margin="@dimen/five"
+                        android:gravity="bottom"
+                        android:padding="@dimen/three"
+                        android:paddingLeft="@dimen/ten"
+                        android:text="@string/stops"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/three"
+                        android:clickable="false"
+                        android:gravity="top|center"
+                        android:padding="@dimen/three"
+                        android:paddingBottom="@dimen/three"
+                        android:paddingLeft="@dimen/three"
+                        android:paddingRight="@dimen/three"
+                        android:paddingTop="@dimen/three"
+                        android:text="@string/stops"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/green"
+                        android:textColorHint="@color/black"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/TextView02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_vertical|fill_horizontal"
+                        android:layout_margin="@dimen/five"
+                        android:gravity="bottom"
+                        android:padding="@dimen/three"
+                        android:paddingLeft="@dimen/ten"
+                        android:text="@string/stops"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/settings" />
+                    
+                    <TextView
+                        android:id="@+id/TextView03"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="fill_vertical|fill_horizontal"                 
+                        android:gravity="bottom"
+                        android:padding="@dimen/three"              
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/black" />
+                        
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
