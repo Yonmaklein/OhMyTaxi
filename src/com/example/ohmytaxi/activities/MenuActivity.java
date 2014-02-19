@@ -114,7 +114,7 @@ public class MenuActivity extends Activity {
 	        /*Intent intent = new Intent(Settings.ACTION_SECURITY_SETTINGS);
 	           startActivity(intent);*/
 	    	Toast warningMessage = Toast.makeText(getApplicationContext(),
-                  "Activa los servicios de localización en tu dispositivo", Toast.LENGTH_LONG);	    	
+                 getResources().getString(R.string.activate_loc_services), Toast.LENGTH_LONG);	    	
 			warningMessage.show();  	
 			 startActivityForResult(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS), 0);
 

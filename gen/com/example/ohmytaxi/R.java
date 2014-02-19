@@ -317,6 +317,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001b;
+        public static final int activate_loc_services=0x7f07002f;
         public static final int app_name=0x7f07001a;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -342,6 +343,7 @@ containing a value of this type.
          */
         public static final int auth_client_using_bad_version_title=0x7f070014;
         public static final int calculate=0x7f07001d;
+        public static final int check_conf_location=0x7f070033;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -414,10 +416,15 @@ containing a value of this type.
          */
         public static final int common_signin_button_text_long=0x7f070013;
         public static final int destination=0x7f070026;
+        public static final int destination_not_exists=0x7f070037;
         public static final int exit=0x7f070022;
         public static final int hello_world=0x7f07001c;
         public static final int help=0x7f070020;
         public static final int help_text=0x7f070029;
+        public static final int introduce_address_manually=0x7f070035;
+        public static final int introduce_destination_address=0x7f070031;
+        public static final int introduce_origin_address=0x7f070030;
+        public static final int introduce_origin_destination=0x7f070032;
         public static final int language=0x7f070023;
         public static final int language_text=0x7f070024;
         public static final int lista_vacia=0x7f07002a;
@@ -425,6 +432,10 @@ containing a value of this type.
         public static final int modify=0x7f07002d;
         public static final int myposition=0x7f070027;
         public static final int mystops=0x7f070028;
+        public static final int not_able_to_locate=0x7f070034;
+        public static final int origin=0x7f07002e;
+        public static final int origin_must_madrid=0x7f070036;
+        public static final int origin_not_exists=0x7f070038;
         public static final int routes=0x7f07001e;
         public static final int save=0x7f07002c;
         public static final int settings=0x7f070021;

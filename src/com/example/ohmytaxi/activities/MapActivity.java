@@ -135,12 +135,12 @@ import com.google.android.gms.maps.model.PolygonOptions;
 	    	if (origin){
 	    		map.addMarker(new MarkerOptions()
 	            	.position(new LatLng(lat, lng))
-	            	.title("Origen"));
+	            	.title(getResources().getString(R.string.origin)));
 	    	}
 	    	else{
 	    		 map.addMarker(new MarkerOptions()
 		            .position(new LatLng(lat, lng))
-		            .title("Destino"));
+		            .title(getResources().getString(R.string.destination)));
 	    	}
 	    }
 	    

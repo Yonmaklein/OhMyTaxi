@@ -39,10 +39,6 @@ public class PointsActivity extends Activity {
 	private LatLng destinationLocation;
 	private String sourceCommunity;
 	
-
-	
-	
-	
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +64,15 @@ public class PointsActivity extends Activity {
 	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
 	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);	 							 		 		
 	 		 				if (myPosition == null){
-	 		 					showToastToUser("No es posible acceder a tu ubicación en este momento");
-	 		 					showToastToUser("Introduce tu dirección de origen manualmente");
+	 		 					showToastToUser(getResources().getString(R.string.not_able_to_locate));
+	 		 					showToastToUser(getResources().getString(R.string.introduce_address_manually));
 	 		 					checkMyPosition.setChecked(false);
 	 		 					etPointA.setEnabled(true);
 	 		 				}else{ 
 	 		 					sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());
 	 		 					String source = getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude);
 	 		 					if (!sourceCommunity.contains("Madrid")){
-	 		 					  	  showToastToUser("El origen ha de pertenecer a Madrid");
+	 		 					  	  showToastToUser(getResources().getString(R.string.origin_must_madrid));
 	 		 						  etPointA.setText("");
 	 		 						  etPointA.setEnabled(true);
 	 		 						  checkMyPosition.setChecked(false);	 		 						
@@ -85,7 +81,7 @@ public class PointsActivity extends Activity {
 	 		 					}	 	
 	 		 				}
 	 					 }else{
-	 						 etPointA.setText("No es posible localizar el dispositivo, comprueba la configuración de localización");				
+	 						 etPointA.setText(getResources().getString(R.string.check_conf_location));				
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);
@@ -101,9 +97,9 @@ public class PointsActivity extends Activity {
         				sourceLocation = getLocationFromAddress(etPointA.getText()+"",true);
         			}
         			if (destinationLocation == null){
-        				showToastToUser("La ubicación de destino no existe");
+        				showToastToUser(getResources().getString(R.string.destination_not_exists));
         			}else if(sourceLocation == null){
-        				      showToastToUser("La ubicación de origen no existe");	
+        						showToastToUser(getResources().getString(R.string.origin_not_exists));
         				  }else{
         					  Log.i("sourcelocationLAT", String.valueOf(sourceLocation.latitude));
         					  Log.i("sourcelocationLONG", String.valueOf(sourceLocation.longitude));
@@ -122,13 +118,13 @@ public class PointsActivity extends Activity {
 
 	public boolean validFields (){		
 		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
-			showToastToUser("Introduce una dirección de origen");
+			showToastToUser(getResources().getString(R.string.introduce_origin_address));
 			return false;
 		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
-			  		showToastToUser("Introduce una dirección de destino");												        
+			  		showToastToUser(getResources().getString(R.string.introduce_destination_address));												        
 					return false;
 			  }else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
-				  		showToastToUser("Introduce el origen y el destino");
+				  		showToastToUser(getResources().getString(R.string.introduce_origin_destination));
 						return false;
 			  		}else{
 			  			return true;
@@ -152,9 +148,7 @@ public class PointsActivity extends Activity {
 		super.onBackPressed();
 	}
 
-	
-	
-	
+			
 	
 	private LatLng getLocationFromAddress (String strAddress, boolean origin){	   	 
     	Geocoder coder = new Geocoder(this);
@@ -175,11 +169,9 @@ public class PointsActivity extends Activity {
     	    		     	    		
     	    	}else{
     	    		resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   	    		
-    	    	}
-    	    	
+    	    	}    	    	
     	    }
-    	} catch (IOException e) {
-    			
+    	} catch (IOException e) {    			
     	}
 		return resultLocation;
     }

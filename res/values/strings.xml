@@ -30,4 +30,16 @@
     
     <string name="save">Guardar</string>
     <string name="modify">Modificar</string>
+    <string name="origin">Origen</string>
+    <string name="destination">Destino</string>
+ 	<string name="activate_loc_services">Activa los servicios de localización en tu dispositivo</string>    
+    <string name="introduce_origin_address">Introduce una dirección de origen</string>
+    <string name="introduce_destination_address">Introduce una dirección de destino</string>
+    <string name="introduce_origin_destination">Introduce el origen y el destino</string>
+    <string name="check_conf_location">No es posible localizar el dispositivo, comprueba la configuración de localización</string>
+    <string name="not_able_to_locate">No es posible acceder a tu ubicación en este momento</string>
+    <string name="introduce_address_manually">Introduce tu dirección de origen manualmente</string>
+    <string name="origin_must_madrid">El origen ha de pertenecer a Madrid</string>
+    <string name="destination_not_exists">La ubicación de destino no existe</string>
+    <string name="origin_not_exists">La ubicación de origen no existe</string>
 </resources>
