@@ -26,10 +26,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
-import com.example.ohmytaxi.location.MyLocationListener;
 import com.google.android.gms.maps.model.LatLng;
 
-public class PointsActivity extends Activity {
+public class PointsActivity extends Activity implements LocationListener {
 	
 	private EditText etPointA;
 	private EditText etPointB;
@@ -38,8 +37,7 @@ public class PointsActivity extends Activity {
 	private LatLng sourceLocation;
 	private LatLng destinationLocation;
 	private String sourceCommunity;
-	
-	
+	private LocationManager myLocManager;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -47,23 +45,33 @@ public class PointsActivity extends Activity {
 	 	etPointA = (EditText) findViewById(R.id.editPointA);
 	 	etPointB = (EditText) findViewById (R.id.editPointB);
 	 	btSearch = (Button) findViewById(R.id.buttonSearch);
-	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 
+	 	
+	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
+	 	
+	 	/*if (myLocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+				getLocation(true);
+				//Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+				//etPointA.setText(String.valueOf(myPosition.getLatitude()) + "  " + String.valueOf(myPosition.getLongitude()));
+				
+				
+
+	 	}*/
 	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 	 		@Override
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	 			if (isChecked){
-	 				etPointA.setEnabled(false);	 				
-	 				LocationManager mylocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-	 				LocationListener mylocListener = new MyLocationListener();
-	 				if (mylocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-	 					mylocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 0, 0, mylocListener);  //Acceso por GPS
-	 					Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		 				etPointA.setText(String.valueOf(myPosition.getLatitude()) + "  " + String.valueOf(myPosition.getLongitude()));
+	 				etPointA.setEnabled(false);	 			
+	 				LocationManager myLocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+	 				if (myLocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+	 					showToastToUser("Obteniendo ubicación");
+	 					getLocation(true);	// Acceso al GPS		 						 						 					
 	 				}
-	 				else if(mylocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-	 						mylocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 0, 0, mylocListener); // Acceso por red
-	 						Location myPosition = mylocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);	 							 		 		
-	 		 				if (myPosition == null){
+	 				else if(myLocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+	 						showToastToUser("Obteniendo ubicación");
+	 						getLocation(false); // Acceso por red
+	 						//Location myPosition = myLocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);	 							 		 		
+	 		 				/*if (myPosition == null){
 	 		 					showToastToUser(getResources().getString(R.string.not_able_to_locate));
 	 		 					showToastToUser(getResources().getString(R.string.introduce_address_manually));
 	 		 					checkMyPosition.setChecked(false);
@@ -79,12 +87,12 @@ public class PointsActivity extends Activity {
 	 		 					}else{
 	 		 						  etPointA.setText(source);
 	 		 					}	 	
-	 		 				}
+	 		 				}*/
 	 					 }else{
-	 						 etPointA.setText(getResources().getString(R.string.check_conf_location));				
+	 						 showToastToUser(getResources().getString(R.string.check_conf_location));				
 	 				}
 	 			}else{
-	 	        	etPointA.setText(null);
+	 	        	//etPointA.setText(null);
 	 				etPointA.setEnabled(true);	 	        	
 	 	        }
 	 	    }
@@ -92,9 +100,9 @@ public class PointsActivity extends Activity {
 	 	btSearch.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
         		if (validFields()){
-        			destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()),false);
+        			destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()));
         			if (!checkMyPosition.isChecked()){
-        				sourceLocation = getLocationFromAddress(etPointA.getText()+"",true);
+        				sourceLocation = getLocationFromAddress(etPointA.getText()+"");        			
         			}
         			if (destinationLocation == null){
         				showToastToUser(getResources().getString(R.string.destination_not_exists));
@@ -110,7 +118,8 @@ public class PointsActivity extends Activity {
         		}
 
         	}	 		
-        });
+	 	});
+	 	
 	}
 	 
 
@@ -150,26 +159,22 @@ public class PointsActivity extends Activity {
 
 			
 	
-	private LatLng getLocationFromAddress (String strAddress, boolean origin){	   	 
+	private LatLng getLocationFromAddress (String strAddress){	   	 
     	Geocoder coder = new Geocoder(this);
     	List<Address> address;
     	LatLng resultLocation = null;
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
-    	    if (address.size()==0) {
-    	    	Toast warningMessage = Toast.makeText(getApplicationContext(),
-	                    "La dirección "+strAddress+" no existe", Toast.LENGTH_LONG);
-    			warningMessage.show();  
+			Log.i("DEVUELVE NO nulo address", address.toString());
+    	    if (address.size()==0) {    	    	
+    	    	showToastToUser("La dirección "+strAddress+" no existe");    	    	
     			resultLocation = null;
-    	    }
-    	    else{    	 	    	
+    	    }else{    	 	    	
     	    	Address location = address.get(0);
-    	    	if (origin){
-    	    		resultLocation = new LatLng(location.getLatitude(),location.getLongitude());
-    	    		     	    		
-    	    	}else{
-    	    		resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   	    		
-    	    	}    	    	
+    			Log.i("DEVUELVE NO nulo location", location.toString());
+    	    	resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   
+    			Log.i("DEVUELVE NO nulo", resultLocation.toString());
+
     	    }
     	} catch (IOException e) {    			
     	}
@@ -178,12 +183,12 @@ public class PointsActivity extends Activity {
 
 	
 	
-	public String getAddressFromLocation(double sourceLatitude, double sourceLongitude){
+	public String getAddressFromLocation(LatLng source){
 		Geocoder geocoder;
 		List<Address> addresses = null;
 		geocoder = new Geocoder(this, Locale.getDefault());
 		try {
-			addresses = geocoder.getFromLocation(sourceLatitude, sourceLongitude, 1);
+			addresses = geocoder.getFromLocation(source.latitude, source.longitude, 1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -216,9 +221,63 @@ public class PointsActivity extends Activity {
 		 startActivity(i);
 		 finish();	
 	}
+
+
+	
+	public void getLocation(boolean gps){
+		if (gps){
+			myLocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 100, 0, this);  //Acceso por GPS
+		}else{
+			myLocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 100, 0, this);  //Acceso por GPS
+		}		
+	}
+	
+
+
+	@Override
+	public void onLocationChanged(Location location) {
+		showToastToUser(Double.toString(location.getLatitude())+"  "+Double.toString(location.getLongitude()));
+		LatLng source = new LatLng(location.getLatitude(), location.getLongitude());
+		if(source!=null){
+			etPointA.setText(getAddressFromLocation(source));
+			etPointA.setEnabled(false);
+			myLocManager.removeUpdates(this);		
+			sourceLocation = new LatLng(location.getLatitude(),location.getLongitude());
+		}
+	}
+
+
+
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+
+
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	 
-	 
+
+	   
+	
 	 	
 	
 
