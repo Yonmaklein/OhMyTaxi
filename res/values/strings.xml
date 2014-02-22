@@ -42,4 +42,6 @@
     <string name="origin_must_madrid">El origen ha de pertenecer a Madrid</string>
     <string name="destination_not_exists">La ubicación de destino no existe</string>
     <string name="origin_not_exists">La ubicación de origen no existe</string>
+    <string name="network_not_available">Parece que no tienes conexión de red</string>
+    <string name="obtaining_location">Obteniendo ubicación</string>
 </resources>

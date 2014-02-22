@@ -145,8 +145,7 @@ public class RouteActivity extends FragmentActivity  {
             
             TaxResults tax = new TaxResults(fromPosition, toPosition, distance);
             Log.i("PRECIO",String.valueOf(tax.getPrice()));
-            textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");
-            
+            textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");            
       }
 
       

@@ -203,7 +203,9 @@ int string loading_route 0x7f07002b
 int string modify 0x7f07002d
 int string myposition 0x7f070027
 int string mystops 0x7f070028
+int string network_not_available 0x7f070039
 int string not_able_to_locate 0x7f070034
+int string obtaining_location 0x7f07003a
 int string origin 0x7f07002e
 int string origin_must_madrid 0x7f070036
 int string origin_not_exists 0x7f070038

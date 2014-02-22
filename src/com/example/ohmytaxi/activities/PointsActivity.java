@@ -14,6 +14,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,18 +47,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	etPointA = (EditText) findViewById(R.id.editPointA);
 	 	etPointB = (EditText) findViewById (R.id.editPointB);
 	 	btSearch = (Button) findViewById(R.id.buttonSearch);
-	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 
-	 	
-	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);
-	 	
-	 	/*if (myLocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-				getLocation(true);
-				//Location myPosition = mylocManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-				//etPointA.setText(String.valueOf(myPosition.getLatitude()) + "  " + String.valueOf(myPosition.getLongitude()));
-				
-				
-
-	 	}*/
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	 	
+	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);	 	
 	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 	 		@Override
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -64,65 +56,61 @@ public class PointsActivity extends Activity implements LocationListener {
 	 				etPointA.setEnabled(false);	 			
 	 				LocationManager myLocManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 	 				if (myLocManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-	 					showToastToUser("Obteniendo ubicación");
+	 					showToastToUser(getResources().getString(R.string.obtaining_location));
 	 					getLocation(true);	// Acceso al GPS		 						 						 					
 	 				}
-	 				else if(myLocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-	 						showToastToUser("Obteniendo ubicación");
-	 						getLocation(false); // Acceso por red
-	 						//Location myPosition = myLocManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);	 							 		 		
-	 		 				/*if (myPosition == null){
-	 		 					showToastToUser(getResources().getString(R.string.not_able_to_locate));
-	 		 					showToastToUser(getResources().getString(R.string.introduce_address_manually));
-	 		 					checkMyPosition.setChecked(false);
-	 		 					etPointA.setEnabled(true);
-	 		 				}else{ 
-	 		 					sourceLocation = new LatLng (myPosition.getLatitude(), myPosition.getLongitude());
-	 		 					String source = getAddressFromLocation(sourceLocation.latitude,sourceLocation.longitude);
-	 		 					if (!sourceCommunity.contains("Madrid")){
-	 		 					  	  showToastToUser(getResources().getString(R.string.origin_must_madrid));
-	 		 						  etPointA.setText("");
-	 		 						  etPointA.setEnabled(true);
-	 		 						  checkMyPosition.setChecked(false);	 		 						
-	 		 					}else{
-	 		 						  etPointA.setText(source);
-	 		 					}	 	
-	 		 				}*/
+	 				else if(myLocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){	 					
+	 						if (isNetworkAvailable()){
+	 							showToastToUser(getResources().getString(R.string.obtaining_location));
+		 						getLocation(false); // Acceso por red	 		
+	 						}else{
+	 							showToastToUser(getResources().getString(R.string.network_not_available));
+	 							checkMyPosition.setChecked(false);
+	 							etPointA.setEnabled(true);
+	 						}				
 	 					 }else{
 	 						 showToastToUser(getResources().getString(R.string.check_conf_location));				
 	 				}
 	 			}else{
-	 	        	//etPointA.setText(null);
+	 	        	etPointA.setText(null);
 	 				etPointA.setEnabled(true);	 	        	
 	 	        }
 	 	    }
 	 	});	 	
 	 	btSearch.setOnClickListener(new OnClickListener() {
         	public void onClick(View view){
-        		if (validFields()){
-        			destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()));
-        			if (!checkMyPosition.isChecked()){
-        				sourceLocation = getLocationFromAddress(etPointA.getText()+"");        			
-        			}
-        			if (destinationLocation == null){
-        				showToastToUser(getResources().getString(R.string.destination_not_exists));
-        			}else if(sourceLocation == null){
-        						showToastToUser(getResources().getString(R.string.origin_not_exists));
-        				  }else{
-        					  Log.i("sourcelocationLAT", String.valueOf(sourceLocation.latitude));
-        					  Log.i("sourcelocationLONG", String.valueOf(sourceLocation.longitude));
-        					  Log.i("destinationlocationLAT", String.valueOf(destinationLocation.latitude));
-        					  Log.i("destinationlocationLONG", String.valueOf(destinationLocation.longitude));
-        					  showMapScreen(sourceLocation, destinationLocation);
-        				  }
-        		}
-
+        		if (!isNetworkAvailable()){   
+        		 	 showToastToUser(getResources().getString(R.string.network_not_available));
+        		}else if (validFields()){
+        			  	  destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()));
+        			  	  if (!checkMyPosition.isChecked()){
+        			  		  sourceLocation = getLocationFromAddress(etPointA.getText()+"");        			
+        			  	  }
+        			  	  if (destinationLocation == null){
+        			  		  showToastToUser(getResources().getString(R.string.destination_not_exists));
+        				  }else if(sourceLocation == null){
+        							showToastToUser(getResources().getString(R.string.origin_not_exists));
+        				  	    }else{
+        				  	    	Log.i("sourcelocationLAT", String.valueOf(sourceLocation.latitude));
+        				  	    	Log.i("sourcelocationLONG", String.valueOf(sourceLocation.longitude));
+        				  	    	Log.i("destinationlocationLAT", String.valueOf(destinationLocation.latitude));
+        				  	    	Log.i("destinationlocationLONG", String.valueOf(destinationLocation.longitude));
+        				  	    	showMapScreen(sourceLocation, destinationLocation);  	 							   	 						  				        					 
+        				  	    }
+        				  }        		
         	}	 		
 	 	});
 	 	
 	}
 	 
 
+	
+	private boolean isNetworkAvailable() {
+	    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+	}
+	
 
 
 	public boolean validFields (){		
@@ -165,16 +153,12 @@ public class PointsActivity extends Activity implements LocationListener {
     	LatLng resultLocation = null;
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
-			Log.i("DEVUELVE NO nulo address", address.toString());
     	    if (address.size()==0) {    	    	
     	    	showToastToUser("La dirección "+strAddress+" no existe");    	    	
     			resultLocation = null;
     	    }else{    	 	    	
     	    	Address location = address.get(0);
-    			Log.i("DEVUELVE NO nulo location", location.toString());
     	    	resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   
-    			Log.i("DEVUELVE NO nulo", resultLocation.toString());
-
     	    }
     	} catch (IOException e) {    			
     	}
@@ -216,7 +200,7 @@ public class PointsActivity extends Activity implements LocationListener {
 		 b.putDouble("destination lat", destinationLocation.latitude);
 		 b.putDouble("destination lon", destinationLocation.longitude); 
 		 Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
-		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));
+		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));		 
 		 i.putExtras(b);
 		 startActivity(i);
 		 finish();	

@@ -432,7 +432,9 @@ containing a value of this type.
         public static final int modify=0x7f07002d;
         public static final int myposition=0x7f070027;
         public static final int mystops=0x7f070028;
+        public static final int network_not_available=0x7f070039;
         public static final int not_able_to_locate=0x7f070034;
+        public static final int obtaining_location=0x7f07003a;
         public static final int origin=0x7f07002e;
         public static final int origin_must_madrid=0x7f070036;
         public static final int origin_not_exists=0x7f070038;
