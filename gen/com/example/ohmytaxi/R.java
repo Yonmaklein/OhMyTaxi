@@ -473,8 +473,8 @@ containing a value of this type.
         public static final int AppTheme=0x7f0b0001;
     }
     public static final class xml {
-        public static final int paradas=0x7f040000;
-        public static final int preferences=0x7f040001;
+        public static final int preferences=0x7f040000;
+        public static final int stops=0x7f040001;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.

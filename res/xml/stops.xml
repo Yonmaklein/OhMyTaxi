@@ -1,0 +1,1958 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<stop>
+		<address>Atocha Ciudad de Barcelona, madrid</address>
+		<lat>40.4038818</lat>
+		<lng>-3.6800096</lng>
+	</stop>
+	<stop>
+		<address>Atocha, madrid</address>
+		<lat>40.3983942</lat>
+		<lng>-3.681477</lng>
+	</stop>
+	<stop>
+		<address>Av General, 36, madrid</address>
+		<lat>40.4700398</lat>
+		<lng>-3.5808962</lng>
+	</stop>
+	<stop>
+		<address>Avenida camino de santiago 48, madrid</address>
+		<lat>40.5078943</lat>
+		<lng>-3.6704227</lng>
+	</stop>
+	<stop>
+		<address>Avenida Cantabria, 1, madrid</address>
+		<lat>40.4544812</lat>
+		<lng>-3.5878381</lng>
+	</stop>
+	<stop>
+		<address>Avenida Capital de España, 13, madrid</address>
+		<lat>40.4633094</lat>
+		<lng>-3.6165444</lng>
+	</stop>
+	<stop>
+		<address>Avenida Capital de España, 4, madrid</address>
+		<lat>40.4615181</lat>
+		<lng>-3.6154594</lng>
+	</stop>
+	<stop>
+		<address>Avenida cardenal herrera oria 78, madrid</address>
+		<lat>40.4913436</lat>
+		<lng>-3.6891237</lng>
+	</stop>
+	<stop>
+		<address>avenida de america 13, madrid</address>
+		<lat>40.4384088</lat>
+		<lng>-3.675452</lng>
+	</stop>
+	<stop>
+		<address>avenida de américa 14, madrid</address>
+		<lat>40.4385816</lat>
+		<lng>-3.6752981</lng>
+	</stop>
+	<stop>
+		<address>avenida de américa 32, madrid</address>
+		<lat>40.4388511</lat>
+		<lng>-3.6729977</lng>
+	</stop>
+	<stop>
+		<address>avenida de américa 43, madrid</address>
+		<lat>40.4420916</lat>
+		<lng>-3.6650334</lng>
+	</stop>
+	<stop>
+		<address>Avenida de andalucia 2, madrid</address>
+		<lat>40.1888118</lat>
+		<lng>-3.6727923</lng>
+	</stop>
+	<stop>
+		<address>Avenida de andalucia 47, madrid</address>
+		<lat>40.329534</lat>
+		<lng>-3.692513</lng>
+	</stop>
+	<stop>
+		<address>avenida de baviera 1, madrid</address>
+		<lat>40.4416335</lat>
+		<lng>-3.6649558</lng>
+	</stop>
+	<stop>
+		<address>avenida de betanzos 5, madrid</address>
+		<lat>40.472692</lat>
+		<lng>-3.712137</lng>
+	</stop>
+	<stop>
+		<address>Avenida de bruselas 51, madrid</address>
+		<lat>40.4385638</lat>
+		<lng>-3.6634626</lng>
+	</stop>
+	<stop>
+		<address>avenida de burgos 12, madrid</address>
+		<lat>40.4736332</lat>
+		<lng>-3.6756892</lng>
+	</stop>
+	<stop>
+		<address>Avenida de hellin 42, madrid</address>
+		<lat>40.430532</lat>
+		<lng>-3.615813</lng>
+	</stop>
+	<stop>
+		<address>Avenida de la albufera 285, madrid</address>
+		<lat>40.3874602</lat>
+		<lng>-3.6402086</lng>
+	</stop>
+	<stop>
+		<address>avenida de la reina victoria, madrid</address>
+		<lat>40.4469636</lat>
+		<lng>-3.7098727</lng>
+	</stop>
+	<stop>
+		<address>Avenida de las galaxias 1, madrid</address>
+		<lat>40.4588447</lat>
+		<lng>-3.7850494</lng>
+	</stop>
+	<stop>
+		<address>Avenida de las suertes 53, madrid</address>
+		<lat>40.3672819</lat>
+		<lng>-3.5995276</lng>
+	</stop>
+	<stop>
+		<address>Avenida de Logroño, 303, madrid</address>
+		<lat>40.4690627</lat>
+		<lng>-3.5816363</lng>
+	</stop>
+	<stop>
+		<address>Avenida de los andes 50, madrid</address>
+		<lat>40.4255706</lat>
+		<lng>-3.6707731</lng>
+	</stop>
+	<stop>
+		<address>Avenida de los poblados 41, madrid</address>
+		<lat>40.3849829</lat>
+		<lng>-3.7609055</lng>
+	</stop>
+	<stop>
+		<address>Avenida de machupichu 99, madrid</address>
+		<lat>40.4631154</lat>
+		<lng>-3.6356911</lng>
+	</stop>
+	<stop>
+		<address>Avenida de manoteras 20 a, madrid</address>
+		<lat>40.4873394</lat>
+		<lng>-3.669404</lng>
+	</stop>
+	<stop>
+		<address>Avenida de manoteras 20 d, madrid</address>
+		<lat>40.4873394</lat>
+		<lng>-3.669404</lng>
+	</stop>
+	<stop>
+		<address>Avenida de menedez pelayo 77, madrid</address>
+		<lat>40.4102922</lat>
+		<lng>-3.6769428</lng>
+	</stop>
+	<stop>
+		<address>Avenida de moratalaz 117, madrid</address>
+		<lat>40.4060842</lat>
+		<lng>-3.650505</lng>
+	</stop>
+	<stop>
+		<address>Avenida de moratalaz 40, madrid</address>
+		<lat>40.4069967</lat>
+		<lng>-3.6593371</lng>
+	</stop>
+	<stop>
+		<address>Avenida de Oporto, 27, madrid</address>
+		<lat>40.3854162</lat>
+		<lng>-3.7236278</lng>
+	</stop>
+	<stop>
+		<address>Avenida de Oporto, 55, madrid</address>
+		<lat>40.3863357</lat>
+		<lng>-3.7279342</lng>
+	</stop>
+	<stop>
+		<address>Avenida de pablo neruda 77, madrid</address>
+		<lat>40.3812572</lat>
+		<lng>-3.6536803</lng>
+	</stop>
+	<stop>
+		<address>Avenida de portugal 155, madrid</address>
+		<lat>40.4109421</lat>
+		<lng>-3.7383565</lng>
+	</stop>
+	<stop>
+		<address>Avenida de san luis 102, madrid</address>
+		<lat>40.471412</lat>
+		<lng>-3.6569268</lng>
+	</stop>
+	<stop>
+		<address>Avenida de valladolid 83, madrid</address>
+		<lat>40.4341446</lat>
+		<lng>-3.7341087</lng>
+	</stop>
+	<stop>
+		<address>Avenida del ensanche de vallecas 45, madrid</address>
+		<lat>40.3639645</lat>
+		<lng>-3.6002169</lng>
+	</stop>
+	<stop>
+		<address>Avenida del padre piquer 9, madrid</address>
+		<lat>40.3943385</lat>
+		<lng>-3.7677329</lng>
+	</stop>
+	<stop>
+		<address>Avenida francisco pi y margall 81, madrid</address>
+		<lat>40.4925201</lat>
+		<lng>-3.6628023</lng>
+	</stop>
+	<stop>
+		<address>avenida general perón 38, madrid</address>
+		<lat>40.4519723</lat>
+		<lng>-3.6926625</lng>
+	</stop>
+	<stop>
+		<address>Avenida guadalajara 4, madrid</address>
+		<lat>40.4190745</lat>
+		<lng>-3.6209713</lng>
+	</stop>
+	<stop>
+		<address>Avenida marques de corbera 3, madrid</address>
+		<lat>40.4231416</lat>
+		<lng>-3.6562118</lng>
+	</stop>
+	<stop>
+		<address>Avenida monasterio de silos 42, madrid</address>
+		<lat>40.5094159</lat>
+		<lng>-3.6921994</lng>
+	</stop>
+	<stop>
+		<address>Avenida monasterio del escorial 55, madrid</address>
+		<lat>40.5049065</lat>
+		<lng>-3.6981711</lng>
+	</stop>
+	<stop>
+		<address>Avenida monforte de lemos 101, madrid</address>
+		<lat>40.4791082</lat>
+		<lng>-3.7055105</lng>
+	</stop>
+	<stop>
+		<address>Avenida monforte de lemos 133, madrid</address>
+		<lat>40.4776146</lat>
+		<lng>-3.7117326</lng>
+	</stop>
+	<stop>
+		<address>Avenida monforte de lemos 34, madrid</address>
+		<lat>40.4788581</lat>
+		<lng>-3.708496</lng>
+	</stop>
+	<stop>
+		<address>Avenida monforte de lemos 85, madrid</address>
+		<lat>40.4793893</lat>
+		<lng>-3.7029845</lng>
+	</stop>
+	<stop>
+		<address>Avenida niza 37, madrid</address>
+		<lat>40.4298259</lat>
+		<lng>-3.6071624</lng>
+	</stop>
+	<stop>
+		<address>Avenida pablo neruda 95, madrid</address>
+		<lat>40.3812618</lat>
+		<lng>-3.6627763</lng>
+	</stop>
+	<stop>
+		<address>Avenida Peseta, 73, madrid</address>
+		<lat>40.3624653</lat>
+		<lng>-3.7531599</lng>
+	</stop>
+	<stop>
+		<address>Avenida principal 17, madrid</address>
+		<lat>40.4149033</lat>
+		<lng>-3.7388723</lng>
+	</stop>
+	<stop>
+		<address>Avenida principal 3, madrid</address>
+		<lat>40.4128496</lat>
+		<lng>-3.7401646</lng>
+	</stop>
+	<stop>
+		<address>Avenida santa eugenia  48, madrid</address>
+		<lat>40.3817637</lat>
+		<lng>-3.61031</lng>
+	</stop>
+	<stop>
+		<address>Avenida ventisquero de la condesa 11, madrid</address>
+		<lat>40.487112</lat>
+		<lng>-3.7167356</lng>
+	</stop>
+	<stop>
+		<address>Avenida ventisquero de la condesa 44, madrid</address>
+		<lat>40.4940716</lat>
+		<lng>-3.7173021</lng>
+	</stop>
+	<stop>
+		<address>Avenida verbena de la paloma 3, madrid</address>
+		<lat>40.3604777</lat>
+		<lng>-3.6953572</lng>
+	</stop>
+	<stop>
+		<address>bulevar de jose prat 21, madrid</address>
+		<lat>40.3977987</lat>
+		<lng>-3.6216922</lng>
+	</stop>
+	<stop>
+		<address>bulevar indalecio prieto 26, madrid</address>
+		<lat>40.3999492</lat>
+		<lng>-3.6219878</lng>
+	</stop>
+	<stop>
+		<address>Calle Agustín de foxa 27, madrid</address>
+		<lat>40.4710001</lat>
+		<lng>-3.6851122</lng>
+	</stop>
+	<stop>
+		<address>Calle agustin de foxa 5, madrid</address>
+		<lat>40.4676897</lat>
+		<lng>-3.6880216</lng>
+	</stop>
+	<stop>
+		<address>Calle Alcalá 17, madrid</address>
+		<lat>40.4178113</lat>
+		<lng>-3.7001973</lng>
+	</stop>
+	<stop>
+		<address>Calle alcalá 237, madrid</address>
+		<lat>40.4315811</lat>
+		<lng>-3.6628632</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 269, madrid</address>
+		<lat>40.4321022</lat>
+		<lng>-3.6564513</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 279, madrid</address>
+		<lat>40.4322812</lat>
+		<lng>-3.6552143</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 339, madrid</address>
+		<lat>40.433464</lat>
+		<lng>-3.647782</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 375, madrid</address>
+		<lat>40.4354981</lat>
+		<lng>-3.6434463</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 419, madrid</address>
+		<lat>40.4381317</lat>
+		<lng>-3.6377302</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 476, madrid</address>
+		<lat>40.4393478</lat>
+		<lng>-3.6320806</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 583, madrid</address>
+		<lat>40.4452832</lat>
+		<lng>-3.6146586</lng>
+	</stop>
+	<stop>
+		<address>Calle alcala 628, madrid</address>
+		<lat>40.4483786</lat>
+		<lng>-3.609293</lng>
+	</stop>
+	<stop>
+		<address>Calle alcalde martin de alzaga 9, madrid</address>
+		<lat>40.4629137</lat>
+		<lng>-3.717553</lng>
+	</stop>
+	<stop>
+		<address>Calle Alcalde Sainz de Baranda 16, madrid</address>
+		<lat>40.4167884</lat>
+		<lng>-3.6767391</lng>
+	</stop>
+	<stop>
+		<address>Calle alfonso rodríguez castelao 17, madrid</address>
+		<lat>40.4822107</lat>
+		<lng>-3.7339142</lng>
+	</stop>
+	<stop>
+		<address>Calle alfredo merquerie 43, madrid</address>
+		<lat>40.486626</lat>
+		<lng>-3.7039767</lng>
+	</stop>
+	<stop>
+		<address>Calle almansa 68, madrid</address>
+		<lat>40.4495059</lat>
+		<lng>-3.7094797</lng>
+	</stop>
+	<stop>
+		<address>Calle ana de austria 26, madrid</address>
+		<lat>40.4937563</lat>
+		<lng>-3.6576605</lng>
+	</stop>
+	<stop>
+		<address>Calle antillon 3, madrid</address>
+		<lat>40.4132709</lat>
+		<lng>-3.728201</lng>
+	</stop>
+	<stop>
+		<address>Calle antonio lopez 174, madrid</address>
+		<lat>40.3867087</lat>
+		<lng>-3.6969424</lng>
+	</stop>
+	<stop>
+		<address>Calle Antonio López, 65, madrid</address>
+		<lat>40.3941173</lat>
+		<lng>-3.70772</lng>
+	</stop>
+	<stop>
+		<address>Calle antonio machado 53, madrid</address>
+		<lat>40.4701111</lat>
+		<lng>-3.7196571</lng>
+	</stop>
+	<stop>
+		<address>Calle Arlabán 4, madrid</address>
+		<lat>40.4168679</lat>
+		<lng>-3.6998995</lng>
+	</stop>
+	<stop>
+		<address>Calle arroyo de la media legua 29, madrid</address>
+		<lat>40.4109323</lat>
+		<lng>-3.6561178</lng>
+	</stop>
+	<stop>
+		<address>Calle arroyo fresno 17, madrid</address>
+		<lat>40.4748864</lat>
+		<lng>-3.7427353</lng>
+	</stop>
+	<stop>
+		<address>Calle arturo soria 143, madrid</address>
+		<lat>40.4536716</lat>
+		<lng>-3.6548008</lng>
+	</stop>
+	<stop>
+		<address>Calle arturo soria 270, madrid</address>
+		<lat>40.4708341</lat>
+		<lng>-3.665558</lng>
+	</stop>
+	<stop>
+		<address>Calle arturo soria 301, madrid</address>
+		<lat>40.4775863</lat>
+		<lng>-3.6692939</lng>
+	</stop>
+	<stop>
+		<address>Calle arzobispo morcillo 1, madrid</address>
+		<lat>40.4798718</lat>
+		<lng>-3.6884008</lng>
+	</stop>
+	<stop>
+		<address>Calle arzobispo morcillo 2, madrid</address>
+		<lat>40.4800485</lat>
+		<lng>-3.6875059</lng>
+	</stop>
+	<stop>
+		<address>Calle Atocha 123, madrid</address>
+		<lat>40.4098585</lat>
+		<lng>-3.6934665</lng>
+	</stop>
+	<stop>
+		<address>Calle Atocha 75, madrid</address>
+		<lat>40.412134</lat>
+		<lng>-3.698395</lng>
+	</stop>
+	<stop>
+		<address>Calle ayala 18, madrid</address>
+		<lat>40.4277655</lat>
+		<lng>-3.6870732</lng>
+	</stop>
+	<stop>
+		<address>Calle azuaga 42, madrid</address>
+		<lat>40.4637752</lat>
+		<lng>-3.710981</lng>
+	</stop>
+	<stop>
+		<address>Calle Barcelona 1, madrid</address>
+		<lat>40.4157124</lat>
+		<lng>-3.7025508</lng>
+	</stop>
+	<stop>
+		<address>Calle belfast 13, madrid</address>
+		<lat>40.4480179</lat>
+		<lng>-3.5763729</lng>
+	</stop>
+	<stop>
+		<address>Calle Biarritz 2, madrid</address>
+		<lat>40.435326</lat>
+		<lng>-3.663907</lng>
+	</stop>
+	<stop>
+		<address>Calle borjas blancas 5, madrid</address>
+		<lat>40.4707882</lat>
+		<lng>-3.6512254</lng>
+	</stop>
+	<stop>
+		<address>Calle bravo murillo 1, madrid</address>
+		<lat>40.4341503</lat>
+		<lng>-3.7045173</lng>
+	</stop>
+	<stop>
+		<address>Calle bravo murillo 27, madrid</address>
+		<lat>40.4364422</lat>
+		<lng>-3.7068569</lng>
+	</stop>
+	<stop>
+		<address>Calle Bravo murillo 379, madrid</address>
+		<lat>40.4660374</lat>
+		<lng>-3.6904352</lng>
+	</stop>
+	<stop>
+		<address>Calle cabanillas 21, madrid</address>
+		<lat>40.4061762</lat>
+		<lng>-3.6761378</lng>
+	</stop>
+	<stop>
+		<address>Calle calahorra 1, madrid</address>
+		<lat>40.407642</lat>
+		<lng>-3.6106795</lng>
+	</stop>
+	<stop>
+		<address>Calle Calderilla, 22, madrid</address>
+		<lat>40.3641494</lat>
+		<lng>-3.7394507</lng>
+	</stop>
+	<stop>
+		<address>Calle campezo 1, madrid</address>
+		<lat>40.4482286</lat>
+		<lng>-3.5820212</lng>
+	</stop>
+	<stop>
+		<address>Calle campezo 3, madrid</address>
+		<lat>40.4466877</lat>
+		<lng>-3.5824554</lng>
+	</stop>
+	<stop>
+		<address>Calle campezo 8, madrid</address>
+		<lat>40.4465774</lat>
+		<lng>-3.5827656</lng>
+	</stop>
+	<stop>
+		<address>Calle capitan haya 43, madrid</address>
+		<lat>40.4613731</lat>
+		<lng>-3.6919808</lng>
+	</stop>
+	<stop>
+		<address>Calle capitán haya 59, madrid</address>
+		<lat>40.4649598</lat>
+		<lng>-3.6914914</lng>
+	</stop>
+	<stop>
+		<address>Calle Carabela, 13, madrid</address>
+		<lat>40.4554743</lat>
+		<lng>-3.5885655</lng>
+	</stop>
+	<stop>
+		<address>Calle carabelos 21, madrid</address>
+		<lat>40.3749067</lat>
+		<lng>-3.692231</lng>
+	</stop>
+	<stop>
+		<address>Calle Carretas 14, madrid</address>
+		<lat>40.4149117</lat>
+		<lng>-3.7034487</lng>
+	</stop>
+	<stop>
+		<address>Calle cartegena 83, madrid</address>
+		<lat>40.4380526</lat>
+		<lng>-3.6725616</lng>
+	</stop>
+	<stop>
+		<address>Calle cea bermúdez 15, madrid</address>
+		<lat>40.4387163</lat>
+		<lng>-3.7088987</lng>
+	</stop>
+	<stop>
+		<address>Calle cea bermudez 45, madrid</address>
+		<lat>40.4388374</lat>
+		<lng>-3.7134894</lng>
+	</stop>
+	<stop>
+		<address>Calle cebreros 40, madrid</address>
+		<lat>40.4050026</lat>
+		<lng>-3.7459583</lng>
+	</stop>
+	<stop>
+		<address>Calle cestona, madrid</address>
+		<lat>40.3723333</lat>
+		<lng>-3.7137625</lng>
+	</stop>
+	<stop>
+		<address>Calle clara del rey 26, madrid</address>
+		<lat>40.4426946</lat>
+		<lng>-3.6695674</lng>
+	</stop>
+	<stop>
+		<address>Calle claudio coello 139, madrid</address>
+		<lat>40.4353981</lat>
+		<lng>-3.6855284</lng>
+	</stop>
+	<stop>
+		<address>Calle comendante zorita 38, madrid</address>
+		<lat>40.4506297</lat>
+		<lng>-3.6981411</lng>
+	</stop>
+	<stop>
+		<address>Calle Comuneros de Castilla, 11, madrid</address>
+		<lat>40.39656</lat>
+		<lng>-3.720687</lng>
+	</stop>
+	<stop>
+		<address>Calle condado de treviño 31, madrid</address>
+		<lat>40.4781245</lat>
+		<lng>-3.6739343</lng>
+	</stop>
+	<stop>
+		<address>Calle condesa de venadito 3, madrid</address>
+		<lat>40.4441129</lat>
+		<lng>-3.6545893</lng>
+	</stop>
+	<stop>
+		<address>Calle costa brava 13, madrid</address>
+		<lat>40.4939997</lat>
+		<lng>-3.7020482</lng>
+	</stop>
+	<stop>
+		<address>Calle cronos 32, madrid</address>
+		<lat>40.4358074</lat>
+		<lng>-3.6209287</lng>
+	</stop>
+	<stop>
+		<address>Calle cuevas de almanzora  18, madrid</address>
+		<lat>40.4766431</lat>
+		<lng>-3.6591362</lng>
+	</stop>
+	<stop>
+		<address>Calle de Arganda, 46, madrid</address>
+		<lat>40.3981505</lat>
+		<lng>-3.7048339</lng>
+	</stop>
+	<stop>
+		<address>Calle de la bausa 21, madrid</address>
+		<lat>40.4690733</lat>
+		<lng>-3.6691434</lng>
+	</stop>
+	<stop>
+		<address>Calle de la Oca, 103, madrid</address>
+		<lat>40.3879629</lat>
+		<lng>-3.7439128</lng>
+	</stop>
+	<stop>
+		<address>Calle de los gremios 1, madrid</address>
+		<lat>40.4252398</lat>
+		<lng>-3.6201563</lng>
+	</stop>
+	<stop>
+		<address>Calle de los Pajarones, 18, madrid</address>
+		<lat>40.4757961</lat>
+		<lng>-3.5819979</lng>
+	</stop>
+	<stop>
+		<address>Calle de Méndez Álvaro, 28, madrid</address>
+		<lat>40.4015287</lat>
+		<lng>-3.6871385</lng>
+	</stop>
+	<stop>
+		<address>Calle de Méndez Álvaro, 44, madrid</address>
+		<lat>40.3987687</lat>
+		<lng>-3.6838299</lng>
+	</stop>
+	<stop>
+		<address>Calle de Méndez Álvaro, 83, madrid</address>
+		<lat>40.3932562</lat>
+		<lng>-3.6774567</lng>
+	</stop>
+	<stop>
+		<address>Calle de ofelia nieto 81, madrid</address>
+		<lat>40.4620007</lat>
+		<lng>-3.7085758</lng>
+	</stop>
+	<stop>
+		<address>Calle de rocafort 11, madrid</address>
+		<lat>40.341406</lat>
+		<lng>-3.6896217</lng>
+	</stop>
+	<stop>
+		<address>Calle de san martin de porres 4, madrid</address>
+		<lat>40.465745</lat>
+		<lng>-3.7270722</lng>
+	</stop>
+	<stop>
+		<address>Calle de sierra de gador 45, madrid</address>
+		<lat>40.3800312</lat>
+		<lng>-3.6217534</lng>
+	</stop>
+	<stop>
+		<address>Calle del tejadillo 13, madrid</address>
+		<lat>40.4590072</lat>
+		<lng>-3.7796351</lng>
+	</stop>
+	<stop>
+		<address>Calle diego de león 64, madrid</address>
+		<lat>40.4344724</lat>
+		<lng>-3.6756008</lng>
+	</stop>
+	<stop>
+		<address>Calle Doctor Castelo 54, madrid</address>
+		<lat>40.4200876</lat>
+		<lng>-3.6721466</lng>
+	</stop>
+	<stop>
+		<address>Calle Doctor esquerdo 25, madrid</address>
+		<lat>40.425717</lat>
+		<lng>-3.6683951</lng>
+	</stop>
+	<stop>
+		<address>Calle Doctor Esquerdo 46, madrid</address>
+		<lat>40.4193606</lat>
+		<lng>-3.6694001</lng>
+	</stop>
+	<stop>
+		<address>Calle Doctor esquerdo 83, madrid</address>
+		<lat>40.4180689</lat>
+		<lng>-3.6689999</lng>
+	</stop>
+	<stop>
+		<address>Calle doctor fleming 29, madrid</address>
+		<lat>40.4608156</lat>
+		<lng>-3.6880609</lng>
+	</stop>
+	<stop>
+		<address>Calle doctor garcia tapia 139, madrid</address>
+		<lat>40.4089224</lat>
+		<lng>-3.6363133</lng>
+	</stop>
+	<stop>
+		<address>Calle doctor severo ochoa 5, madrid</address>
+		<lat>40.4431047</lat>
+		<lng>-3.7232506</lng>
+	</stop>
+	<stop>
+		<address>Calle dracena 23, madrid</address>
+		<lat>40.4633963</lat>
+		<lng>-3.6704279</lng>
+	</stop>
+	<stop>
+		<address>Calle Duque de Medinaceli 6, madrid</address>
+		<lat>40.4149847</lat>
+		<lng>-3.6959198</lng>
+	</stop>
+	<stop>
+		<address>Calle duque de sesto 54, madrid</address>
+		<lat>40.4222139</lat>
+		<lng>-3.6723369</lng>
+	</stop>
+	<stop>
+		<address>Calle emilio ferrari 49, madrid</address>
+		<lat>40.4319555</lat>
+		<lng>-3.6416014</lng>
+	</stop>
+	<stop>
+		<address>Calle emilio vargas 3, madrid</address>
+		<lat>40.447724</lat>
+		<lng>-3.6551041</lng>
+	</stop>
+	<stop>
+		<address>Calle Emperador Carlos V 8, madrid</address>
+		<lat>40.4086055</lat>
+		<lng>-3.6928509</lng>
+	</stop>
+	<stop>
+		<address>Calle encomienda de palacios 187, madrid</address>
+		<lat>40.399051</lat>
+		<lng>-3.639403</lng>
+	</stop>
+	<stop>
+		<address>Calle eucalipto 33, madrid</address>
+		<lat>40.456076</lat>
+		<lng>-3.664374</lng>
+	</stop>
+	<stop>
+		<address>Calle ferrol 1, madrid</address>
+		<lat>40.4744278</lat>
+		<lng>-3.7034038</lng>
+	</stop>
+	<stop>
+		<address>Calle fuencarral 109, madrid</address>
+		<lat>40.4294224</lat>
+		<lng>-3.7027279</lng>
+	</stop>
+	<stop>
+		<address>Calle fuencarral 138, madrid</address>
+		<lat>40.4318384</lat>
+		<lng>-3.7034035</lng>
+	</stop>
+	<stop>
+		<address>Calle Fuencarral 49, madrid</address>
+		<lat>40.4295819</lat>
+		<lng>-3.7026208</lng>
+	</stop>
+	<stop>
+		<address>Calle fuente de lima 3, madrid</address>
+		<lat>40.3838405</lat>
+		<lng>-3.7834947</lng>
+	</stop>
+	<stop>
+		<address>Calle Fuente del berro 19, madrid</address>
+		<lat>40.4258425</lat>
+		<lng>-3.6707008</lng>
+	</stop>
+	<stop>
+		<address>Calle fuentespina 2, madrid</address>
+		<lat>40.3804426</lat>
+		<lng>-3.6046411</lng>
+	</stop>
+	<stop>
+		<address>Calle Galeón, 27, madrid</address>
+		<lat>40.4587234</lat>
+		<lng>-3.5824404</lng>
+	</stop>
+	<stop>
+		<address>Calle general arrando 17, madrid</address>
+		<lat>40.4318362</lat>
+		<lng>-3.6930427</lng>
+	</stop>
+	<stop>
+		<address>Calle general rodrigo 8, madrid</address>
+		<lat>40.4441049</lat>
+		<lng>-3.7137572</lng>
+	</stop>
+	<stop>
+		<address>Calle general romero basart 125, madrid</address>
+		<lat>40.3776689</lat>
+		<lng>-3.7683266</lng>
+	</stop>
+	<stop>
+		<address>Calle general romero basart 54, madrid</address>
+		<lat>40.3797438</lat>
+		<lng>-3.7740678</lng>
+	</stop>
+	<stop>
+		<address>Calle Génova 28, madrid</address>
+		<lat>40.4253604</lat>
+		<lng>-3.6917744</lng>
+	</stop>
+	<stop>
+		<address>Calle Génova 6, madrid</address>
+		<lat>40.4271686</lat>
+		<lng>-3.6951701</lng>
+	</stop>
+	<stop>
+		<address>Calle ginzo de limia 49, madrid</address>
+		<lat>40.4778442</lat>
+		<lng>-3.703821</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 1, madrid</address>
+		<lat>40.425893</lat>
+		<lng>-3.6896011</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 127, madrid</address>
+		<lat>40.4246886</lat>
+		<lng>-3.6706679</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 15, madrid</address>
+		<lat>40.4255411</lat>
+		<lng>-3.687445</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 21, madrid</address>
+		<lat>40.4254601</lat>
+		<lng>-3.6862779</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 35, madrid</address>
+		<lat>40.4253417</lat>
+		<lng>-3.6837517</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 45, madrid</address>
+		<lat>40.4252717</lat>
+		<lng>-3.6825579</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 55, madrid</address>
+		<lat>40.4252102</lat>
+		<lng>-3.6812849</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 67, madrid</address>
+		<lat>40.4251513</lat>
+		<lng>-3.6796468</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 76, madrid</address>
+		<lat>40.4245905</lat>
+		<lng>-3.6748099</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 77, madrid</address>
+		<lat>40.4250719</lat>
+		<lng>-3.6784083</lng>
+	</stop>
+	<stop>
+		<address>Calle goya 87, madrid</address>
+		<lat>40.4250249</lat>
+		<lng>-3.6769131</lng>
+	</stop>
+	<stop>
+		<address>Calle gran via del este 14, madrid</address>
+		<lat>40.4018405</lat>
+		<lng>-3.5971838</lng>
+	</stop>
+	<stop>
+		<address>Calle Guayaba, 3, madrid</address>
+		<lat>40.3722176</lat>
+		<lng>-3.7471795</lng>
+	</stop>
+	<stop>
+		<address>Calle guzmán el bueno 139, madrid</address>
+		<lat>40.4454724</lat>
+		<lng>-3.7124852</lng>
+	</stop>
+	<stop>
+		<address>Calle hacienda de pavones 348, madrid</address>
+		<lat>40.39985</lat>
+		<lng>-3.6338147</lng>
+	</stop>
+	<stop>
+		<address>Calle hermanos garcia noblejas 49, madrid</address>
+		<lat>40.4301891</lat>
+		<lng>-3.6315343</lng>
+	</stop>
+	<stop>
+		<address>Calle hermanos garcia noblejas 89, madrid</address>
+		<lat>40.4234717</lat>
+		<lng>-3.6271078</lng>
+	</stop>
+	<stop>
+		<address>Calle hermosilla 2, madrid</address>
+		<lat>40.426504</lat>
+		<lng>-3.6892856</lng>
+	</stop>
+	<stop>
+		<address>Calle higueras 63, madrid</address>
+		<lat>40.4029067</lat>
+		<lng>-3.7453231</lng>
+	</stop>
+	<stop>
+		<address>Calle Hortaleza 7, madrid</address>
+		<lat>40.4206153</lat>
+		<lng>-3.700939</lng>
+	</stop>
+	<stop>
+		<address>Calle huesca 23, madrid</address>
+		<lat>40.4580331</lat>
+		<lng>-3.6982781</lng>
+	</stop>
+	<stop>
+		<address>Calle Ibiza 21, madrid</address>
+		<lat>40.4183893</lat>
+		<lng>-3.6757849</lng>
+	</stop>
+	<stop>
+		<address>Calle illescas 183, madrid</address>
+		<lat>40.3917996</lat>
+		<lng>-3.7548852</lng>
+	</stop>
+	<stop>
+		<address>Calle illescas 59, madrid</address>
+		<lat>40.3954723</lat>
+		<lng>-3.7639215</lng>
+	</stop>
+	<stop>
+		<address>Calle isabel colbrand 4, madrid</address>
+		<lat>40.5143628</lat>
+		<lng>-3.6716521</lng>
+	</stop>
+	<stop>
+		<address>Calle isabel de colbrand 22, madrid</address>
+		<lat>40.5098914</lat>
+		<lng>-3.6792935</lng>
+	</stop>
+	<stop>
+		<address>Calle Isabel la Católica 19, madrid</address>
+		<lat>40.4218724</lat>
+		<lng>-3.7093866</lng>
+	</stop>
+	<stop>
+		<address>Calle Islas Jarvi 2, madrid</address>
+		<lat>40.4925506</lat>
+		<lng>-3.6872792</lng>
+	</stop>
+	<stop>
+		<address>Calle Jaime el Conquistador,1, madrid</address>
+		<lat>40.3980355</lat>
+		<lng>-3.6977718</lng>
+	</stop>
+	<stop>
+		<address>Calle Jerónima llorente 69, madrid</address>
+		<lat>40.4533232</lat>
+		<lng>-3.7082348</lng>
+	</stop>
+	<stop>
+		<address>Calle Joaquín Turina, 70, madrid</address>
+		<lat>40.3722816</lat>
+		<lng>-3.7592393</lng>
+	</stop>
+	<stop>
+		<address>Calle jose abascal 47, madrid</address>
+		<lat>40.4383802</lat>
+		<lng>-3.6951442</lng>
+	</stop>
+	<stop>
+		<address>Calle josé bardasano baos 8, madrid</address>
+		<lat>40.4673776</lat>
+		<lng>-3.6724456</lng>
+	</stop>
+	<stop>
+		<address>Calle jose cadalso 64, madrid</address>
+		<lat>40.3764801</lat>
+		<lng>-3.7681267</lng>
+	</stop>
+	<stop>
+		<address>Calle josefa valcarcel 40, madrid</address>
+		<lat>40.4488132</lat>
+		<lng>-3.641707</lng>
+	</stop>
+	<stop>
+		<address>Calle Juan bravo 39, madrid</address>
+		<lat>40.432665</lat>
+		<lng>-3.6777572</lng>
+	</stop>
+	<stop>
+		<address>Calle Juan bravo 49, madrid</address>
+		<lat>40.4326435</lat>
+		<lng>-3.6763521</lng>
+	</stop>
+	<stop>
+		<address>Calle juan ignacio luca de tena 34, madrid</address>
+		<lat>40.4476641</lat>
+		<lng>-3.6285141</lng>
+	</stop>
+	<stop>
+		<address>Calle juan jose martinez seco 59, madrid</address>
+		<lat>40.351924</lat>
+		<lng>-3.6871722</lng>
+	</stop>
+	<stop>
+		<address>Calle juan rizi 5, madrid</address>
+		<lat>40.4475833</lat>
+		<lng>-3.6368611</lng>
+	</stop>
+	<stop>
+		<address>Calle julian camarillo 4, madrid</address>
+		<lat>40.4334527</lat>
+		<lng>-3.6329289</lng>
+	</stop>
+	<stop>
+		<address>Calle julio danvila 15, madrid</address>
+		<lat>40.4721935</lat>
+		<lng>-3.6637884</lng>
+	</stop>
+	<stop>
+		<address>Calle julio palacios 23, madrid</address>
+		<lat>40.4827657</lat>
+		<lng>-3.6940665</lng>
+	</stop>
+	<stop>
+		<address>Calle la loma 9, madrid</address>
+		<lat>40.445819</lat>
+		<lng>-3.7161218</lng>
+	</stop>
+	<stop>
+		<address>Calle la masó 38, madrid</address>
+		<lat>40.4893545</lat>
+		<lng>-3.7151171</lng>
+	</stop>
+	<stop>
+		<address>Calle la maso 83, madrid</address>
+		<lat>40.4892957</lat>
+		<lng>-3.713992</lng>
+	</stop>
+	<stop>
+		<address>Calle Leganitos 15, madrid</address>
+		<lat>40.4214036</lat>
+		<lng>-3.7100378</lng>
+	</stop>
+	<stop>
+		<address>Calle lopez de hoyos 341, madrid</address>
+		<lat>40.4680961</lat>
+		<lng>-3.6533005</lng>
+	</stop>
+	<stop>
+		<address>Calle lopez de hoyos 4, madrid</address>
+		<lat>40.4720268</lat>
+		<lng>-3.6490771</lng>
+	</stop>
+	<stop>
+		<address>Calle lopez de hoyos 73, madrid</address>
+		<lat>40.4722406</lat>
+		<lng>-3.6494271</lng>
+	</stop>
+	<stop>
+		<address>Calle luis de la mata 18, madrid</address>
+		<lat>40.4534144</lat>
+		<lng>-3.6124844</lng>
+	</stop>
+	<stop>
+		<address>Calle Maiquez 7, madrid</address>
+		<lat>40.4196411</lat>
+		<lng>-3.6726893</lng>
+	</stop>
+	<stop>
+		<address>Calle maria martinez oviol 1, madrid</address>
+		<lat>40.351558</lat>
+		<lng>-3.6914174</lng>
+	</stop>
+	<stop>
+		<address>Calle maría tubau 16, madrid</address>
+		<lat>40.5126451</lat>
+		<lng>-3.676255</lng>
+	</stop>
+	<stop>
+		<address>Calle Mayor 3, madrid</address>
+		<lat>40.4163432</lat>
+		<lng>-3.705286</lng>
+	</stop>
+	<stop>
+		<address>Calle Menendez Pelayo 19, madrid</address>
+		<lat>40.6014478</lat>
+		<lng>-3.4998124</lng>
+	</stop>
+	<stop>
+		<address>Calle Menéndez y Pelayo 65, madrid</address>
+		<lat>40.4142892</lat>
+		<lng>-3.6773403</lng>
+	</stop>
+	<stop>
+		<address>Calle mesena 100, madrid</address>
+		<lat>40.4678062</lat>
+		<lng>-3.6633547</lng>
+	</stop>
+	<stop>
+		<address>Calle mirabel 38, madrid</address>
+		<lat>40.3791863</lat>
+		<lng>-3.7800735</lng>
+	</stop>
+	<stop>
+		<address>Calle modesto lafuente 11, madrid</address>
+		<lat>40.437292</lat>
+		<lng>-3.6964405</lng>
+	</stop>
+	<stop>
+		<address>Calle monleon 10, madrid</address>
+		<lat>40.3923367</lat>
+		<lng>-3.6545028</lng>
+	</stop>
+	<stop>
+		<address>Calle moscatelar 34, madrid</address>
+		<lat>40.4570962</lat>
+		<lng>-3.6452468</lng>
+	</stop>
+	<stop>
+		<address>Calle mota del cuervo 11, madrid</address>
+		<lat>40.464968</lat>
+		<lng>-3.6322101</lng>
+	</stop>
+	<stop>
+		<address>Calle musgo 2, madrid</address>
+		<lat>40.4670213</lat>
+		<lng>-3.8013119</lng>
+	</stop>
+	<stop>
+		<address>Calle Narvaez 29, madrid</address>
+		<lat>40.4211756</lat>
+		<lng>-3.6758039</lng>
+	</stop>
+	<stop>
+		<address>Calle nuria 57, madrid</address>
+		<lat>40.492255</lat>
+		<lng>-3.7067226</lng>
+	</stop>
+	<stop>
+		<address>Calle Obenque, 13, madrid</address>
+		<lat>40.4519918</lat>
+		<lng>-3.593174</lng>
+	</stop>
+	<stop>
+		<address>Calle Oca, 2, madrid</address>
+		<lat>40.388719</lat>
+		<lng>-3.7318799</lng>
+	</stop>
+	<stop>
+		<address>Calle ochandiano 14, madrid</address>
+		<lat>40.4691411</lat>
+		<lng>-3.8181148</lng>
+	</stop>
+	<stop>
+		<address>Calle O'Donnell 48, madrid</address>
+		<lat>40.4211314</lat>
+		<lng>-3.6719509</lng>
+	</stop>
+	<stop>
+		<address>Calle oña 10, madrid</address>
+		<lat>40.4894595</lat>
+		<lng>-3.661887</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 1, madrid</address>
+		<lat>40.4533979</lat>
+		<lng>-3.6942294</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 11, madrid</address>
+		<lat>40.4483164</lat>
+		<lng>-3.695642</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 17, madrid</address>
+		<lat>40.449927</lat>
+		<lng>-3.6954181</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 23, madrid</address>
+		<lat>40.4511265</lat>
+		<lng>-3.695331</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 69, madrid</address>
+		<lat>40.458392</lat>
+		<lng>-3.6946522</lng>
+	</stop>
+	<stop>
+		<address>Calle orense 81, madrid</address>
+		<lat>40.4597402</lat>
+		<lng>-3.6944986</lng>
+	</stop>
+	<stop>
+		<address>Calle ortega y gasset 29, madrid</address>
+		<lat>40.4305288</lat>
+		<lng>-3.6829181</lng>
+	</stop>
+	<stop>
+		<address>Calle padre damián 23, madrid</address>
+		<lat>40.4581944</lat>
+		<lng>-3.6857879</lng>
+	</stop>
+	<stop>
+		<address>Calle paseo de la castellana 22, madrid</address>
+		<lat>40.441042</lat>
+		<lng>-3.694817</lng>
+	</stop>
+	<stop>
+		<address>Calle pedro teixeira 5, madrid</address>
+		<lat>40.4552378</lat>
+		<lng>-3.6942607</lng>
+	</stop>
+	<stop>
+		<address>Calle Pez volador 13, madrid</address>
+		<lat>40.4133453</lat>
+		<lng>-3.6677822</lng>
+	</stop>
+	<stop>
+		<address>Calle Pez volador 3, madrid</address>
+		<lat>40.4130049</lat>
+		<lng>-3.669005</lng>
+	</stop>
+	<stop>
+		<address>Calle pradillo 2, madrid</address>
+		<lat>40.4486363</lat>
+		<lng>-3.6765405</lng>
+	</stop>
+	<stop>
+		<address>Calle pradillo 60, madrid</address>
+		<lat>40.4498139</lat>
+		<lng>-3.6687181</lng>
+	</stop>
+	<stop>
+		<address>Calle Prim 4, madrid</address>
+		<lat>40.4218591</lat>
+		<lng>-3.6953271</lng>
+	</stop>
+	<stop>
+		<address>Calle princesa 27, madrid</address>
+		<lat>40.4273228</lat>
+		<lng>-3.7141051</lng>
+	</stop>
+	<stop>
+		<address>Calle Princesa 56, madrid</address>
+		<lat>40.4297935</lat>
+		<lng>-3.7154163</lng>
+	</stop>
+	<stop>
+		<address>Calle princesa 57, madrid</address>
+		<lat>40.4308167</lat>
+		<lng>-3.7166216</lng>
+	</stop>
+	<stop>
+		<address>Calle princesa 89, madrid</address>
+		<lat>40.4346757</lat>
+		<lng>-3.7195106</lng>
+	</stop>
+	<stop>
+		<address>Calle princesa de eboli 60, madrid</address>
+		<lat>40.4910535</lat>
+		<lng>-3.655871</lng>
+	</stop>
+	<stop>
+		<address>Calle principe de vergara 122, madrid</address>
+		<lat>40.4410289</lat>
+		<lng>-3.6788606</lng>
+	</stop>
+	<stop>
+		<address>Calle principe de vergara 187, madrid</address>
+		<lat>40.4476287</lat>
+		<lng>-3.6782913</lng>
+	</stop>
+	<stop>
+		<address>Calle principe de vergara 267, madrid</address>
+		<lat>40.4574028</lat>
+		<lng>-3.6771894</lng>
+	</stop>
+	<stop>
+		<address>Calle profesor martin lagos 2, madrid</address>
+		<lat>40.439705</lat>
+		<lng>-3.7195482</lng>
+	</stop>
+	<stop>
+		<address>Calle quintana 9, madrid</address>
+		<lat>40.4279318</lat>
+		<lng>-3.716937</lng>
+	</stop>
+	<stop>
+		<address>Calle quintanavides 23, madrid</address>
+		<lat>40.4985246</lat>
+		<lng>-3.6692281</lng>
+	</stop>
+	<stop>
+		<address>Calle ramiez de arellano 1, madrid</address>
+		<lat>40.4498578</lat>
+		<lng>-3.6519414</lng>
+	</stop>
+	<stop>
+		<address>Calle ramiez de arellano 27, madrid</address>
+		<lat>40.4477075</lat>
+		<lng>-3.657813</lng>
+	</stop>
+	<stop>
+		<address>Calle ramon gomez de la serna 1, madrid</address>
+		<lat>40.4803091</lat>
+		<lng>-3.7244096</lng>
+	</stop>
+	<stop>
+		<address>Calle regil 2, madrid</address>
+		<lat>40.368898</lat>
+		<lng>-3.7159598</lng>
+	</stop>
+	<stop>
+		<address>Calle Retama, 6, madrid</address>
+		<lat>40.3949832</lat>
+		<lng>-3.675202</lng>
+	</stop>
+	<stop>
+		<address>Calle Ribera del Loira, 30, madrid</address>
+		<lat>40.4638236</lat>
+		<lng>-3.622811</lng>
+	</stop>
+	<stop>
+		<address>Calle Ribera del Loira, 52, madrid</address>
+		<lat>40.4615558</lat>
+		<lng>-3.6199672</lng>
+	</stop>
+	<stop>
+		<address>Calle Ribera del Loira, 64, madrid</address>
+		<lat>40.4596737</lat>
+		<lng>-3.6169043</lng>
+	</stop>
+	<stop>
+		<address>Calle ricardo ortiz 31, madrid</address>
+		<lat>40.4268442</lat>
+		<lng>-3.6578872</lng>
+	</stop>
+	<stop>
+		<address>Calle rios rosas 22, madrid</address>
+		<lat>40.4418436</lat>
+		<lng>-3.7013678</lng>
+	</stop>
+	<stop>
+		<address>Calle rios rosas 45, madrid</address>
+		<lat>40.4419291</lat>
+		<lng>-3.6971512</lng>
+	</stop>
+	<stop>
+		<address>Calle Salud 9, madrid</address>
+		<lat>40.4189876</lat>
+		<lng>-3.7036985</lng>
+	</stop>
+	<stop>
+		<address>Calle salvador de de madariaga 11, madrid</address>
+		<lat>40.4401544</lat>
+		<lng>-3.6572778</lng>
+	</stop>
+	<stop>
+		<address>Calle san cipriano 11, madrid</address>
+		<lat>40.4042316</lat>
+		<lng>-3.6086567</lng>
+	</stop>
+	<stop>
+		<address>Calle san claudio 154, madrid</address>
+		<lat>40.3886751</lat>
+		<lng>-3.6389945</lng>
+	</stop>
+	<stop>
+		<address>Calle san modesto 50, madrid</address>
+		<lat>40.4877741</lat>
+		<lng>-3.6939777</lng>
+	</stop>
+	<stop>
+		<address>Calle san modesto, madrid</address>
+		<lat>40.4869618</lat>
+		<lng>-3.6921674</lng>
+	</stop>
+	<stop>
+		<address>Calle sangenjo  34, madrid</address>
+		<lat>40.4836646</lat>
+		<lng>-3.7040881</lng>
+	</stop>
+	<stop>
+		<address>Calle santa engracia 179, madrid</address>
+		<lat>40.4459898</lat>
+		<lng>-3.7037238</lng>
+	</stop>
+	<stop>
+		<address>Calle santa engracia 32, madrid</address>
+		<lat>40.431537</lat>
+		<lng>-3.6971655</lng>
+	</stop>
+	<stop>
+		<address>Calle santa engracia 54, madrid</address>
+		<lat>40.4343601</lat>
+		<lng>-3.6982889</lng>
+	</stop>
+	<stop>
+		<address>Calle santa hortensia 26, madrid</address>
+		<lat>40.4437712</lat>
+		<lng>-3.6660519</lng>
+	</stop>
+	<stop>
+		<address>Calle santa rafaela maria del sagrado corazon, madrid</address>
+		<lat>40.3792998</lat>
+		<lng>-3.6720771</lng>
+	</stop>
+	<stop>
+		<address>Calle santa susana 37, madrid</address>
+		<lat>40.4779855</lat>
+		<lng>-3.6470522</lng>
+	</stop>
+	<stop>
+		<address>Calle santiago de compostela 94, madrid</address>
+		<lat>40.4778917</lat>
+		<lng>-3.7193353</lng>
+	</stop>
+	<stop>
+		<address>Calle santillana del mar 9, madrid</address>
+		<lat>40.9837894</lat>
+		<lng>-3.6358394</lng>
+	</stop>
+	<stop>
+		<address>calle serrano 199, madrid</address>
+		<lat>40.4519542</lat>
+		<lng>-3.681487</lng>
+	</stop>
+	<stop>
+		<address>Calle serrano 211, madrid</address>
+		<lat>40.4538032</lat>
+		<lng>-3.6794358</lng>
+	</stop>
+	<stop>
+		<address>Calle serrano galvache 14, madrid</address>
+		<lat>40.4728556</lat>
+		<lng>-3.6721242</lng>
+	</stop>
+	<stop>
+		<address>Calle Serrano Jover 5, madrid</address>
+		<lat>40.4301581</lat>
+		<lng>-3.7142928</lng>
+	</stop>
+	<stop>
+		<address>Calle sierra del cadi 3, madrid</address>
+		<lat>40.3930858</lat>
+		<lng>-3.6601944</lng>
+	</stop>
+	<stop>
+		<address>Calle sierra toledana 13, madrid</address>
+		<lat>40.4009393</lat>
+		<lng>-3.6605961</lng>
+	</stop>
+	<stop>
+		<address>Calle suecia 64, madrid</address>
+		<lat>40.4278553</lat>
+		<lng>-3.6045446</lng>
+	</stop>
+	<stop>
+		<address>Calle Titán, 8, madrid</address>
+		<lat>40.3912782</lat>
+		<lng>-3.6801655</lng>
+	</stop>
+	<stop>
+		<address>Calle Toledo 61, madrid</address>
+		<lat>40.4072658</lat>
+		<lng>-3.711342</lng>
+	</stop>
+	<stop>
+		<address>Calle tomas redondo 3, madrid</address>
+		<lat>40.4728597</lat>
+		<lng>-3.630329</lng>
+	</stop>
+	<stop>
+		<address>Calle valdegovia 10, madrid</address>
+		<lat>40.4888193</lat>
+		<lng>-3.6869844</lng>
+	</stop>
+	<stop>
+		<address>Calle velázquez 58, madrid</address>
+		<lat>40.4957333</lat>
+		<lng>-3.5091396</lng>
+	</stop>
+	<stop>
+		<address>Calle Vía Carpetana, 53, madrid</address>
+		<lat>40.3983203</lat>
+		<lng>-3.7348887</lng>
+	</stop>
+	<stop>
+		<address>Calle via lactea 1, madrid</address>
+		<lat>40.4493422</lat>
+		<lng>-3.7839811</lng>
+	</stop>
+	<stop>
+		<address>Calle victor de la serna 37, madrid</address>
+		<lat>40.4564728</lat>
+		<lng>-3.6720507</lng>
+	</stop>
+	<stop>
+		<address>Calle villamanin 48, madrid</address>
+		<lat>40.4061517</lat>
+		<lng>-3.7536779</lng>
+	</stop>
+	<stop>
+		<address>Calle villanueva 25, madrid</address>
+		<lat>40.4224057</lat>
+		<lng>-3.6840165</lng>
+	</stop>
+	<stop>
+		<address>Calle virgen de la roca 29, madrid</address>
+		<lat>40.4355401</lat>
+		<lng>-3.6579691</lng>
+	</stop>
+	<stop>
+		<address>Calle virgen de las viñas 2, madrid</address>
+		<lat>40.3818148</lat>
+		<lng>-3.6046329</lng>
+	</stop>
+	<stop>
+		<address>Calle xaudaro 1, madrid</address>
+		<lat>40.4894853</lat>
+		<lng>-3.6890918</lng>
+	</stop>
+	<stop>
+		<address>Calle yerma 11, madrid</address>
+		<lat>40.4760622</lat>
+		<lng>-3.6711095</lng>
+	</stop>
+	<stop>
+		<address>Calle zurbano 36, madrid</address>
+		<lat>40.431027</lat>
+		<lng>-3.6933739</lng>
+	</stop>
+	<stop>
+		<address>Calle zurbano 81, madrid</address>
+		<lat>40.4390495</lat>
+		<lng>-3.6929208</lng>
+	</stop>
+	<stop>
+		<address>camino de la zarzuela 3, madrid</address>
+		<lat>40.4646453</lat>
+		<lng>-3.7852359</lng>
+	</stop>
+	<stop>
+		<address>Camino de los vinateros 103, madrid</address>
+		<lat>40.409132</lat>
+		<lng>-3.6481344</lng>
+	</stop>
+	<stop>
+		<address>Camino de perales 148,  madrid</address>
+		<lat>40.3680132</lat>
+		<lng>-3.685893</lng>
+	</stop>
+	<stop>
+		<address>carretera de canillas 41, madrid</address>
+		<lat>40.4633309</lat>
+		<lng>-3.6476691</lng>
+	</stop>
+	<stop>
+		<address>carretera del medio dia 30, madrid</address>
+		<lat>40.5114545</lat>
+		<lng>-3.6534505</lng>
+	</stop>
+	<stop>
+		<address>Carretera fuencarral a hortaleza 6, madrid</address>
+		<lat>40.5130303</lat>
+		<lng>-3.6792957</lng>
+	</stop>
+	<stop>
+		<address>Cuesta de Santo Domingo 5, madrid</address>
+		<lat>40.4196538</lat>
+		<lng>-3.7096336</lng>
+	</stop>
+	<stop>
+		<address>Embajadores, 55, madrid</address>
+		<lat>40.4047783</lat>
+		<lng>-3.7019229</lng>
+	</stop>
+	<stop>
+		<address>estación de chamartín, madrid</address>
+		<lat>40.47151</lat>
+		<lng>-3.6825</lng>
+	</stop>
+	<stop>
+		<address>estadio la peineta, madrid</address>
+		<lat>40.4362056</lat>
+		<lng>-3.5994977</lng>
+	</stop>
+	<stop>
+		<address>Glorieta Condel de Casal 5, madrid</address>
+		<lat>40.4069287</lat>
+		<lng>-3.6696289</lng>
+	</stop>
+	<stop>
+		<address>Glorieta de los carmenes, madrid</address>
+		<lat>40.3956371</lat>
+		<lng>-3.7434364</lng>
+	</stop>
+	<stop>
+		<address>Glorieta de san vicente 1, madrid</address>
+		<lat>40.4206145</lat>
+		<lng>-3.7209072</lng>
+	</stop>
+	<stop>
+		<address>glorieta lopez de hoyos 4, madrid</address>
+		<lat>40.4407578</lat>
+		<lng>-3.6801429</lng>
+	</stop>
+	<stop>
+		<address>Glorieta Marqués de Vadillo, 5, madrid</address>
+		<lat>40.399362</lat>
+		<lng>-3.7155639</lng>
+	</stop>
+	<stop>
+		<address>Glorieta Puerta de Toledo, 4, madrid</address>
+		<lat>40.4063161</lat>
+		<lng>-3.7122491</lng>
+	</stop>
+	<stop>
+		<address>glorieta ruiz de jiménez, madrid</address>
+		<lat>40.5736509</lat>
+		<lng>-3.9212623</lng>
+	</stop>
+	<stop>
+		<address>hospital universitario ramón y cajal, madrid</address>
+		<lat>40.48065</lat>
+		<lng>-3.68899</lng>
+	</stop>
+	<stop>
+		<address>mercamadrid, madrid</address>
+		<lat>40.3640376</lat>
+		<lng>-3.6578879</lng>
+	</stop>
+	<stop>
+		<address>Paseo de alberto palacios 1, madrid</address>
+		<lat>40.3463018</lat>
+		<lng>-3.7091725</lng>
+	</stop>
+	<stop>
+		<address>Paseo de ginebra 6, madrid</address>
+		<lat>40.4248118</lat>
+		<lng>-3.6070503</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castella 2, madrid</address>
+		<lat>40.4263059</lat>
+		<lng>-3.6896719</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellan 59, madrid</address>
+		<lat>40.4391104</lat>
+		<lng>-3.6915766</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 133, madrid</address>
+		<lat>40.4587095</lat>
+		<lng>-3.6905675</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 140, madrid</address>
+		<lat>40.4516718</lat>
+		<lng>-3.6899012</lng>
+	</stop>
+	<stop>
+		<address>Paseo de la castellana 150, madrid</address>
+		<lat>40.4557363</lat>
+		<lng>-3.6896783</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 200, madrid</address>
+		<lat>40.4623681</lat>
+		<lng>-3.6889676</lng>
+	</stop>
+	<stop>
+		<address>Paseo de la castellana 259 b, madrid</address>
+		<lat>40.4766253</lat>
+		<lng>-3.6876494</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 280, madrid</address>
+		<lat>40.4749775</lat>
+		<lng>-3.6864939</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 33, madrid</address>
+		<lat>40.4327886</lat>
+		<lng>-3.6890074</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 40, madrid</address>
+		<lat>40.4332926</lat>
+		<lng>-3.6876971</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 51, madrid</address>
+		<lat>40.4370213</lat>
+		<lng>-3.6907818</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 73, madrid</address>
+		<lat>40.447429</lat>
+		<lng>-3.6932527</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 81, madrid</address>
+		<lat>40.447666</lat>
+		<lng>-3.6919661</lng>
+	</stop>
+	<stop>
+		<address>paseo de la castellana 93, madrid</address>
+		<lat>40.4509353</lat>
+		<lng>-3.6918287</lng>
+	</stop>
+	<stop>
+		<address>Paseo de la florida 13, madrid</address>
+		<lat>40.4214465</lat>
+		<lng>-3.7217143</lng>
+	</stop>
+	<stop>
+		<address>Paseo de la habana 15, madrid</address>
+		<lat>40.450014</lat>
+		<lng>-3.6881423</lng>
+	</stop>
+	<stop>
+		<address>Paseo de las Delicias, 35, madrid</address>
+		<lat>40.4038418</lat>
+		<lng>-3.6934043</lng>
+	</stop>
+	<stop>
+		<address>Paseo del Prado 1, madrid</address>
+		<lat>40.4186147</lat>
+		<lng>-3.6926219</lng>
+	</stop>
+	<stop>
+		<address>paseo dela castellana 110, madrid</address>
+		<lat>40.4458975</lat>
+		<lng>-3.6906286</lng>
+	</stop>
+	<stop>
+		<address>paseo dela habana 75, madrid</address>
+		<lat>40.4560401</lat>
+		<lng>-3.681543</lng>
+	</stop>
+	<stop>
+		<address>Paseo juan xxiii 22, madrid</address>
+		<lat>40.4476072</lat>
+		<lng>-3.7171923</lng>
+	</stop>
+	<stop>
+		<address>Paseo puerta del angel 3, madrid</address>
+		<lat>40.415269</lat>
+		<lng>-3.7311464</lng>
+	</stop>
+	<stop>
+		<address>Paseo Virgen del Puerto, 57, madrid</address>
+		<lat>40.4061511</lat>
+		<lng>-3.7217742</lng>
+	</stop>
+	<stop>
+		<address>Plaza cardenal cisneros, madrid</address>
+		<lat>40.439957</lat>
+		<lng>-3.7261731</lng>
+	</stop>
+	<stop>
+		<address>plaza conde valle suchil 7, madrid</address>
+		<lat>40.4308757</lat>
+		<lng>-3.7077017</lng>
+	</stop>
+	<stop>
+		<address>Plaza de cánovas del castillo 5, madrid</address>
+		<lat>40.4149807</lat>
+		<lng>-3.6948861</lng>
+	</stop>
+	<stop>
+		<address>plaza de carlos trias beltrán 1, madrid</address>
+		<lat>40.4511978</lat>
+		<lng>-3.6946925</lng>
+	</stop>
+	<stop>
+		<address>plaza de castilla 8, madrid</address>
+		<lat>40.4664543</lat>
+		<lng>-3.688514</lng>
+	</stop>
+	<stop>
+		<address>plaza de castilla 9, madrid</address>
+		<lat>40.4655357</lat>
+		<lng>-3.6885972</lng>
+	</stop>
+	<stop>
+		<address>Plaza de cristo rey 5, madrid</address>
+		<lat>40.4394604</lat>
+		<lng>-3.7175773</lng>
+	</stop>
+	<stop>
+		<address>Plaza de España 19, madrid</address>
+		<lat>40.4241221</lat>
+		<lng>-3.7123274</lng>
+	</stop>
+	<stop>
+		<address>Plaza de isabel II 5, madrid</address>
+		<lat>40.4184892</lat>
+		<lng>-3.7095129</lng>
+	</stop>
+	<stop>
+		<address>Plaza de la lealtad 2, madrid</address>
+		<lat>40.4161357</lat>
+		<lng>-3.692025</lng>
+	</stop>
+	<stop>
+		<address>plaza de la república dominicana 1, madrid</address>
+		<lat>40.4577827</lat>
+		<lng>-3.6770754</lng>
+	</stop>
+	<stop>
+		<address>plaza de los sagrados corazones 1, madrid</address>
+		<lat>40.4516344</lat>
+		<lng>-3.6864994</lng>
+	</stop>
+	<stop>
+		<address>Plaza de manuel becerra 4, madrid</address>
+		<lat>40.4281628</lat>
+		<lng>-3.6696328</lng>
+	</stop>
+	<stop>
+		<address>Plaza de Santo Domingo 9, madrid</address>
+		<lat>40.4205902</lat>
+		<lng>-3.7092643</lng>
+	</stop>
+	<stop>
+		<address>plaza de tarifa 5, madrid</address>
+		<lat>40.3839605</lat>
+		<lng>-3.7307917</lng>
+	</stop>
+	<stop>
+		<address>Plaza del Ángel 8, madrid</address>
+		<lat>40.414271</lat>
+		<lng>-3.7013257</lng>
+	</stop>
+	<stop>
+		<address>plaza del conde del valle suchil 16, madrid</address>
+		<lat>40.4312604</lat>
+		<lng>-3.7068137</lng>
+	</stop>
+	<stop>
+		<address>plaza del niño jesus 2, madrid</address>
+		<lat>40.411568</lat>
+		<lng>-3.675784</lng>
+	</stop>
+	<stop>
+		<address>Plaza Fernández Ladreda, 5, madrid</address>
+		<lat>40.3856398</lat>
+		<lng>-3.7178125</lng>
+	</stop>
+	<stop>
+		<address>Plaza Hermanos Falco y Álvarez de Toledo, 2, madrid</address>
+		<lat>40.473518</lat>
+		<lng>-3.5768827</lng>
+	</stop>
+	<stop>
+		<address>Plaza Lavapiés 8, madrid</address>
+		<lat>40.4086388</lat>
+		<lng>-3.7012027</lng>
+	</stop>
+	<stop>
+		<address>Plaza Legazpi, 2, madrid</address>
+		<lat>40.3908919</lat>
+		<lng>-3.6950614</lng>
+	</stop>
+	<stop>
+		<address>Ronda de comunicación 24, madrid</address>
+		<lat>40.5151376</lat>
+		<lng>-3.6616881</lng>
+	</stop>
+	<stop>
+		<address>Ronda de la comunicación 20, madrid</address>
+		<lat>40.5151376</lat>
+		<lng>-3.6616881</lng>
+	</stop>
+	<stop>
+		<address>Ronda de la comunicación 36, madrid</address>
+		<lat>40.5151376</lat>
+		<lng>-3.6616881</lng>
+	</stop>
+	<stop>
+		<address>Ronda de Segovia, 50, madrid</address>
+		<lat>40.4070927</lat>
+		<lng>-3.713254</lng>
+	</stop>
+	<stop>
+		<address>Terminal 1, Aeropuerto, Barajas, madrid</address>
+		<lat>40.4609962</lat>
+		<lng>-3.575707</lng>
+	</stop>
+	<stop>
+		<address>Terminal 2, Aeropuerto  de madrid-Barajas, madrid</address>
+		<lat>40.4693769</lat>
+		<lng>-3.569407</lng>
+	</stop>
+	<stop>
+		<address>Terminal 4, Aeropuerto de madrid-Barajas, madrid</address>
+		<lat>40.4913423</lat>
+		<lng>-3.5917691</lng>
+	</stop>
+	<stop>
+		<address>via de los poblados 7, madrid</address>
+		<lat>40.4743414</lat>
+		<lng>-3.6336032</lng>
+	</stop>
+</data>

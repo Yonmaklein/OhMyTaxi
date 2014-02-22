@@ -73,7 +73,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	 				}
 	 			}else{
 	 	        	etPointA.setText(null);
-	 				etPointA.setEnabled(true);	 	        	
+	 				etPointA.setEnabled(true);	
+	 				removeUpdates();
 	 	        }
 	 	    }
 	 	});	 	
@@ -128,7 +129,10 @@ public class PointsActivity extends Activity implements LocationListener {
 			  		}		
 	}
 
-	
+	private void removeUpdates() {
+		// TODO Auto-generated method stub
+		myLocManager.removeUpdates(this);
+	}
 	
 	
 	public void showToastToUser(String message){
@@ -136,9 +140,9 @@ public class PointsActivity extends Activity implements LocationListener {
 		warningMessage.show(); 
 	}
 	
-
 	
 	public void onBackPressed(){
+		removeUpdates();
 		Intent intent = new Intent(getBaseContext().getApplicationContext(), MenuActivity.class);  
 		startActivity(intent);
 		finish();

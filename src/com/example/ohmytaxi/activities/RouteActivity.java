@@ -136,9 +136,8 @@ public class RouteActivity extends FragmentActivity  {
             Log.i("DST", dst);
             
             
-            String newdst = new String(dst.replaceAll(" km", "").trim());
+            String newdst = new String(dst.replaceAll(",",".").replaceAll(" km", "").trim());
             Log.i("DISTANCIA",newdst);
-            System.out.println(newdst);
             distance = Double.valueOf(newdst);
             
             
@@ -181,7 +180,7 @@ public class RouteActivity extends FragmentActivity  {
     	    } catch (Exception e) {
     	        e.printStackTrace();
     	    }
-    	    Log.i("DISTANCIA", result_in_kms);
+    	    //Log.i("DISTANCIA", result_in_kms);
     	    return result_in_kms;
     	}
       
