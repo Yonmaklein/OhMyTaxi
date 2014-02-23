@@ -68,6 +68,9 @@ public class RouteActivity extends FragmentActivity  {
       private Button buttonBack;
       private Button buttonSave;
       private TextView textData;
+      private String fromAddress;
+      private String toAddress;
+      private double price;
       
       
       
@@ -98,9 +101,10 @@ public class RouteActivity extends FragmentActivity  {
             textData = (TextView) findViewById(R.id.tvTextData);
 
             
-
-            
-	    	Bundle bundle = getIntent().getExtras();	
+	    	Bundle bundle = getIntent().getExtras();
+            fromAddress = new String(bundle.getString("source address"));
+            toAddress = new String(bundle.getString("destination address"));
+	
 	    	fromPosition = new LatLng (bundle.getDouble("source lat"), bundle.getDouble("source lon"));
 		    toPosition = new LatLng (bundle.getDouble("destination lat"), bundle.getDouble("destination lon"));
 		
@@ -210,8 +214,35 @@ public class RouteActivity extends FragmentActivity  {
 			finish();
 		}
 	  
-		public void showSaveScreen(){
+		public void showSaveScreen(){						
+			 Intent i = new Intent(this, CacafutiActivity.class);  
+			 Bundle b = new Bundle();	
+
+			 b.putString("source address",  fromAddress);		
+			 b.putString("destination address",  toAddress);
+			 
+			 b.putDouble("distance", distance);
+			 b.putDouble("price", price);
+			 i.putExtras(b);	
+			 
+			 startActivity(i);
+			 finish();	
+			 
+			 /*
+			  * para sacar los datos en el oncreate  de la activity a la que llamas pegas esto
+				
+			Bundle bundle = getIntent().getExtras();
+			
+			// estos 2 son 2 atributos String
+            fromAddress = new String(bundle.getString("source address"));            
+            toAddress = new String(bundle.getString("destination address"));
 	
+	        // estos de abajo son 2 atributos double;
+	    	price = bundle.getDouble("price");
+		    distance = bundle.getDouble("distance");
+			
+			
+			*/
 		}
 		
       

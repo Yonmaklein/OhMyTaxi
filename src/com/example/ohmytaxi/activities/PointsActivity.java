@@ -39,6 +39,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	private LatLng sourceLocation;
 	private LatLng destinationLocation;
 	private String sourceCommunity;
+	private String sourceAddress;
+	private String destinationAddress;
 	private LocationManager myLocManager;
 	
 	
@@ -85,9 +87,11 @@ public class PointsActivity extends Activity implements LocationListener {
         		if (!isNetworkAvailable()){   
         		 	 showToastToUser(getResources().getString(R.string.network_not_available));
         		}else if (validFields()){
-        			  	  destinationLocation = getLocationFromAddress(String.valueOf(etPointB.getText()));
+        				  destinationAddress = new String (etPointB.getText()+"");
+        			  	  destinationLocation = getLocationFromAddress(String.valueOf(destinationAddress));
         			  	  if (!checkMyPosition.isChecked()){
-        			  		  sourceLocation = getLocationFromAddress(etPointA.getText()+"");        			
+        			  		  sourceAddress = new String(etPointA.getText()+"");
+        			  		  sourceLocation = getLocationFromAddress(sourceAddress);        			
         			  	  }
         			  	  if (destinationLocation == null){
         			  		  showToastToUser(getResources().getString(R.string.destination_not_exists));
@@ -205,6 +209,8 @@ public class PointsActivity extends Activity implements LocationListener {
 		 b.putDouble("source lon", sourceLocation.longitude); 
 		 b.putDouble("destination lat", destinationLocation.latitude);
 		 b.putDouble("destination lon", destinationLocation.longitude); 
+		 b.putString("source address", sourceAddress);
+		 b.putString("destination address", destinationAddress);
 		 Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
 		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));		 
 		 i.putExtras(b);
@@ -228,10 +234,11 @@ public class PointsActivity extends Activity implements LocationListener {
 	public void onLocationChanged(Location location) {
 		showToastToUser(Double.toString(location.getLatitude())+"  "+Double.toString(location.getLongitude()));
 		LatLng source = new LatLng(location.getLatitude(), location.getLongitude());
-		if(source!=null){
-			etPointA.setText(getAddressFromLocation(source));
+		if(source!=null){			
+			sourceAddress = new String(getAddressFromLocation(source));
+			etPointA.setText(sourceAddress);
 			etPointA.setEnabled(false);
-			myLocManager.removeUpdates(this);		
+			myLocManager.removeUpdates(this);			
 			sourceLocation = new LatLng(location.getLatitude(),location.getLongitude());
 		}
 	}
