@@ -1,7 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"    
+    tools:context=".MainActivity" >
+	<fragment 
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         class="com.google.android.gms.maps.SupportMapFragment"/>
+	<RelativeLayout
+        android:id="@+id/map_buttons_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
+        <Button
+            android:id="@+id/buttonBacktoStops"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="24dp"
+            android:text="@string/back" />
+
+        <Button
+            android:id="@+id/buttonGuide"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonBacktoStops"
+            android:layout_alignBottom="@+id/buttonBacktoStops"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/guideme" />
+       
+    </RelativeLayout>
+    
+</RelativeLayout>

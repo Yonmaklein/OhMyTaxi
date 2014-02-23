@@ -128,7 +128,7 @@ public class MenuActivity extends Activity {
 	}
 
 	public void showMyStopsScreen(){
-		Intent i = new Intent(this, MyStopsActivity.class);  
+		Intent i = new Intent(this, ParserStopsActivity.class);  
 		startActivity(i);
 		finish();
 	}

@@ -47,9 +47,9 @@
         android:id="@+id/tvToStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editPointToStop"
         android:layout_alignLeft="@+id/editPointToStop"
-        android:layout_marginBottom="38dp"
+        android:layout_alignTop="@+id/checkMyPositionToStop"
+        android:layout_marginTop="38dp"
         android:text="@string/origin" />
 
 </RelativeLayout>

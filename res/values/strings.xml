@@ -7,7 +7,7 @@
     
     <string name="calculate">Calcular ruta</string>
     <string name="routes">Mis rutas</string>
-    <string name="stops">Paradas cercanas</string>
+    <string name="stops">Parada más cercana</string>
     <string name="help">Ayuda</string>
     <string name="settings">Opciones</string>
     <string name="exit">Salir</string>
@@ -44,5 +44,8 @@
     <string name="origin_not_exists">La ubicación de origen no existe</string>
     <string name="network_not_available">Parece que no tienes conexión de red</string>
     <string name="obtaining_location">Obteniendo ubicación</string>
-    <string name="show_stops">Paradas cercanas</string>
+    <string name="show_stops">Parada más cercana</string>
+    
+    <string name="guideme">Cómo llegar</string>
+    <string name="back">Volver</string>
 </resources>

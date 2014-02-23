@@ -10,6 +10,13 @@ public class Stop {
 	private double lon;
 
 
+	
+	
+	public Stop(){
+		
+	}
+	
+	
 	public Stop(String dire, double lat, double lon){
 		this.dire= new String (dire);
 		this.lat = lat;

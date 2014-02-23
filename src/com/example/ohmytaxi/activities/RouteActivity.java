@@ -83,8 +83,8 @@ public class RouteActivity extends FragmentActivity  {
             SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
             .findFragmentById(R.id.map);
             mGoogleMap = supportMapFragment.getMap();
-            buttonSave		 = (Button) findViewById(R.id.buttonSave);
-            buttonBack		 = (Button) findViewById(R.id.buttonBack);
+            buttonSave = (Button) findViewById(R.id.buttonSave);
+            buttonBack = (Button) findViewById(R.id.buttonBack);
             buttonBack.setOnClickListener(new OnClickListener() {
             	public void onClick(View view){
             		showPointsScreen();
@@ -143,6 +143,7 @@ public class RouteActivity extends FragmentActivity  {
             
             
             TaxResults tax = new TaxResults(fromPosition, toPosition, distance);
+        
             Log.i("PRECIO",String.valueOf(tax.getPrice()));
             textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");            
       }
