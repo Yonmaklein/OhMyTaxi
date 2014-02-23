@@ -44,4 +44,5 @@
     <string name="origin_not_exists">La ubicación de origen no existe</string>
     <string name="network_not_available">Parece que no tienes conexión de red</string>
     <string name="obtaining_location">Obteniendo ubicación</string>
+    <string name="show_stops">Paradas cercanas</string>
 </resources>

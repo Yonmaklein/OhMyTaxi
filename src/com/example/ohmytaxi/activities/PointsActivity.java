@@ -41,6 +41,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	private String sourceCommunity;
 	private LocationManager myLocManager;
 	
+	
+	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_points);
