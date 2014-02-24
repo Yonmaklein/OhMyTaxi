@@ -157,7 +157,7 @@ public class RouteActivity extends FragmentActivity  {
       
       public String getDistance(double lat1, double lon1, double lat2, double lon2) {
     	    String result_in_kms = "";
-    	    String url = "http://maps.google.com/maps/api/directions/xml?origin=" + lat1 + "," + lon1 + "&destination=" + lat2 + "," + lon2 + "&sensor=false&units=metric";
+    	    String url = "http://maps.google.com/maps/api/directions/xml?origin="+lat1+","+lon1+"&destination="+lat2+","+lon2+"&sensor=false&units=metric";
     	    String tag[] = {"text"};
     	    HttpResponse response = null;
     	    try {
@@ -215,7 +215,7 @@ public class RouteActivity extends FragmentActivity  {
 		}
 	  
 		public void showSaveScreen(){						
-			 Intent i = new Intent(this, CacafutiActivity.class);  
+	/*		 Intent i = new Intent(this, CacafutiActivity.class);  
 			 Bundle b = new Bundle();	
 
 			 b.putString("source address",  fromAddress);		
@@ -227,7 +227,11 @@ public class RouteActivity extends FragmentActivity  {
 			 
 			 startActivity(i);
 			 finish();	
-			 
+			 */
+			
+			
+			
+			
 			 /*
 			  * para sacar los datos en el oncreate  de la activity a la que llamas pegas esto
 				

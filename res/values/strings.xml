@@ -45,7 +45,6 @@
     <string name="network_not_available">Parece que no tienes conexión de red</string>
     <string name="obtaining_location">Obteniendo ubicación</string>
     <string name="show_stops">Parada más cercana</string>
-    
     <string name="guideme">Cómo llegar</string>
     <string name="back">Volver</string>
 </resources>

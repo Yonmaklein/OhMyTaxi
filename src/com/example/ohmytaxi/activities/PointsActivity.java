@@ -120,17 +120,30 @@ public class PointsActivity extends Activity implements LocationListener {
 	
 
 
-	public boolean validFields (){		
-		if ((etPointA.getText().length() == 0) && (etPointB.getText().length() != 0)){
+	public boolean validFields (){	
+		String a = new String(etPointA.getText()+"");
+		String b = new String(etPointB.getText()+"");
+		
+		if ((a.length() == 0) && (b.length() != 0)){
 			showToastToUser(getResources().getString(R.string.introduce_origin_address));
 			return false;
-		}else if ((etPointB.getText().length() == 0) && (etPointA.getText().length() != 0)){
+		}else if ((b.length() == 0) && (a.length() != 0)){
 			  		showToastToUser(getResources().getString(R.string.introduce_destination_address));												        
 					return false;
-			  }else if((etPointA.getText().length() == 0) && (etPointB.getText().length() == 0)){ 
+			  }else if((a.length() == 0) && (b.length() == 0)){ 
 				  		showToastToUser(getResources().getString(R.string.introduce_origin_destination));
 						return false;
-			  		}else{
+					}if((a.contains("@")||(a.contains("#")||(a.contains("*")||(a.contains("/")||(a.contains("%")||
+							(a.contains("+")||(a.contains("?")||(a.contains("¿")||(a.contains("{")||(a.contains("}")||
+									(a.contains("€")||(a.contains("€")))))))))))))){
+				  		showToastToUser(getResources().getString(R.string.origin_not_exists));
+						return false;
+			  		}else if((b.contains("@")||(b.contains("#")||(b.contains("*")||(b.contains("/")||(b.contains("%")||
+							(b.contains("+")||(b.contains("?")||(b.contains("¿")||(b.contains("{")||(b.contains("}")||
+									(b.contains("€")||(b.contains("€")))))))))))))){
+			  			showToastToUser(getResources().getString(R.string.destination_not_exists));
+						return false;
+			  		}else {
 			  			return true;
 			  		}		
 	}
@@ -187,7 +200,7 @@ public class PointsActivity extends Activity implements LocationListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (addresses==null){
+		if (addresses.size()==0){
 			return null;
 		}else{
 			String address = addresses.get(0).getAddressLine(0);

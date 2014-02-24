@@ -42,6 +42,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	private LatLng sourceToStop;
 	private CheckBox checkMyPositionToStop;
 	private Button btSearchStops;
+	private String sourceAddress;
 	
 
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +64,17 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	 					getLocation(true);	// Acceso al GPS		 						 						 					
 	 				}
 	 				else if(myLocManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){	 					
-	 						if (isNetworkAvailable()){
-	 							showToastToUser(getResources().getString(R.string.obtaining_location));
-		 						getLocation(false); // Acceso por red	 		
-	 						}else{
-	 							showToastToUser(getResources().getString(R.string.network_not_available));
-	 							checkMyPositionToStop.setChecked(false);
-	 							etPointStop.setEnabled(true);
-	 						}				
+	 							if (isNetworkAvailable()){
+	 								showToastToUser(getResources().getString(R.string.obtaining_location));
+	 								getLocation(false); // Acceso por red	 		
+	 							}else{
+	 								showToastToUser(getResources().getString(R.string.network_not_available));
+	 								checkMyPositionToStop.setChecked(false);
+	 								etPointStop.setEnabled(true);
+	 							}				
 	 					 }else{
 	 						 showToastToUser(getResources().getString(R.string.check_conf_location));				
-	 				}
+	 					 }
 	 			}else{
 	 	        	etPointStop.setText(null);
 	 				etPointStop.setEnabled(true);	
@@ -87,11 +88,20 @@ public class ParserStopsActivity extends Activity implements LocationListener{
         		 	 showToastToUser(getResources().getString(R.string.network_not_available));
         		}else if (validField()){
         			  	   sourceToStop = getLocationFromAddress(etPointStop.getText()+"");  
-        			  	   Log.i("SOURCETOSTOP", sourceToStop.toString());
-        			  	   if (getLocationFromAddress(etPointStop.getText()+"")!=null){
-            			  	   showStopsMap();
-        			  	   }else{
+        			  	   Log.i("JUSTO ANTES DE PETAR", "PETAAAAAR");
+        			  	   //Log.i("SOURCETOSTOP", sourceToStop.toString());
+        			  	   if (sourceToStop==null){
+        			  		   Log.i("ES NULL", "MENSAJEEE");
         			  		   showToastToUser(getResources().getString(R.string.origin_not_exists));
+        			  		   //Log.i("PETA!", "!!¿?");
+        			  	   }else{
+        			  		   Log.i("NO ES NULL", sourceToStop.toString());
+        			  		   sourceAddress = getAddressFromLocation(sourceToStop);
+        			  		   if (sourceAddress==null){
+            			  		   showToastToUser(getResources().getString(R.string.origin_not_exists));
+        			  		   }else{
+        			  			   showStopsMap();
+        			  		   }
         			  	   }        			  	   
         			  }        			  	  
         	}
@@ -111,13 +121,13 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (addresses==null){
+		if (addresses.size()==0){
 			return null;
 		}else{
 			String address = addresses.get(0).getAddressLine(0);
 			String city = addresses.get(0).getAddressLine(1);
 			//sourceCommunity = addresses.get(0).getAddressLine(2);
-			Log.i("COMUNIDAD", addresses.get(0).getAddressLine(2));
+//			Log.i("COMUNIDAD", addresses.get(0).getAddressLine(2));
 			//String country = addresses.get(0).getAddressLine(2);
 			return address + " " + city;		
 		}	
@@ -125,20 +135,22 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	
     
 	public Stop closerStop(LatLng source){
-		double minDistance = 100000.0;
+		double minDistance = 100000000.0;
 		Stop closerStop = new Stop();
 		Location originLoc = new Location ("origen");
 	  	originLoc.setLatitude(sourceToStop.latitude);
-	  	originLoc.setLongitude(sourceToStop.longitude);
+	  	originLoc.setLongitude(sourceToStop.longitude);	  	
 	  	Location stopLoc = new Location("destino");
         for (int i =0; i<allStops.size(); i++){
         	stopLoc.setLatitude(allStops.get(i).getLat());
         	stopLoc.setLongitude(allStops.get(i).getLon());        	
         	if (originLoc.distanceTo(stopLoc)< minDistance){
         		minDistance = originLoc.distanceTo(stopLoc);
-        		closerStop = new Stop(allStops.get(i).getDire(), allStops.get(i).getLat(),allStops.get(i).getLon());
+        		Log.i("DIRECCION STOP", allStops.get(i).getDire());
+        		closerStop = new Stop(new String(allStops.get(i).getDire()), allStops.get(i).getLat(),allStops.get(i).getLon());
         	}
         }         
+        
 		return closerStop;
 		
 	}
@@ -149,17 +161,21 @@ public class ParserStopsActivity extends Activity implements LocationListener{
     	Geocoder coder = new Geocoder(this);
     	List<Address> address;
     	LatLng resultLocation = null;
+    	Log.i("Locationfromaddress", strAddress);
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
     	    if (address.size()==0) {    	    	
-    	    	//showToastToUser("La dirección "+strAddress+" no existe");    	    	
+    	    	//showToastToUser("La dirección "+strAddress+" no existe");  
+    	    	Log.i("da","NULL");
     			resultLocation = null;
     	    }else{    	 	    	
     	    	Address location = address.get(0);
+    	    	//Log.i("getLocationToAddress", String.valueOf(resultLocation.latitude +"  "+  String.valueOf(resultLocation.longitude )));
     	    	resultLocation = new LatLng (location.getLatitude(), location.getLongitude());   
     	    }
     	} catch (IOException e) {    			
     	}
+    	//Log.i("RETURN", "NULL");
 		return resultLocation;
     }
 
@@ -199,43 +215,23 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	
 	
 	public boolean validField (){		
-		if(etPointStop.getText().length() == 0){
+        String a = new String (etPointStop.getText()+"");
+		if(a.length() == 0){
 	  		showToastToUser(getResources().getString(R.string.introduce_origin_address));
 			return false;
-		}else{
-			return true;
+		}else if((a.contains("@")||(a.contains("#")||(a.contains("*")||(a.contains("/")||(a.contains("%")||
+				(a.contains("+")||(a.contains("?")||(a.contains("¿")||(a.contains("{")||(a.contains("}")||
+						(a.contains("€")||(a.contains("€")))))))))))))){
+				showToastToUser(getResources().getString(R.string.origin_not_exists));
+				return false;
+				}else{	  	
+					return true;
 		}					
 	}
 	
 
 
-	private void showStopsMap() {
-		 Intent i = new Intent(this, StopsInMapActivity.class);  
-		 Stop stop = closerStop(sourceToStop);
-		 Log.i("cercana", stop.getDire());
-		 Bundle b = new Bundle ();
-		 b.putDouble("source lat", sourceToStop.latitude);
-		 b.putDouble("source lon", sourceToStop.longitude); 
-		 b.putString("source address",  getAddressFromLocation(sourceToStop));
-		 b.putDouble("stop lat", stop.getLat());
-		 b.putDouble("stop lon", stop.getLon()); 
-		 b.putString("stop address",  stop.getDire());
-		 Log.i("stop lat let", String.valueOf(stop.getLat()));
-		 Log.i("stop lon let", String.valueOf(stop.getLon()));
-		 Log.i("stop address let", stop.getDire());
-		 Log.i("source lat let", String.valueOf(sourceToStop.latitude));
-		 Log.i("source lon let", String.valueOf(sourceToStop.longitude));
-		 Log.i("source address let", getAddressFromLocation(sourceToStop));
 
-		/* Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
-		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));	*/	 
-		 i.putExtras(b);
-		 
-		 startActivity(i);
-		 finish();	
-		
-	}	 		
-	
 	
 	
 
@@ -290,24 +286,24 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	            String etiqueta = null;	 
 	            switch (evento){
 	                case XmlPullParser.START_DOCUMENT:
-	                	Log.i("Empieza", " el documento");
+	                //	Log.i("Empieza", " el documento");
 	                	stops = new ArrayList<Stop>();
 	                	break;	 
 	                case XmlPullParser.START_TAG:
-	                    Log.i("Empieza", " taaaaag");
+	                   // Log.i("Empieza", " taaaaag");
 	                    etiqueta = parser.getName();
 	                    if (etiqueta.equals("stop")){
-	                        Log.i("encuentra stop", " STOP");
+	                      //  Log.i("encuentra stop", " STOP");
 	                        currentStop = new Stop();
 	                    }else if (currentStop != null){
 	                            	if (etiqueta.equals("address")){
-	                            		Log.i("encuentra", " ADDRESS");
+	                            		//Log.i("encuentra", " ADDRESS");
 	                            		currentStop.setDire(parser.nextText());
 	                            	}else if (etiqueta.equals("lat")){
-	                            				Log.i("encuentra", " LATITUD");
+	                            			//	Log.i("encuentra", " LATITUD");
 	                            				currentStop.setLat(Double.parseDouble(parser.nextText()));
 	                            		  }else if (etiqueta.equals("lng")){
-	                            			  		Log.i("encuentra", " LONGITUD");
+	                            			  	//	Log.i("encuentra", " LONGITUD");
 	                            			  		currentStop.setLon(Double.parseDouble(parser.nextText()));
 	                            		  		}
 	                          }
@@ -316,7 +312,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	                    etiqueta = parser.getName();	 
 	                    if (etiqueta.equals("stop") && currentStop != null){
 	                        stops.add(currentStop);
-	                        Log.i("Añade parada al array", " PARADA AÑADIDA");
+	                 //       Log.i("Añade parada al array", " PARADA AÑADIDA");
 	                    }
 	                    break;
 	                }	 
@@ -328,5 +324,45 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	        }	 
 	    return stops;
 	}
+	
+	
+	
+	private void showStopsMap() {
+		 Intent i = new Intent(this, StopsInMapActivity.class);  
+		 Log.i("SourceToStop ES:", sourceToStop.toString());
+		 Stop stop = closerStop(sourceToStop);
+		 if (stop==null){
+			 Log.i("cercana", "CERCANA");
+
+		 }else{
+			 Log.i("stop lat", String.valueOf(stop.getLat()));
+			 Log.i("stop lon", String.valueOf(stop.getLon()));
+			 Log.i("cercana", stop.getDire().toString());
+		 }
+		 Bundle b = new Bundle ();
+		 b.putBoolean("write", true);
+		 b.putDouble("source lat", sourceToStop.latitude);
+		 b.putDouble("source lon", sourceToStop.longitude); 
+		 b.putString("source address",  sourceAddress);
+		 b.putDouble("stop lat", stop.getLat());
+		 b.putDouble("stop lon", stop.getLon()); 
+		 b.putString("stop address",  stop.getDire());
+	/*	 Log.i("stop lat let", String.valueOf(stop.getLat()));
+		 Log.i("stop lon let", String.valueOf(stop.getLon()));
+		 Log.i("stop address let", stop.getDire());
+		 Log.i("source lat let", String.valueOf(sourceToStop.latitude));
+		 Log.i("source lon let", String.valueOf(sourceToStop.longitude));
+		 Log.i("source address let", getAddressFromLocation(sourceToStop));
+*/
+		/* Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
+		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));	*/	 
+		 i.putExtras(b);
+		 
+		 startActivity(i);
+		 finish();	
+		
+	}	 		
+	
+	
 	 
 }
