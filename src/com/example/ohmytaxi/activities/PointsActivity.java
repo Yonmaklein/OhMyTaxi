@@ -3,10 +3,14 @@ package com.example.ohmytaxi.activities;
 
 
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -24,7 +28,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
@@ -35,7 +42,10 @@ public class PointsActivity extends Activity implements LocationListener {
 	private EditText etPointA;
 	private EditText etPointB;
 	private CheckBox checkMyPosition;
+	private CheckBox checkNow;
 	private Button btSearch;
+	private ImageButton imageDate;
+	private ImageButton imageTime;
 	private LatLng sourceLocation;
 	private LatLng destinationLocation;
 	private String sourceCommunity;
@@ -43,16 +53,79 @@ public class PointsActivity extends Activity implements LocationListener {
 	private String destinationAddress;
 	private LocationManager myLocManager;
 	
+	private Calendar cal;
+	private int mYear;
+	private int mMonth;
+	private int mDay; 
+	private int mHour;
+	private int mMinute;
+	private int mDayOfWeek;
+	private boolean dateSelected;
+	private boolean timeSelected;
+
+	
+	static final int DATE_DIALOG_ID = 0;
+	static final int TIME_DIALOG_ID = 1;
+	
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_points);
-	 	etPointA = (EditText) findViewById(R.id.editPointA);
-	 	etPointB = (EditText) findViewById (R.id.editPointB);
-	 	btSearch = (Button) findViewById(R.id.buttonSearch);
-	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	 	
+	    setContentView(R.layout.activity_prueba);
+	 	etPointA = (EditText) findViewById(R.id.etSource);
+	 	etPointB = (EditText) findViewById (R.id.etDestination);
+	 	btSearch = (Button) findViewById(R.id.btCalculate);
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	 
+	 	checkNow = (CheckBox) findViewById(R.id.checkNow); 	 	
+	 	imageDate = (ImageButton) findViewById(R.id.imageDate); 
+	 	imageTime = (ImageButton) findViewById(R.id.imageTime);
 	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);	 	
+	 	imageDate.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showDialog(DATE_DIALOG_ID);
+				
+			}
+	 		
+	 	});
+
+	 	imageTime.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showDialog(TIME_DIALOG_ID);
+				
+			}
+	 		
+	 	});
+	
+		checkNow.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+	 		@Override
+	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+	 			if (isChecked){
+	 				imageDate.setEnabled(false);
+	 				imageTime.setEnabled(false);
+	 				cal = Calendar.getInstance(); 
+	 				cal.setFirstDayOfWeek(Calendar.MONDAY);	
+	 				mHour = cal.get(Calendar.HOUR);
+	 				mMinute = cal.get(Calendar.MINUTE);
+	 				mDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+	 				mDay = cal.get(Calendar.DAY_OF_MONTH);
+	 				mMonth = cal.get(Calendar.MONTH);
+	 				dateSelected = true;
+	 				timeSelected = true;
+	 			}else{
+	 				imageDate.setEnabled(true);
+	 				imageTime.setEnabled(true);
+	 				dateSelected = false;
+	 				timeSelected = false;
+	 			}
+	 		}
+	 	});
+	
 	 	checkMyPosition.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 	 		@Override
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -109,8 +182,35 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	});
 	 	
 	}
-	 
 
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
+		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
+			mYear = year;
+			mMonth = monthOfYear;
+			mDay = dayOfMonth;
+			dateSelected = true;
+		}
+	};
+
+	protected Dialog onCreateDialog(int id){
+		switch (id){
+		case DATE_DIALOG_ID:
+			return new DatePickerDialog (this, mDateSetListener, mYear, mMonth, mDay);
+		}
+		switch (id){
+		case TIME_DIALOG_ID:
+			return new TimePickerDialog (this, mTimeSetListener, mHour, mMinute, true);
+		}
+		return null;
+	}
+	
+	private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {		
+		public void onTimeSet(TimePicker view, int hourOfDay, int minute){
+			mHour = hourOfDay;
+			mMinute = minute;
+			timeSelected =  true;			
+		}
+	};
 	
 	private boolean isNetworkAvailable() {
 	    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -118,12 +218,13 @@ public class PointsActivity extends Activity implements LocationListener {
 	    return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 	
-
-
 	public boolean validFields (){	
 		String a = new String(etPointA.getText()+"");
 		String b = new String(etPointB.getText()+"");
-		
+		if ((!dateSelected)||(!timeSelected)){
+			showToastToUser(getResources().getString(R.string.select_date));
+			return false;
+		}
 		if ((a.length() == 0) && (b.length() != 0)){
 			showToastToUser(getResources().getString(R.string.introduce_origin_address));
 			return false;
@@ -135,12 +236,12 @@ public class PointsActivity extends Activity implements LocationListener {
 						return false;
 					}if((a.contains("@")||(a.contains("#")||(a.contains("*")||(a.contains("/")||(a.contains("%")||
 							(a.contains("+")||(a.contains("?")||(a.contains("¿")||(a.contains("{")||(a.contains("}")||
-									(a.contains("€")||(a.contains("€")))))))))))))){
+									(a.contains("€")||(a.contains("$")))))))))))))){
 				  		showToastToUser(getResources().getString(R.string.origin_not_exists));
 						return false;
 			  		}else if((b.contains("@")||(b.contains("#")||(b.contains("*")||(b.contains("/")||(b.contains("%")||
 							(b.contains("+")||(b.contains("?")||(b.contains("¿")||(b.contains("{")||(b.contains("}")||
-									(b.contains("€")||(b.contains("€")))))))))))))){
+									(b.contains("€")||(b.contains("$")))))))))))))){
 			  			showToastToUser(getResources().getString(R.string.destination_not_exists));
 						return false;
 			  		}else {
@@ -224,6 +325,15 @@ public class PointsActivity extends Activity implements LocationListener {
 		 b.putDouble("destination lon", destinationLocation.longitude); 
 		 b.putString("source address", sourceAddress);
 		 b.putString("destination address", destinationAddress);
+		 b.putInt("hour", mHour);
+		 b.putInt("minute", mMinute);
+
+		 b.putInt("day", mDay);
+		 b.putInt("day of week", mDayOfWeek);
+		 b.putInt("month", mMonth);
+		 b.putInt("year", mYear);
+	
+		 
 		 Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
 		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));		 
 		 i.putExtras(b);

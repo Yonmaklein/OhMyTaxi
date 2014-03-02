@@ -221,7 +221,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 			return false;
 		}else if((a.contains("@")||(a.contains("#")||(a.contains("*")||(a.contains("/")||(a.contains("%")||
 				(a.contains("+")||(a.contains("?")||(a.contains("¿")||(a.contains("{")||(a.contains("}")||
-						(a.contains("€")||(a.contains("€")))))))))))))){
+						(a.contains("€")||(a.contains("$")))))))))))))){
 				showToastToUser(getResources().getString(R.string.origin_not_exists));
 				return false;
 				}else{	  	

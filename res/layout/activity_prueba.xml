@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backrepeat"
+    android:orientation="vertical"
+    android:screenOrientation="portrait" >
+
+
+
+    <Button
+        android1:id="@+id/btCalculate"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignParentBottom="true"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginBottom="35dp"
+        android1:text="@string/calculate" />
+
+    <EditText
+        android1:id="@+id/etDestination"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/btCalculate"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginBottom="20dp"
+        android1:ems="10" />
+
+    <EditText
+        android1:id="@+id/etSource"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/etDestination"
+        android1:layout_alignLeft="@+id/etDestination"
+        android1:layout_marginBottom="22dp"
+        android1:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <CheckBox
+        android1:id="@+id/checkMyPosition"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/etSource"
+        android1:layout_alignParentRight="true"
+        android1:layout_marginRight="34dp"
+        android1:text="@string/right_here" />
+
+    <TextView
+        android1:id="@+id/tvWhere"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/checkMyPosition"
+        android1:layout_centerHorizontal="true"
+        android1:text="@string/where"
+        android1:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageButton
+        android1:id="@+id/imageTime"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignRight="@+id/etSource"
+        android1:layout_below="@+id/checkNow"
+        android1:src="@drawable/time" />
+
+    <ImageButton
+        android1:id="@+id/imageDate"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/tvWhere"
+        android1:layout_toLeftOf="@+id/tvWhere"
+        android1:src="@drawable/date" />
+
+    <CheckBox
+        android1:id="@+id/checkNow"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/imageDate"
+        android1:layout_alignLeft="@+id/checkMyPosition"
+        android1:text="@string/right_now" />
+
+    <TextView
+        android1:id="@+id/tvWhen"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/checkNow"
+        android1:layout_alignRight="@+id/tvWhere"
+        android1:text="@string/when"
+        android1:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android1:id="@+id/tvPointA"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/etSource"
+        android1:layout_toLeftOf="@+id/btCalculate"
+        android1:text="@string/source" />
+
+    <TextView
+        android1:id="@+id/tvPointB"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/etDestination"
+        android1:layout_alignLeft="@+id/tvPointA"
+        android1:text="Destino" />
+
+</RelativeLayout>

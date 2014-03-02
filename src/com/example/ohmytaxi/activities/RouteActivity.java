@@ -72,6 +72,13 @@ public class RouteActivity extends FragmentActivity  {
       private String toAddress;
       private double price;
       
+      private int hour;
+      private int minute;
+      private int day;
+      private int dayOfWeek;
+      private int month;	
+      private int year;
+  	
       
       
       @Override
@@ -108,9 +115,14 @@ public class RouteActivity extends FragmentActivity  {
 	    	fromPosition = new LatLng (bundle.getDouble("source lat"), bundle.getDouble("source lon"));
 		    toPosition = new LatLng (bundle.getDouble("destination lat"), bundle.getDouble("destination lon"));
 		
-           
+            hour = bundle.getInt("hour");
+            minute = bundle.getInt("minute");
+            day = bundle.getInt("day");
+            dayOfWeek = bundle.getInt("day of week");
+            month = bundle.getInt("month");
+            year = bundle.getInt("year");
             
-
+            
             // Enabling MyLocation in Google Map
             mGoogleMap.setMyLocationEnabled(true);
             mGoogleMap.getUiSettings().setZoomControlsEnabled(false);
@@ -146,7 +158,7 @@ public class RouteActivity extends FragmentActivity  {
             
             
             
-            TaxResults tax = new TaxResults(fromPosition, toPosition, distance);
+            TaxResults tax = new TaxResults(fromPosition, toPosition, distance, year, month, day, dayOfWeek, hour, minute);
         
             Log.i("PRECIO",String.valueOf(tax.getPrice()));
             textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");            

@@ -18,10 +18,11 @@ public class TaxResults {
 	private double price;
 	private double distance;
 	private int hour;
-	private int minutes;
+	private int minute;
 	private int day;
-	private int dayOfMonth;
-	private int month;
+	private int dayOfWeek;
+	private int month;	
+	private int year;
 	private float supplement;
 	private Calendar cal;
 	private List <LatLng> m30;
@@ -36,7 +37,8 @@ public class TaxResults {
 	
 	
 	
-	public TaxResults (LatLng origin, LatLng destination, double distance){
+	public TaxResults (LatLng origin, LatLng destination, double distance, int year, 
+						int month, int day,	int dayOfWeek, int hour, int minute){
 
 		this.distance = distance;
 		this.origin = origin;
@@ -46,13 +48,13 @@ public class TaxResults {
 		medPoint2 = new LatLng ((origin.latitude + medPoint3.latitude)/2, (origin.longitude + medPoint3.longitude)/2);		
 		medPoint4 = new LatLng ((medPoint3.latitude + destination.latitude)/2, (medPoint3.longitude + destination.longitude)/2);
 	    
-		cal = Calendar.getInstance(); 
-		cal.setFirstDayOfWeek(Calendar.MONDAY);	
-		hour = cal.get(Calendar.HOUR);
-		minutes = cal.get(Calendar.MINUTE);
-		day = cal.get(Calendar.DAY_OF_WEEK);
-		dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
-		month = cal.get(Calendar.MONTH);
+		this.year = year;
+	    this.month = month;
+	    this.day = day;
+	    this.dayOfWeek = dayOfWeek;
+	    this.hour = hour;
+	    this.minute = minute;
+
 		
 		createPolygons();
 
@@ -168,7 +170,7 @@ public class TaxResults {
 	
 	
 	public boolean isDaily(){
-		return ((day != Calendar.SATURDAY) && (day != Calendar.SUNDAY)) &&
+		return ((dayOfWeek != Calendar.SATURDAY) && (dayOfWeek != Calendar.SUNDAY)) &&
 				((hour >= 6) && (hour < 21)); 	
 	}
 	
@@ -188,7 +190,7 @@ public class TaxResults {
 					Log.i("PRECIO POR KM", Float.toString(pricePerKm()));
 				}						
 			}else{					
-				price = distance + pricePerKm();   // atención
+				price = distance * pricePerKm();   // atención
 				Log.i("PRECIO POR KM", Float.toString(pricePerKm()));
 			}			
 			price = price + getSupplements();
@@ -279,20 +281,20 @@ public class TaxResults {
 			Log.i("AÑADIDO", "3.00");
 		}	
 		if(month == 12){
-			if ((dayOfMonth == 24) || (dayOfMonth == 31)){
-				if (((hour == 20) && (minutes > 30)) || ((hour >= 21)))  {
+			if ((day == 24) || (day == 31)){
+				if (((hour == 20) && (minute > 30)) || ((hour >= 21)))  {
 					supplement = (float) (supplement + 6.70);
 					Log.i("AÑADIDO1", "6.70");
 				}
 			}
-			if (dayOfMonth == 25){
-				if ((hour < 6) || (((hour == 5) && (minutes < 30)))   ){
+			if (day == 25){
+				if ((hour < 6) || (((hour == 5) && (minute < 30)))   ){
 					supplement = (float) (supplement + 6.70);
 					Log.i("AÑADIDO2", "6.70");
 				}
 			}
 		}
-		if (((month == 1) && (dayOfMonth ==1) && ((hour <6)) || ((hour == 5) && (minutes < 30)))){
+		if (((month == 1) && (day ==1) && ((hour <6)) || ((hour == 5) && (minute < 30)))){
 			supplement = (float) (supplement + 6.70);
 			Log.i("AÑADIDO3", "6.70");
 		}

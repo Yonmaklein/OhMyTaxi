@@ -47,4 +47,13 @@
     <string name="show_stops">Parada más cercana</string>
     <string name="guideme">Cómo llegar</string>
     <string name="back">Volver</string>
+    
+    <string name="right_now">Ahora</string>
+    <string name="right_here">Desde aquí</string>
+   	<string name="when">¿Cuándo?</string>
+   	<string name="where">¿Dónde?</string>
+   	<string name="select_date">Selecciona la fecha y hora de tu viaje</string>
+   	 
+   
+    
 </resources>
