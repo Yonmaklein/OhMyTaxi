@@ -72,6 +72,15 @@ public class PointsActivity extends Activity implements LocationListener {
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_prueba);
+	    cal = Calendar.getInstance();
+	    
+
+	    mMonth = cal.get(Calendar.MONTH);
+	    mYear = cal.get(Calendar.YEAR);
+	    mDay = cal.get(Calendar.DAY_OF_MONTH); 
+	    mHour = cal.get(Calendar.HOUR);
+	    mMinute = cal.get(Calendar.MINUTE);
+	    
 	 	etPointA = (EditText) findViewById(R.id.etSource);
 	 	etPointB = (EditText) findViewById (R.id.etDestination);
 	 	btSearch = (Button) findViewById(R.id.btCalculate);
@@ -177,7 +186,7 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	
 	}
 
-	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){
+	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){		
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
 			mYear = year;
 			mMonth = monthOfYear;
