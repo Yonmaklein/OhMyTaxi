@@ -92,7 +92,7 @@ public class RouteActivity extends FragmentActivity  {
             v2GetRouteDirection = new GMapV2GetRouteDirection();
             SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
             .findFragmentById(R.id.map);
-            mGoogleMap = supportMapFragment.getMap();
+            mGoogleMap = supportMapFragment.getMap();            
             buttonSave = (Button) findViewById(R.id.buttonSave);
             buttonBack = (Button) findViewById(R.id.buttonBack);
             buttonBack.setOnClickListener(new OnClickListener() {
@@ -129,7 +129,7 @@ public class RouteActivity extends FragmentActivity  {
             mGoogleMap.getUiSettings().setCompassEnabled(true);
             mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
             mGoogleMap.getUiSettings().setAllGesturesEnabled(true);
-            mGoogleMap.setTrafficEnabled(true);
+            mGoogleMap.setTrafficEnabled(false);
             
             
             

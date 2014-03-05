@@ -64,8 +64,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	private boolean timeSelected;
 
 	
-	static final int DATE_DIALOG_ID = 0;
-	static final int TIME_DIALOG_ID = 1;
+	static final int DATE_DIALOG_ID = 1;
+	static final int TIME_DIALOG_ID = 2;
 	
 	
 	
@@ -81,23 +81,17 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	imageTime = (ImageButton) findViewById(R.id.imageTime);
 	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);	 	
 	 	imageDate.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				showDialog(DATE_DIALOG_ID);
-				
-			}
-	 		
+				showDialog(DATE_DIALOG_ID);				
+			}	 		
 	 	});
-
 	 	imageTime.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				showDialog(TIME_DIALOG_ID);
-				
 			}
 	 		
 	 	});
@@ -277,7 +271,7 @@ public class PointsActivity extends Activity implements LocationListener {
     	LatLng resultLocation = null;
     	try {
     	    address = coder.getFromLocationName(strAddress,5);
-    	    if (address.size()==0) {    	    	
+    	    if (address.size()==0) {    	    							// REVISAR !
     	    	showToastToUser("La dirección "+strAddress+" no existe");    	    	
     			resultLocation = null;
     	    }else{    	 	    	
