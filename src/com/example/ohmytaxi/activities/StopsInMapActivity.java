@@ -74,13 +74,20 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    
 	    
 	    public void guidemeToStop(){
-	    	String uri = "http://maps.google.com/maps?saddr="+String.valueOf(source.latitude)+","
+	    	/*String uri = "http://maps.google.com/maps?saddr="+String.valueOf(source.latitude)+","
 	    					+String.valueOf(source.longitude)+"&daddr="
 	    					+String.valueOf(stopLatLng.latitude)
 	    					+","+String.valueOf(stopLatLng.longitude);
 			Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(uri)); 
 			i.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity"); 
-			startActivity(i);
+			startActivity(i);*/
+	    	Intent intent = new Intent( Intent.ACTION_VIEW, 
+	                Uri.parse("http://maps.google.com/maps?saddr="+ String.valueOf(source.latitude)+","
+					+String.valueOf(source.longitude)+"&daddr="
+					+String.valueOf(stopLatLng.latitude)+","+String.valueOf(stopLatLng.longitude)+"&hl=zh&t=m&dirflg=w")); 
+	        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK&Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+	        intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+	        startActivity(intent);
 	    }
 	    
 
