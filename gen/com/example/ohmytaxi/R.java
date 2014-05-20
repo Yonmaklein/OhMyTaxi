@@ -455,6 +455,7 @@ containing a value of this type.
         public static final int deleteRoute=0x7f07002f;
         public static final int destination=0x7f070026;
         public static final int destination_not_exists=0x7f070040;
+        public static final int distance_not_available=0x7f07004c;
         public static final int editRoute=0x7f070030;
         public static final int element=0x7f070031;
         public static final int exit=0x7f070022;

@@ -34,6 +34,7 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
@@ -154,7 +155,16 @@ public class RouteActivity extends FragmentActivity  {
             
             String newdst = new String(dst.replaceAll(",",".").replaceAll(" km", "").trim());
             Log.i("DISTANCIA",newdst);
-            distance = Double.valueOf(newdst);
+            
+            try{
+            	distance = Double.valueOf(newdst);	
+            }catch(RuntimeException e){
+            	Log.i("Error","No ha sido posible calcular la distancia");
+            	distance = 0.0;
+            	Toast warningMessage = Toast.makeText(getApplicationContext(), getResources().getString(R.string.distance_not_available), Toast.LENGTH_LONG);
+        		warningMessage.show(); 
+            }
+            
             
             
             

@@ -63,6 +63,8 @@
    	<string name="when">¿Cuándo?</string>
    	<string name="where">¿Dónde?</string>
    	<string name="select_date">Selecciona la fecha y hora de tu viaje</string>
+   	
+   	<string name="distance_not_available">Destino no accesible en taxi</string>
    	 
    
     

@@ -36,53 +36,65 @@
         
         <activity
             android:name="com.example.ohmytaxi.activities.SettingsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.ohmytaxi.activities.PointsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
             
         </activity>
         
          <activity
             android:name="com.example.ohmytaxi.activities.StopsInMapActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
             
         </activity>
         <activity
             android:name="com.example.ohmytaxi.activities.MyRoutesActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity>   
         <activity
             android:name="com.example.ohmytaxi.activities.MyStopsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity> 
         <activity
             android:name="com.example.ohmytaxi.activities.RouteActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity> 
         <activity
             android:name="com.example.ohmytaxi.activities.UsuariosMainActivity"
+			android:screenOrientation="portrait"            
             android:label="@string/app_name">
         </activity>        
         <activity
             android:name="com.example.ohmytaxi.activities.HelpActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity>          
         <activity
             android:name="com.example.ohmytaxi.activities.ParserStopsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity>  
          <activity
             android:name="com.example.ohmytaxi.activities.MyRoutesListActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity>
          <activity
             android:name="com.example.ohmytaxi.activities.Route"
+            android:screenOrientation="portrait"
             android:label="@string/app_name">
         </activity>
         <activity
             android:name="com.example.ohmytaxi.activities.MenuActivity"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

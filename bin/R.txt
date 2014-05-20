@@ -226,6 +226,7 @@ int string date 0x7f070032
 int string deleteRoute 0x7f07002f
 int string destination 0x7f070026
 int string destination_not_exists 0x7f070040
+int string distance_not_available 0x7f07004c
 int string editRoute 0x7f070030
 int string element 0x7f070031
 int string exit 0x7f070022
