@@ -4,52 +4,78 @@ package com.example.ohmytaxi.activities;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.widget.SimpleCursorAdapter;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
 import com.example.ohmytaxi.R;
-import com.example.ohmytaxi.db.MyRoutesAdapter;
-import com.example.ohmytaxi.db.MyRoutesCursorAdapter;
+import com.example.ohmytaxi.db.RoutesSQLiteHelper;
 
 public class MyRoutesActivity extends ListActivity{
 	
-	private MyRoutesAdapter dbAdapter;
-    private Cursor cursor;
-    private MyRoutesCursorAdapter routesAdapter ;
-    private ListView lista;
- 
+	
+	ListView list;
+	
+	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
+
       setContentView(R.layout.activity_myroutes);
  
-      lista = (ListView) findViewById(android.R.id.list);
-      
- 
-      dbAdapter = new MyRoutesAdapter(this);
-      dbAdapter.abrir();
- 
-      consultar();
+      list = getListView();
+
+      String dbName = getString(R.string.dbName);
+          RoutesSQLiteHelper sqlite = new RoutesSQLiteHelper(this, dbName, null, 1);
+          SQLiteDatabase db = sqlite.getReadableDatabase();
+
+          //Debemos incluir el campo "_id" en la consulta obligatoriamente pues es necesÃ¡rio para la lista
+          String columns[] = new String[]{"_id", "date", "origin","destination", "km","price"};
+          Cursor c = 
+                          db.query(
+                                          "Routes", columns, null, null, null, null, null, null);
+          c.moveToFirst();
+          //¿Qué hace?
+          String from[] = new String[]{"_id", "date", "origin","destination", "km","price"};
+          int to[] = new int[]{R.id.date, R.id.origin, R.id.destination, R.id.km, R.id.price};
+         
+          SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.route, c,from, to, SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+
+          list.setAdapter(adapter);
+          list.setLongClickable(true);
+
+          //Cerramos la base de datos
+          db.close();
+
+          //Click al elemento
+          
+          
+          
+          
+		  list.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+	          public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+	              int pos, long id) {
+	                
+	        	  Log.i("TOCADO", Long.toString(id) );
+	                
+
+	              return true;
+	          }
+	       }); 
+
+          
+          
+          
+         
    }
- 
-   @SuppressWarnings("deprecation")
-private void consultar()
-   {
-      cursor = dbAdapter.getCursor();
-      startManagingCursor(cursor);
-      routesAdapter = new MyRoutesCursorAdapter(this, cursor);
-      lista.setAdapter(routesAdapter);
-   }
- /*
-   @Override
-   public boolean onCreateOptionsMenu(Menu menu) {
-      // Inflate the menu; this adds items to the action bar if it is present.
-     // getMenuInflater().inflate(R.menu.hipoteca, menu);
-      return true;
-   }
-   */
-   public void onBackPressed(){   // al pulsar la tecla back del telÃ©fono vuelve al menÃº principal
+
+   public void onBackPressed(){   
 		Intent intent = new Intent(getBaseContext().getApplicationContext(), MenuActivity.class);  
 		startActivity(intent);
 		finish();
@@ -57,56 +83,4 @@ private void consultar()
 	}
 	
 	
-	// old version
-	
-/*
-	 public void onCreate(Bundle savedInstanceState) {
-		 super.onCreate(savedInstanceState);
-		   setContentView(R.layout.acivity_misrutas);
-		 
-		   /*
-		    * Declaramos el controlador de la BBDD y accedemos en modo escritura
-		   
-		   BBDDHelper dbHelper = new BBDDHelper(getBaseContext());
-		 
-		   SQLiteDatabase db = dbHelper.getWritableDatabase();
-		 
-		   Toast.makeText(getBaseContext(), "Base de datos preparada", Toast.LENGTH_LONG).show();
-	    }
-	
-	 
-	 // old version
-	 
-	 
-	
-	 private void leerRutasBBDD(){
-		 
-	     TextView lbl = (TextView) findViewById(R.id.lbl);
-	     BBDDHelper bd = new BBDDHelper(this);
-	     Cursor cursor = bd.leerRutas();
-	     
-	     if(cursor.moveToFirst()){
-	      do{
-	     lbl.append(String.valueOf(cursor.getInt(0)) + " - " + cursor.getString(1) + " - " + cursor.getString(2) + "\n");  
-	      }while(cursor.moveToNext());
-	     }
-	     
-	    }
-	 //http://www.nosinmiubuntu.com/2013/01/rellenar-un-listview-con-sqlite.html
-	 // lo último no sé en qué activity hacerlo
-	 /*
-	 ListView listView = (ListView) findViewById(R.id.listView);
-
-	 bbdd bbdd = new bbdd(this);
-
-	 Cursor cursor = bbdd.leerLibros();
-	 startManagingCursor(cursor);
-
-	 String[] from = new String[]{"name"};
-	 int[] to = new int[]{R.id.text};
-
-	 SimpleCursorAdapter cursorAdapter = new SimpleCursorAdapter(this, R.layout.row, cursor, from, to);
-
-	 listView.setAdapter(cursorAdapter);
-*/
 }

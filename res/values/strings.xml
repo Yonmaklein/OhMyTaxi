@@ -28,6 +28,7 @@
     <string name="lista_vacia">No hay elementos en la lista</string>
     <string name="loading_route">Cargando ruta...</string>
     
+    <string name="dbName">rutas</string>
     <string name="identificator">identificador</string>
     <string name="pending">Pendiente</string>
     <string name="newRoute">Nueva ruta</string>
@@ -37,6 +38,7 @@
     <string name="date">Fecha</string>
     <string name="km">Distancia</string>
     <string name="price">Precio</string>
+    <string name="separador">---------------</string>
     
     <string name="save">Guardar</string>
     <string name="modify">Modificar</string>

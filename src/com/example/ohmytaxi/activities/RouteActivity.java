@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
+import com.example.ohmytaxi.db.RoutesSQLiteHelper;
 import com.example.ohmytaxi.location.GMapV2GetRouteDirection;
 import com.example.ohmytaxi.results.TaxResults;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -103,7 +104,7 @@ public class RouteActivity extends FragmentActivity  {
             });
             buttonSave.setOnClickListener(new OnClickListener() {
             	public void onClick(View view){
-            		showSaveScreen();
+            		saveDataOnDB();
             	}
             });
             textData = (TextView) findViewById(R.id.tvTextData);
@@ -236,8 +237,16 @@ public class RouteActivity extends FragmentActivity  {
 			finish();
 		}
 	  
-		public void showSaveScreen(){						
-	/*		 Intent i = new Intent(this, CacafutiActivity.class);  
+		public void saveDataOnDB(){		
+			
+			RoutesSQLiteHelper databasehelper = new RoutesSQLiteHelper (this, "rutas", null, 1);
+			databasehelper.saveRoute(Integer.toString(day)+"/"+Integer.toString(month)+"/"+Integer.toString(year), fromAddress, toAddress, (float)distance, (float)price);
+			Toast warningMessage = Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_LONG);
+			warningMessage.show(); 
+
+			
+			/*
+			 Intent i = new Intent(this, MyRoutesActivity.class);  
 			 Bundle b = new Bundle();	
 
 			 b.putString("source address",  fromAddress);		
@@ -245,6 +254,8 @@ public class RouteActivity extends FragmentActivity  {
 			 
 			 b.putDouble("distance", distance);
 			 b.putDouble("price", price);
+			 
+			 
 			 i.putExtras(b);	
 			 
 			 startActivity(i);
