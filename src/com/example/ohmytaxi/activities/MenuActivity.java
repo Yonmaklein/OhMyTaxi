@@ -2,8 +2,13 @@ package com.example.ohmytaxi.activities;
 
 
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
@@ -31,6 +36,46 @@ public class MenuActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+    	
+    	
+    	
+    	
+    	
+    	
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		
+		PackageManager PM= this.getPackageManager();
+
+		
+		
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);               
+	    Configuration config = getBaseContext().getResources().getConfiguration();
+
+	    String lang = settings.getString("selected_language","ENG");
+	   /* if (! "".equals(lang) && ! config.locale.getLanguage().equals(lang))
+	    {*/
+	        locale = new Locale(lang);
+	        Locale.setDefault(locale);
+	        config.locale = locale;
+	        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+	//    }
+		
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menugrid);
 
@@ -151,5 +196,21 @@ public class MenuActivity extends Activity {
 		
 	}
 
+    
+    
+    private Locale locale = null;
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig)
+	{
+	    super.onConfigurationChanged(newConfig);
+	/*    if (locale != null)
+	    {*/
+	        newConfig.locale = locale;
+	        Locale.setDefault(locale);
+	        getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
+	    //}
+	}
+	
     
 }

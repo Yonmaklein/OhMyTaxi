@@ -31,26 +31,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	    	super.onCreate(savedInstanceState);
-	    	setContentView(R.layout.activity_map);
-	    
+	    	setContentView(R.layout.activity_map);	    
 	    	map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 	    	map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
 	    	btGuideme  = (Button) findViewById(R.id.buttonGuide);
-	    	btBack  = (Button) findViewById(R.id.buttonBacktoStops);
-	    	
+	    	btBack  = (Button) findViewById(R.id.buttonBacktoStops);	    	
 	    	btBack.setOnClickListener(new OnClickListener() {
 	         	public void onClick(View view){
 	         		previousScreen();
 	         	}
-	         });
-	    	
+	         });	    	
 	    	btGuideme.setOnClickListener(new OnClickListener() {
 	         	public void onClick(View view){
 	         		guidemeToStop();
 	         	}
-	         });
-	    	
+	         });	    	
 	    	Bundle bundle = getIntent().getExtras();	    	
 	    	source = new LatLng (bundle.getDouble("source lat"), bundle.getDouble("source lon"));		    
 		    sourceAddress = new String(bundle.getString("source address"));		    

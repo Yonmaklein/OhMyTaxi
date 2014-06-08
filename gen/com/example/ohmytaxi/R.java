@@ -186,6 +186,7 @@ containing a value of this type.
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
+ Default screen margins, per the Android Design guidelines. 
          */
         public static final int activity_horizontal_margin=0x7f0a0000;
         public static final int activity_vertical_margin=0x7f0a0001;
@@ -285,6 +286,7 @@ containing a value of this type.
         public static final int checkMyPositionToStop=0x7f060012;
         public static final int checkNow=0x7f06001f;
         public static final int date=0x7f060040;
+        public static final int deleteButton=0x7f060045;
         public static final int destination=0x7f060042;
         public static final int editPointA=0x7f060015;
         public static final int editPointB=0x7f060017;
@@ -292,24 +294,23 @@ containing a value of this type.
         public static final int etDestination=0x7f06001b;
         public static final int etSource=0x7f06001c;
         public static final int hybrid=0x7f060004;
-        public static final int imageButton1=0x7f060045;
         public static final int imageDate=0x7f060020;
         public static final int imageTime=0x7f06001e;
         public static final int imageView1=0x7f06003e;
-        public static final int km=0x7f060043;
+        public static final int km=0x7f060044;
         public static final int linearLayout1=0x7f060028;
         public static final int map=0x7f060006;
         public static final int map_buttons_container=0x7f060007;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
         public static final int origin=0x7f060041;
-        public static final int price=0x7f060044;
+        public static final int price=0x7f060046;
         public static final int relativeLayout1=0x7f060026;
         public static final int rl01=0x7f060039;
         public static final int rl02=0x7f06003b;
         public static final int satellite=0x7f060002;
         public static final int scrollView1=0x7f060037;
-        public static final int separador=0x7f060046;
+        public static final int separador=0x7f060043;
         public static final int terrain=0x7f060003;
         public static final int textView1=0x7f06003a;
         public static final int textView2=0x7f060025;
@@ -346,7 +347,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int action_settings=0x7f07001b;
-        public static final int activate_loc_services=0x7f07003a;
+        public static final int activate_loc_services=0x7f07003b;
         public static final int app_name=0x7f07001a;
         /**   Title for notification shown when GooglePlayServices needs to be
         enabled for a application to work. [CHAR LIMIT=70] 
@@ -371,9 +372,9 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f070014;
-        public static final int back=0x7f070048;
+        public static final int back=0x7f070049;
         public static final int calculate=0x7f07001d;
-        public static final int check_conf_location=0x7f07003e;
+        public static final int check_conf_location=0x7f07003f;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -445,53 +446,54 @@ containing a value of this type.
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
         public static final int common_signin_button_text_long=0x7f070013;
-        public static final int date=0x7f070033;
-        public static final int dbName=0x7f07002c;
-        public static final int deleteRoute=0x7f070030;
+        public static final int date=0x7f070034;
+        public static final int dbName=0x7f07002d;
+        public static final int deleteRoute=0x7f070031;
         public static final int destination=0x7f070026;
-        public static final int destination_not_exists=0x7f070042;
-        public static final int distance_not_available=0x7f07004e;
-        public static final int editRoute=0x7f070031;
-        public static final int element=0x7f070032;
+        public static final int destination_not_exists=0x7f070043;
+        public static final int destination_route=0x7f070027;
+        public static final int distance_not_available=0x7f07004f;
+        public static final int editRoute=0x7f070032;
+        public static final int element=0x7f070033;
         public static final int exit=0x7f070022;
-        public static final int guideme=0x7f070047;
+        public static final int guideme=0x7f070048;
         public static final int hello_world=0x7f07001c;
         public static final int help=0x7f070020;
-        public static final int help_text=0x7f070029;
-        public static final int identificator=0x7f07002d;
-        public static final int introduce_address_manually=0x7f070040;
-        public static final int introduce_destination_address=0x7f07003c;
-        public static final int introduce_origin_address=0x7f07003b;
-        public static final int introduce_origin_destination=0x7f07003d;
-        public static final int km=0x7f070034;
+        public static final int help_text=0x7f07002a;
+        public static final int identificator=0x7f07002e;
+        public static final int introduce_address_manually=0x7f070041;
+        public static final int introduce_destination_address=0x7f07003d;
+        public static final int introduce_origin_address=0x7f07003c;
+        public static final int introduce_origin_destination=0x7f07003e;
+        public static final int km=0x7f070035;
         public static final int language=0x7f070023;
         public static final int language_text=0x7f070024;
-        public static final int lista_vacia=0x7f07002a;
-        public static final int loading_route=0x7f07002b;
-        public static final int modify=0x7f070038;
-        public static final int myposition=0x7f070027;
-        public static final int mystops=0x7f070028;
-        public static final int network_not_available=0x7f070044;
-        public static final int newRoute=0x7f07002f;
-        public static final int not_able_to_locate=0x7f07003f;
-        public static final int obtaining_location=0x7f070045;
-        public static final int origin=0x7f070039;
-        public static final int origin_must_madrid=0x7f070041;
-        public static final int origin_not_exists=0x7f070043;
-        public static final int pending=0x7f07002e;
-        public static final int price=0x7f070035;
-        public static final int right_here=0x7f07004a;
-        public static final int right_now=0x7f070049;
+        public static final int lista_vacia=0x7f07002b;
+        public static final int loading_route=0x7f07002c;
+        public static final int modify=0x7f070039;
+        public static final int myposition=0x7f070028;
+        public static final int mystops=0x7f070029;
+        public static final int network_not_available=0x7f070045;
+        public static final int newRoute=0x7f070030;
+        public static final int not_able_to_locate=0x7f070040;
+        public static final int obtaining_location=0x7f070046;
+        public static final int origin=0x7f07003a;
+        public static final int origin_must_madrid=0x7f070042;
+        public static final int origin_not_exists=0x7f070044;
+        public static final int pending=0x7f07002f;
+        public static final int price=0x7f070036;
+        public static final int right_here=0x7f07004b;
+        public static final int right_now=0x7f07004a;
         public static final int routes=0x7f07001e;
-        public static final int save=0x7f070037;
-        public static final int select_date=0x7f07004d;
-        public static final int separador=0x7f070036;
+        public static final int save=0x7f070038;
+        public static final int select_date=0x7f07004e;
+        public static final int separador=0x7f070037;
         public static final int settings=0x7f070021;
-        public static final int show_stops=0x7f070046;
+        public static final int show_stops=0x7f070047;
         public static final int source=0x7f070025;
         public static final int stops=0x7f07001f;
-        public static final int when=0x7f07004b;
-        public static final int where=0x7f07004c;
+        public static final int when=0x7f07004c;
+        public static final int where=0x7f07004d;
     }
     public static final class style {
         /** 
@@ -514,9 +516,20 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f0b0000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b0001;

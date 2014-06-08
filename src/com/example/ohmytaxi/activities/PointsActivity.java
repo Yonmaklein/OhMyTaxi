@@ -35,6 +35,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
+import com.example.ohmytaxi.location.Place;
 import com.google.android.gms.maps.model.LatLng;
 
 public class PointsActivity extends Activity implements LocationListener {
@@ -51,8 +52,12 @@ public class PointsActivity extends Activity implements LocationListener {
 	private String sourceCommunity;
 	private String sourceAddress;
 	private String destinationAddress;
-	private LocationManager myLocManager;
 	
+	private Place source;
+	private Place destination;
+	
+	
+	private LocationManager myLocManager;	
 	private Calendar cal;
 	private int mYear;
 	private int mMonth;
@@ -62,7 +67,6 @@ public class PointsActivity extends Activity implements LocationListener {
 	private int mDayOfWeek;
 	private boolean dateSelected;
 	private boolean timeSelected;
-
 	
 	static final int DATE_DIALOG_ID = 1;
 	static final int TIME_DIALOG_ID = 2;
@@ -71,23 +75,10 @@ public class PointsActivity extends Activity implements LocationListener {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.activity_prueba);
-	    cal = Calendar.getInstance();
+	    setContentView(R.layout.activity_prueba);	    
+	    getCurrentDate();
+	    createButtons();
 	    
-
-	    mMonth = cal.get(Calendar.MONTH);
-	    mYear = cal.get(Calendar.YEAR);
-	    mDay = cal.get(Calendar.DAY_OF_MONTH); 
-	    mHour = cal.get(Calendar.HOUR);
-	    mMinute = cal.get(Calendar.MINUTE);
-	    
-	 	etPointA = (EditText) findViewById(R.id.etSource);
-	 	etPointB = (EditText) findViewById (R.id.etDestination);
-	 	btSearch = (Button) findViewById(R.id.btCalculate);
-	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	 
-	 	checkNow = (CheckBox) findViewById(R.id.checkNow); 	 	
-	 	imageDate = (ImageButton) findViewById(R.id.imageDate); 
-	 	imageTime = (ImageButton) findViewById(R.id.imageTime);
 	 	myLocManager = (LocationManager) getSystemService (Context.LOCATION_SERVICE);	 	
 	 	imageDate.setOnClickListener(new OnClickListener(){
 			@Override
@@ -110,14 +101,8 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 	 			if (isChecked){
 	 				imageDate.setEnabled(false);
-	 				imageTime.setEnabled(false);
-	 				cal = Calendar.getInstance(); 
-	 				cal.setFirstDayOfWeek(Calendar.MONDAY);	
-	 				mHour = cal.get(Calendar.HOUR);
-	 				mMinute = cal.get(Calendar.MINUTE);
-	 				mDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-	 				mDay = cal.get(Calendar.DAY_OF_MONTH);
-	 				mMonth = cal.get(Calendar.MONTH);
+	 				imageTime.setEnabled(false); 				
+	 				getCurrentDate();	 				
 	 				dateSelected = true;
 	 				timeSelected = true;
 	 			}else{
@@ -178,7 +163,11 @@ public class PointsActivity extends Activity implements LocationListener {
         				  	    	Log.i("sourcelocationLONG", String.valueOf(sourceLocation.longitude));
         				  	    	Log.i("destinationlocationLAT", String.valueOf(destinationLocation.latitude));
         				  	    	Log.i("destinationlocationLONG", String.valueOf(destinationLocation.longitude));
-        				  	    	showMapScreen(sourceLocation, destinationLocation);  	 							   	 						  				        					 
+        				  	    	Log.i("Mes",Integer.toString(mMonth));
+        				  	    	Log.i("Año",Integer.toString(mYear));
+
+        				  	    	showMapScreen(sourceLocation, destinationLocation);
+        				  	    	
         				  	    }
         				  }        		
         	}	 		
@@ -186,6 +175,18 @@ public class PointsActivity extends Activity implements LocationListener {
 	 	
 	}
 
+	
+	public void createButtons(){
+	 	etPointA = (EditText) findViewById(R.id.etSource);
+	 	etPointB = (EditText) findViewById (R.id.etDestination);
+	 	btSearch = (Button) findViewById(R.id.btCalculate);
+	 	checkMyPosition = (CheckBox) findViewById(R.id.checkMyPosition); 	 
+	 	checkNow = (CheckBox) findViewById(R.id.checkNow); 	 	
+	 	imageDate = (ImageButton) findViewById(R.id.imageDate); 
+	 	imageTime = (ImageButton) findViewById(R.id.imageTime);
+	}
+	
+	
 	private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener(){		
 		public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth){
 			mYear = year;
@@ -195,6 +196,19 @@ public class PointsActivity extends Activity implements LocationListener {
 		}
 	};
 
+	
+	public void getCurrentDate(){
+		cal = Calendar.getInstance(); 
+		cal.setFirstDayOfWeek(Calendar.MONDAY);	
+		mHour = cal.get(Calendar.HOUR);
+		mMinute = cal.get(Calendar.MINUTE);
+		mDayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		mDay = cal.get(Calendar.DAY_OF_MONTH);
+		mMonth = cal.get(Calendar.MONTH);
+	    mYear = cal.get(Calendar.YEAR);	    
+	}
+	
+	
 	protected Dialog onCreateDialog(int id){
 		switch (id){
 		case DATE_DIALOG_ID:
@@ -333,10 +347,9 @@ public class PointsActivity extends Activity implements LocationListener {
 
 		 b.putInt("day", mDay);
 		 b.putInt("day of week", mDayOfWeek);
-		 b.putInt("month", mMonth);
+		 b.putInt("month", mMonth+1);
 		 b.putInt("year", mYear);
-	
-		 
+			 
 		 Log.i("desti! LAT", String.valueOf(destinationLocation.latitude));
 		 Log.i("desti! LON", String.valueOf(destinationLocation.longitude));		 
 		 i.putExtras(b);
@@ -350,7 +363,7 @@ public class PointsActivity extends Activity implements LocationListener {
 		if (gps){
 			myLocManager.requestLocationUpdates( LocationManager.GPS_PROVIDER, 100, 0, this);  //Acceso por GPS
 		}else{
-			myLocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 100, 0, this);  //Acceso por GPS
+			myLocManager.requestLocationUpdates( LocationManager.NETWORK_PROVIDER, 100, 0, this);  //Acceso por redes
 		}		
 	}
 	

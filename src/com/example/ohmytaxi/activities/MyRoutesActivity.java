@@ -9,9 +9,12 @@ import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ohmytaxi.R;
 import com.example.ohmytaxi.db.RoutesSQLiteHelper;
@@ -20,7 +23,7 @@ public class MyRoutesActivity extends ListActivity{
 	
 	
 	ListView list;
-	
+	ImageButton deleteButton;
 	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,18 @@ public class MyRoutesActivity extends ListActivity{
  
       list = getListView();
 
+      deleteButton = (ImageButton) findViewById(R.id.deleteButton);
+    /*  
+      deleteButton.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+	//			deleteFromDB(id);
+			}
+	 		
+	 	});
+      */
       String dbName = getString(R.string.dbName);
           RoutesSQLiteHelper sqlite = new RoutesSQLiteHelper(this, dbName, null, 1);
           SQLiteDatabase db = sqlite.getReadableDatabase();
@@ -53,9 +68,8 @@ public class MyRoutesActivity extends ListActivity{
           db.close();
 
           //Click al elemento
-          
-          
-          
+       
+          /*
           
 		  list.setOnItemLongClickListener(new OnItemLongClickListener() {
 
@@ -67,11 +81,8 @@ public class MyRoutesActivity extends ListActivity{
 
 	              return true;
 	          }
-	       }); 
-
-          
-          
-          
+	       }); */
+      
          
    }
 
@@ -82,5 +93,11 @@ public class MyRoutesActivity extends ListActivity{
 		super.onBackPressed();
 	}
 	
-	
+   public void deleteFromDB(int id){		
+		
+		RoutesSQLiteHelper databasehelper = new RoutesSQLiteHelper (this, "rutas", null, 1);
+		databasehelper.deleteRoute(id);
+		Toast warningMessage = Toast.makeText(getApplicationContext(), "Datos eliminados", Toast.LENGTH_LONG);
+		warningMessage.show(); 
+   }
 }

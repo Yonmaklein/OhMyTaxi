@@ -30,13 +30,13 @@ import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.example.ohmytaxi.R;
-import com.example.ohmytaxi.location.Stop;
+import com.example.ohmytaxi.location.Place;
 import com.google.android.gms.maps.model.LatLng;
 
 
 public class ParserStopsActivity extends Activity implements LocationListener{
     
-	private List <Stop> allStops; 
+	private List <Place> allStops; 
 	private LocationManager myLocManager;
 	private EditText etPointStop;
 	private LatLng sourceToStop;
@@ -134,9 +134,9 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	}
 	
     
-	public Stop closerStop(LatLng source){
+	public Place closerStop(LatLng source){
 		double minDistance = 100000000.0;
-		Stop closerStop = new Stop();
+		Place closerStop = new Place();
 		Location originLoc = new Location ("origen");
 	  	originLoc.setLatitude(sourceToStop.latitude);
 	  	originLoc.setLongitude(sourceToStop.longitude);	  	
@@ -146,8 +146,8 @@ public class ParserStopsActivity extends Activity implements LocationListener{
         	stopLoc.setLongitude(allStops.get(i).getLon());        	
         	if (originLoc.distanceTo(stopLoc)< minDistance){
         		minDistance = originLoc.distanceTo(stopLoc);
-        		Log.i("DIRECCION STOP", allStops.get(i).getDire());
-        		closerStop = new Stop(new String(allStops.get(i).getDire()), allStops.get(i).getLat(),allStops.get(i).getLon());
+        		Log.i("DIRECCION STOP", allStops.get(i).getAddress());
+        		closerStop = new Place(new String(allStops.get(i).getAddress()), allStops.get(i).getLat(),allStops.get(i).getLon());
         	}
         }         
         
@@ -276,29 +276,29 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	}
 	
 	
-	public List<Stop> parse(){
+	public List<Place> parse(){
 	  	XmlResourceParser parser = getResources().getXml(R.xml.stops);   
-	  	List<Stop> stops = null;
+	  	List<Place> stops = null;
 	    try{
 	        int evento = parser.getEventType();
-	        Stop currentStop = null;	 
+	        Place currentStop = null;	 
 	        while (evento != XmlPullParser.END_DOCUMENT){
 	            String etiqueta = null;	 
 	            switch (evento){
 	                case XmlPullParser.START_DOCUMENT:
 	                //	Log.i("Empieza", " el documento");
-	                	stops = new ArrayList<Stop>();
+	                	stops = new ArrayList<Place>();
 	                	break;	 
 	                case XmlPullParser.START_TAG:
 	                   // Log.i("Empieza", " taaaaag");
 	                    etiqueta = parser.getName();
 	                    if (etiqueta.equals("stop")){
 	                      //  Log.i("encuentra stop", " STOP");
-	                        currentStop = new Stop();
+	                        currentStop = new Place();
 	                    }else if (currentStop != null){
 	                            	if (etiqueta.equals("address")){
 	                            		//Log.i("encuentra", " ADDRESS");
-	                            		currentStop.setDire(parser.nextText());
+	                            		currentStop.setAddress(parser.nextText());
 	                            	}else if (etiqueta.equals("lat")){
 	                            			//	Log.i("encuentra", " LATITUD");
 	                            				currentStop.setLat(Double.parseDouble(parser.nextText()));
@@ -330,14 +330,14 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	private void showStopsMap() {
 		 Intent i = new Intent(this, StopsInMapActivity.class);  
 		 Log.i("SourceToStop ES:", sourceToStop.toString());
-		 Stop stop = closerStop(sourceToStop);
+		 Place stop = closerStop(sourceToStop);
 		 if (stop==null){
 			 Log.i("cercana", "CERCANA");
 
 		 }else{
 			 Log.i("stop lat", String.valueOf(stop.getLat()));
 			 Log.i("stop lon", String.valueOf(stop.getLon()));
-			 Log.i("cercana", stop.getDire().toString());
+			 Log.i("cercana", stop.getAddress().toString());
 		 }
 		 Bundle b = new Bundle ();
 		 b.putBoolean("write", true);
@@ -346,7 +346,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 		 b.putString("source address",  sourceAddress);
 		 b.putDouble("stop lat", stop.getLat());
 		 b.putDouble("stop lon", stop.getLon()); 
-		 b.putString("stop address",  stop.getDire());
+		 b.putString("stop address",  stop.getAddress());
 	/*	 Log.i("stop lat let", String.valueOf(stop.getLat()));
 		 Log.i("stop lon let", String.valueOf(stop.getLon()));
 		 Log.i("stop address let", stop.getDire());

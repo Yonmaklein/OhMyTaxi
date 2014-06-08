@@ -132,9 +132,7 @@ public class RouteActivity extends FragmentActivity  {
             mGoogleMap.getUiSettings().setMyLocationButtonEnabled(true);
             mGoogleMap.getUiSettings().setAllGesturesEnabled(true);
             mGoogleMap.setTrafficEnabled(false);
-            
-            
-            
+                           
             Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
             int width = display.getWidth();
             int height = display.getHeight();
@@ -145,8 +143,6 @@ public class RouteActivity extends FragmentActivity  {
             			new LatLng(Math.max(fromPosition.latitude, toPosition.latitude),
                     			   Math.max(fromPosition.longitude, toPosition.longitude)));
             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width - 120, height - 120, 0));
-   
-
 
             GetRouteTask getRoute = new GetRouteTask();
             getRoute.execute();
@@ -165,12 +161,7 @@ public class RouteActivity extends FragmentActivity  {
             	Toast warningMessage = Toast.makeText(getApplicationContext(), getResources().getString(R.string.distance_not_available), Toast.LENGTH_LONG);
         		warningMessage.show(); 
             }
-            
-            
-            
-            
-            TaxResults tax = new TaxResults(fromPosition, toPosition, distance, year, month, day, dayOfWeek, hour, minute);
-        
+            TaxResults tax = new TaxResults(fromPosition, toPosition, distance, year, month, day, dayOfWeek, hour, minute);       
             Log.i("PRECIO",String.valueOf(tax.getPrice()));
             textData.setText("PRECIO:  "+ String.valueOf( Math.rint(tax.getPrice() * 100) / 100)+" €"+"  "+"DISTANCIA:  "+newdst+" Km");            
       }
@@ -237,6 +228,7 @@ public class RouteActivity extends FragmentActivity  {
 			finish();
 		}
 	  
+		
 		public void saveDataOnDB(){		
 			
 			RoutesSQLiteHelper databasehelper = new RoutesSQLiteHelper (this, "rutas", null, 1);

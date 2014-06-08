@@ -6,7 +6,69 @@
     <string name="hello_world">HOLA MUNDO !!!</string>
     
     <string name="calculate">Calcular ruta</string>
+    <string name="routes">Mis rutas</string>
+    <string name="stops">Parada más cercana</string>
     <string name="help">Ayuda</string>
+    <string name="settings">Opciones</string>
     <string name="exit">Salir</string>
+    
+    <string name="language">Idioma</string>
+    <string name="language_text">Seleccione el idioma de la app</string>
+    
+    <string name="source">Origen</string>
+    <string name="destination">Destino</string>
+    <string name="destination_route">Destino</string>
+    <string name="myposition">Mi ubicación</string>
+    <string name="mystops">Mis paradas cercanas</string>
+    
+    <string name="help_text">Esta es la página de ayuda de OhMyTaxi! 
+   Si ha olvidado algo en el taxi, llame a: <a href="915279590">Teléfono objetos perdidos</a>
+   </string>
 
+    
+    <string name="lista_vacia">No hay elementos en la lista</string>
+    <string name="loading_route">Cargando ruta...</string>
+    
+    <string name="dbName">rutas</string>
+    <string name="identificator">identificador</string>
+    <string name="pending">Pendiente</string>
+    <string name="newRoute">Nueva ruta</string>
+    <string name="deleteRoute">Eliminar</string>
+    <string name="editRoute">Editar</string>
+    <string name="element">Element</string>
+    <string name="date">Fecha</string>
+    <string name="km">Distancia</string>
+    <string name="price">Precio</string>
+    <string name="separador">---------------</string>
+    
+    <string name="save">Guardar</string>
+    <string name="modify">Modificar</string>
+    <string name="origin">Origen</string>
+    <string name="destination">Destino</string>
+ 	<string name="activate_loc_services">Activa los servicios de localización en tu dispositivo</string>    
+    <string name="introduce_origin_address">Introduce una dirección de origen</string>
+    <string name="introduce_destination_address">Introduce una dirección de destino</string>
+    <string name="introduce_origin_destination">Introduce el origen y el destino</string>
+    <string name="check_conf_location">No es posible localizar el dispositivo, comprueba la configuración de localización</string>
+    <string name="not_able_to_locate">No es posible acceder a tu ubicación en este momento</string>
+    <string name="introduce_address_manually">Introduce tu dirección de origen manualmente</string>
+    <string name="origin_must_madrid">El origen ha de pertenecer a Madrid</string>
+    <string name="destination_not_exists">La ubicación de destino no existe</string>
+    <string name="origin_not_exists">La ubicación de origen no existe</string>
+    <string name="network_not_available">Parece que no tienes conexión de red</string>
+    <string name="obtaining_location">Obteniendo ubicación</string>
+    <string name="show_stops">Parada más cercana</string>
+    <string name="guideme">Cómo llegar</string>
+    <string name="back">Volver</string>
+    
+    <string name="right_now">Ahora</string>
+    <string name="right_here">Desde aquí</string>
+   	<string name="when">¿Cuándo?</string>
+   	<string name="where">¿Dónde?</string>
+   	<string name="select_date">Selecciona la fecha y hora de tu viaje</string>
+   	
+   	<string name="distance_not_available">Destino no accesible en taxi</string>
+   	 
+   
+    
 </resources>

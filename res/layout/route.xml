@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -15,37 +15,48 @@
         android:id="@+id/origin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/origin" >
-    </TextView>
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/destination"
+        android:text="@string/origin" />
 
     <TextView
         android:id="@+id/destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/destination" >
-    </TextView>
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/date"
+        android:text="@string/destination_route" />
+
+    <TextView
+        android:id="@+id/separador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/km"
+        android:text="@string/separador" />
 
     <TextView
         android:id="@+id/km"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/separador"
+        android:layout_below="@+id/origin"
         android:text="@string/km" />
+
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/date"
+        android:src="@drawable/delete1" />
 
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/separador"
+        android:layout_centerHorizontal="true"
         android:text="@string/price" />
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="33dp"
-        android:layout_height="29dp"
-        android:src="@drawable/delete1" />
-    
-    <TextView
-        android:id="@+id/separador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/separador" />
-</LinearLayout>
+</RelativeLayout>

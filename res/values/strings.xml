@@ -17,6 +17,7 @@
     
     <string name="source">Origen</string>
     <string name="destination">Destino</string>
+    <string name="destination_route">Destino</string>
     <string name="myposition">Mi ubicación</string>
     <string name="mystops">Mis paradas cercanas</string>
     

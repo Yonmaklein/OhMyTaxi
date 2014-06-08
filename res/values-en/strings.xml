@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Oh My Taxi</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">HOLA MUNDO !!!</string>
+    
+    <string name="calculate">Get route</string>
+    <string name="routes">My routes</string>
+    <string name="stops">Closer stop</string>
+    <string name="help">help</string>
+    <string name="settings">Options</string>
+    <string name="exit">Exit</string>
+    
+    <string name="language">Language</string>
+    <string name="language_text">Select app language</string>
+    
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+    <string name="destination_route">Destination</string>
+    <string name="myposition">My location</string>
+    <string name="mystops">My closer stops</string>
+    
+    <string name="help_text">This is the help page of Oh My Taxi! app
+   If you have lost something in the taxi, call to: <a href="915279590">Lost objects phone number</a>
+   </string>
+
+    
+    <string name="lista_vacia">There is no elements to show</string>
+    <string name="loading_route">Loading route...</string>
+    
+    <string name="dbName">routes</string>
+    <string name="identificator">identifier</string>
+    <string name="pending">Pensing</string>
+    <string name="newRoute">New route</string>
+    <string name="deleteRoute">Delete</string>
+    <string name="editRoute">Edit</string>
+    <string name="element">Element</string>
+    <string name="date">Date</string>
+    <string name="km">Distance</string>
+    <string name="price">Price</string>
+    <string name="separador">---------------</string>
+    
+    <string name="save">Save</string>
+    <string name="modify">Modify</string>
+    <string name="origin">Origin</string>
+    <string name="destination">Destination</string>
+ 	<string name="activate_loc_services">Activate location services on your phone</string>    
+    <string name="introduce_origin_address">Set the origin address</string>
+    <string name="introduce_destination_address">Set the destination address</string>
+    <string name="introduce_origin_destination">Set origin and destination</string>
+    <string name="check_conf_location">Is not possible to locate your device, check your location settings</string>
+    <string name="not_able_to_locate">Is not possible to access your location now</string>
+    <string name="introduce_address_manually">Set your address manually</string>
+    <string name="origin_must_madrid">El origen ha de pertenecer a Madrid</string>
+    <string name="destination_not_exists">Destination location does not exists</string>
+    <string name="origin_not_exists">La ubicación de origen no existe</string>
+    <string name="network_not_available">It seems you have not network connection</string>
+    <string name="obtaining_location">Obteniendo ubicación</string>
+    <string name="show_stops">Closer stops</string>
+    <string name="guideme">How to go</string>
+    <string name="back">Back</string>
+    
+    <string name="right_now">Now</string>
+    <string name="right_here">From here</string>
+   	<string name="when">When?</string>
+   	<string name="where">Where?</string>
+   	<string name="select_date">Select the trip date and address</string>
+   	
+   	<string name="distance_not_available">Destination not accessible on taxi</string>
+   	 
+   
+    
+</resources>
