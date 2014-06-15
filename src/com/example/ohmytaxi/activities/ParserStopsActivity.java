@@ -114,7 +114,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	public String getAddressFromLocation(LatLng source){
 		Geocoder geocoder;
 		List<Address> addresses = null;
-		geocoder = new Geocoder(this, Locale.getDefault());
+		geocoder = new Geocoder(this, Locale.ENGLISH);
 		try {
 			addresses = geocoder.getFromLocation(source.latitude, source.longitude, 1);
 		} catch (IOException e) {
@@ -158,7 +158,7 @@ public class ParserStopsActivity extends Activity implements LocationListener{
 	
     
     private LatLng getLocationFromAddress (String strAddress){	   	 
-    	Geocoder coder = new Geocoder(this);
+    	Geocoder coder = new Geocoder(this, Locale.ENGLISH);
     	List<Address> address;
     	LatLng resultLocation = null;
     	Log.i("Locationfromaddress", strAddress);

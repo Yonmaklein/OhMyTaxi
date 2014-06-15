@@ -32,7 +32,7 @@
            android:value="@integer/google_play_services_version" />
         
          <meta-data android:name="com.google.android.maps.v2.API_KEY"
-               android:value="AIzaSyDzxflT_zoz7drQllYL_j_O3N6mWbVfZ3k"/>
+               android:value="AIzaSyBin6Y22TnESKDCmPL49-ocpiy-dpG5mSo"/>
         
         <activity
             android:name="com.example.ohmytaxi.activities.SettingsActivity"
